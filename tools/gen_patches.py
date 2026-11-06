@@ -263,7 +263,7 @@ def build(kind):
         m.obj("pak", "pak " + " ".join(["f"]*len(MOTIONS)), [700, 640, 400, 22], len(MOTIONS), 1)
         for k, (src, o, lo, hi, *pre) in enumerate(MOTIONS):
             x = 700 + k*130
-            m.obj(f"sc{k}", f"scale {lo}. {hi}. -1. 1.", [x, 540, 125, 22], 6, 1)
+            m.obj(f"sc{k}", f"scale {float(lo)} {float(hi)} -1. 1.", [x, 540, 125, 22], 6, 1)  # float(): "-9.8." is not a number in Max
             m.obj(f"cl{k}", "clip -1. 1.", [x, 570, 80, 22], 3, 1)
             m.obj(f"sp{k}", "* 1.5", [x, 600, 50, 22], 2, 1)
             if pre:

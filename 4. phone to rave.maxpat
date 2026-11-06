@@ -3520,7 +3520,7 @@
       125,
       22
      ],
-     "text": "scale -90. 90. -1. 1.",
+     "text": "scale -90.0 90.0 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
@@ -3574,7 +3574,7 @@
       125,
       22
      ],
-     "text": "scale -90. 90. -1. 1.",
+     "text": "scale -90.0 90.0 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
@@ -3628,7 +3628,7 @@
       125,
       22
      ],
-     "text": "scale -8. 8. -1. 1.",
+     "text": "scale -8.0 8.0 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
@@ -3682,7 +3682,7 @@
       125,
       22
      ],
-     "text": "scale -15. 15. -1. 1.",
+     "text": "scale -15.0 15.0 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
@@ -3736,7 +3736,7 @@
       125,
       22
      ],
-     "text": "scale -6. 6. -1. 1.",
+     "text": "scale -6.0 6.0 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
@@ -3790,7 +3790,7 @@
       125,
       22
      ],
-     "text": "scale -6. 6. -1. 1.",
+     "text": "scale -6.0 6.0 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
@@ -3844,7 +3844,7 @@
       125,
       22
      ],
-     "text": "scale -6. 6. -1. 1.",
+     "text": "scale -6.0 6.0 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
@@ -3898,7 +3898,7 @@
       125,
       22
      ],
-     "text": "scale -10. 10. -1. 1.",
+     "text": "scale -10.0 10.0 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
@@ -3952,7 +3952,7 @@
       125,
       22
      ],
-     "text": "scale -10. 10. -1. 1.",
+     "text": "scale -10.0 10.0 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
@@ -4006,7 +4006,7 @@
       125,
       22
      ],
-     "text": "scale -10. 10. -1. 1.",
+     "text": "scale -10.0 10.0 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
@@ -4060,7 +4060,7 @@
       125,
       22
      ],
-     "text": "scale -9.8. 9.8. -1. 1.",
+     "text": "scale -9.8 9.8 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
@@ -4114,7 +4114,7 @@
       125,
       22
      ],
-     "text": "scale -9.8. 9.8. -1. 1.",
+     "text": "scale -9.8 9.8 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
@@ -4168,7 +4168,7 @@
       125,
       22
      ],
-     "text": "scale -9.8. 9.8. -1. 1.",
+     "text": "scale -9.8 9.8 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
@@ -4222,7 +4222,7 @@
       125,
       22
      ],
-     "text": "scale -1. 1. -1. 1.",
+     "text": "scale -1.0 1.0 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
@@ -4294,7 +4294,7 @@
       125,
       22
      ],
-     "text": "scale -1. 1. -1. 1.",
+     "text": "scale -1.0 1.0 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
@@ -4366,7 +4366,7 @@
       125,
       22
      ],
-     "text": "scale -6. 6. -1. 1.",
+     "text": "scale -6.0 6.0 -1. 1.",
      "numinlets": 6,
      "numoutlets": 1,
      "outlettype": [
