@@ -92,7 +92,7 @@ ol.steps li { margin: .35em 0; }
 <div class="wrap">
 <p class="eyebrow">class-demos · phone motion → neural audio · notes of 2026-11-05</p>
 <h1>RAVE and BRAVE Notes</h1>
-<p class="lede">How the models behind <span class="mono">rave-1-sliders</span> and <span class="mono">phone-rave</span> work, what we measured in them, what BRAVE changes, and how we would train both on the same material.</p>
+<p class="lede">How the models behind <span class="mono">1. decoder by hand</span> and <span class="mono">2. phone to rave</span> work, what we measured in them, what BRAVE changes, and how we would train both on the same material.</p>
 
 <nav class="toc" aria-label="Sections">
 <a href="#short">Short version</a><a href="#how">How RAVE works</a><a href="#knobs">The knobs</a><a href="#measured">What we measured</a><a href="#max">In Max</a><a href="#brave">BRAVE</a><a href="#motion">Why motion cares</a><a href="#train">Training both</a><a href="#data">Datasets</a><a href="#patches">Patches</a><a href="#open">Open questions</a>
@@ -102,7 +102,7 @@ ol.steps li { margin: .35em 0; }
 <h2 id="short">The short version</h2>
 <ul class="short">
 <li><b>RAVE is an autoencoder.</b> An encoder squeezes audio into a short list of numbers about 21 times a second; a decoder turns those numbers back into audio that sounds like whatever it was trained on.</li>
-<li><b>The sliders are the decoder's input.</b> In <span class="mono">rave-1-sliders</span> you replace the encoder with your hand. Timbre transfer is the same decoder fed by the encoder instead.</li>
+<li><b>The sliders are the decoder's input.</b> In <span class="mono">1. decoder by hand</span> you replace the encoder with your hand. Timbre transfer is the same decoder fed by the encoder instead.</li>
 <li><b>Each model has a fixed number of knobs</b> (4, 8 or 16 here), picked when it was exported. Training always produces 128; the export keeps the few that vary most and sorts them, so the first is the biggest pattern in the training data.</li>
 <li><b>“Biggest pattern” is statistical, not designed.</b> On the percussion model the first knob turned out to be loud versus silent.</li>
 <li class="b"><b>BRAVE is RAVE rebuilt for live playing:</b> ~10 ms latency instead of 250–440 ms, 344 latent frames a second instead of 21.5, a quarter of the weights. Same training tools.</li>
@@ -164,7 +164,7 @@ ol.steps li { margin: .35em 0; }
 <p>Dragging z1 below zero on the percussion model goes nearly silent whatever the other three do. We decoded it outside Max with 30 random settings of z2–z4 at each z1 value:</p>
 <figure class="chart"><svg viewBox="0 0 560 240" role="img" aria-label="Percussion model: output level against z1"><line class="grid" x1="46" x2="544" y1="14.0" y2="14.0"/><text class="tick" x="40" y="17.0" text-anchor="end">0</text><line class="grid" x1="46" x2="544" y1="46.0" y2="46.0"/><text class="tick" x="40" y="49.0" text-anchor="end">-20</text><line class="grid" x1="46" x2="544" y1="78.0" y2="78.0"/><text class="tick" x="40" y="81.0" text-anchor="end">-40</text><line class="grid" x1="46" x2="544" y1="110.0" y2="110.0"/><text class="tick" x="40" y="113.0" text-anchor="end">-60</text><line class="grid" x1="46" x2="544" y1="142.0" y2="142.0"/><text class="tick" x="40" y="145.0" text-anchor="end">-80</text><line class="grid" x1="46" x2="544" y1="174.0" y2="174.0"/><text class="tick" x="40" y="177.0" text-anchor="end">-100</text><line class="grid" x1="46" x2="544" y1="206.0" y2="206.0"/><text class="tick" x="40" y="209.0" text-anchor="end">-120</text><text class="tick" x="46.0" y="222" text-anchor="middle">-3</text><text class="tick" x="129.0" y="222" text-anchor="middle">-2</text><text class="tick" x="212.0" y="222" text-anchor="middle">-1</text><text class="tick" x="295.0" y="222" text-anchor="middle">0</text><text class="tick" x="378.0" y="222" text-anchor="middle">+1</text><text class="tick" x="461.0" y="222" text-anchor="middle">+2</text><text class="tick" x="544.0" y="222" text-anchor="middle">+3</text><text class="axis" x="295" y="237" text-anchor="middle">z1 (first slider)</text><text class="axis" x="12" y="20" text-anchor="start">dBFS</text><polygon class="band" points="46.0,170.5 129.0,114.2 170.5,86.5 212.0,65.7 253.5,47.4 295.0,37.8 336.5,35.1 378.0,33.4 461.0,28.2 544.0,23.3 544.0,48.6 461.0,57.0 378.0,67.9 336.5,80.4 295.0,90.3 253.5,101.2 212.0,149.8 170.5,169.2 129.0,179.0 46.0,193.2"/><polyline class="line" points="46.0,191.0 129.0,167.8 170.5,148.7 212.0,99.4 253.5,76.9 295.0,58.8 336.5,51.6 378.0,47.1 461.0,39.6 544.0,34.0"/><circle class="dot" cx="46.0" cy="191.0" r="4"><title>z1 = -3: median -110.6 dBFS, loudest -97.8, quietest -112.0</title></circle><circle class="dot" cx="129.0" cy="167.8" r="4"><title>z1 = -2: median -96.1 dBFS, loudest -62.6, quietest -103.1</title></circle><circle class="dot" cx="170.5" cy="148.7" r="4"><title>z1 = -1.5: median -84.2 dBFS, loudest -45.3, quietest -97.0</title></circle><circle class="dot" cx="212.0" cy="99.4" r="4"><title>z1 = -1: median -53.4 dBFS, loudest -32.3, quietest -84.9</title></circle><circle class="dot" cx="253.5" cy="76.9" r="4"><title>z1 = -0.5: median -39.3 dBFS, loudest -20.9, quietest -54.5</title></circle><circle class="dot" cx="295.0" cy="58.8" r="4"><title>z1 = +0: median -28.0 dBFS, loudest -14.9, quietest -47.7</title></circle><circle class="dot" cx="336.5" cy="51.6" r="4"><title>z1 = +0.5: median -23.5 dBFS, loudest -13.2, quietest -41.5</title></circle><circle class="dot" cx="378.0" cy="47.1" r="4"><title>z1 = +1: median -20.7 dBFS, loudest -12.1, quietest -33.7</title></circle><circle class="dot" cx="461.0" cy="39.6" r="4"><title>z1 = +2: median -16.0 dBFS, loudest -8.9, quietest -26.9</title></circle><circle class="dot" cx="544.0" cy="34.0" r="4"><title>z1 = +3: median -12.5 dBFS, loudest -5.8, quietest -21.6</title></circle><text class="label" x="220.0" y="117.4">below about −1, nothing else brings it back</text><text class="label" x="394.6" y="35.6">median of 30 settings</text></svg>
 <figcaption>Output level of the percussion decoder as z1 moves. Line: median of 30 random settings of z2–z4. Band: quietest to loudest of those 30. The other three knobs alone move the level only 10–20 dB.</figcaption></figure>
-<p><span class="tag guess">reading</span> In eight hours of percussion, the biggest difference between moments is a hit versus the silence between hits, so the strongest direction became “how much energy is here”. The loudness branch learned to go quiet wherever training audio was quiet. Nobody designed knob 1 to be volume. It matters for <span class="mono">phone-rave</span>: on this model, tilting the phone one way mutes it.</p>
+<p><span class="tag guess">reading</span> In eight hours of percussion, the biggest difference between moments is a hit versus the silence between hits, so the strongest direction became “how much energy is here”. The loudness branch learned to go quiet wherever training audio was quiet. Nobody designed knob 1 to be volume. It matters for <span class="mono">2. phone to rave</span>: on this model, tilting the phone one way mutes it.</p>
 
 <h3>The knobs all have about the same range <span class="tag meas">measured</span></h3>
 <p>We encoded 30 s of <span class="mono">tudor.wav</span> and looked at how far each dimension moved. Spread was similar across dimensions: about 0.5–0.8 on sol_ordinario, percussion and VCTK, about 1 on musicnet. So a higher rank does not mean a wider range, and ±3 is a fair slider range for every bar. Musicnet is the exception: real audio reached −7.4 to +6.8, past what the sliders can reach. Tudor is not what any of these models trained on, so treat the ranges as approximate.</p>
@@ -205,7 +205,7 @@ ol.steps li { margin: .35em 0; }
 </ul>
 
 <h2 id="motion">Why the phone demo cares</h2>
-<p>Sarah Nabi's I1 “direct motion exploration” (MOCO '24) maps body motion straight onto the first latent dimensions. Our <span class="mono">phone-rave</span> simplifies it: attitude pitch and roll → z1 and z2, spin → z3, shake → z4. Two RAVE properties limit how direct that feels:</p>
+<p>Sarah Nabi's I1 “direct motion exploration” (MOCO '24) maps body motion straight onto the first latent dimensions. Our <span class="mono">2. phone to rave</span> simplifies it: attitude pitch and roll → z1 and z2, spin → z3, shake → z4. Two RAVE properties limit how direct that feels:</p>
 <ul>
 <li><b>21.5 frames a second.</b> The phone sends ~60 Hz; RAVE hears a new value every 46 ms. BRAVE hears one every 2.9 ms. Note that <span class="mono">sol_ordinario_fast</span> (512 : 1, ~86 frames a second) already lets us hear part of this difference without training anything.</li>
 <li><b>Latency.</b> Hundreds of milliseconds between gesture and sound breaks the feeling of playing. BRAVE was designed to fix exactly this.</li>
@@ -230,7 +230,7 @@ rave export --run runs/drums_brave ...     # keep the latent projection on</code
 <ol class="steps">
 <li>Preprocess a small folder of sound.</li>
 <li>Train for a few thousand steps. It will sound bad, and the early sound shows the representation stage before the adversarial stage starts.</li>
-<li>Export, drop the <span class="mono">.ts</span> into <span class="mono">rave-models</span>, play it in <span class="mono">rave-1-sliders</span>.</li>
+<li>Export, drop the <span class="mono">.ts</span> into <span class="mono">rave-models</span>, play it in <span class="mono">1. decoder by hand</span>.</li>
 <li>Switch to the full-length models trained in the background and compare.</li>
 </ol>
 
@@ -251,9 +251,9 @@ rave export --run runs/drums_brave ...     # keep the latent projection on</code
 
 <h2 id="patches">The patch progression</h2>
 <ol class="steps">
-<li><b><span class="mono">rave-1-sliders</span></b> (built): the decoder by hand. One bar per knob, model menu, link to each model's data.</li>
+<li><b><span class="mono">1. decoder by hand</span></b> (built): the decoder by hand. One bar per knob, model menu, link to each model's data.</li>
 <li><b><span class="mono">rave-2-encode</span></b>: a sound file into the encoder and out the decoder (timbre transfer), its latents shown slowly beside the bars.</li>
-<li><b><span class="mono">rave-3-phone</span></b>: the existing <span class="mono">phone-rave</span>, motion in place of the sliders.</li>
+<li><b><span class="mono">rave-3-phone</span></b>: the existing <span class="mono">2. phone to rave</span>, motion in place of the sliders.</li>
 <li><b><span class="mono">rave-4-compare</span></b>: one material, RAVE versus BRAVE, on one switch. Needs the training runs.</li>
 </ol>
 
