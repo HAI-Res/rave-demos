@@ -11,9 +11,17 @@ source /data/hai-res/shared/jonmyers/rave-birds/train/env.sh
 cd $R
 RUN=${RUN:?}; TAG=${TAG:?}; OUT=$R/export; mkdir -p $OUT
 echo "host $(hostname) | $(date) | rev $(cat train/GIT_REV) | run $RUN"
-ls -la $(find $RUN -name "*.ckpt")
+# Training may still be writing checkpoints: freeze the newest one that is >2 min old, with its
+# config.gin, into export_src/$TAG and export from there.
+SNAP=$R/export_src/$TAG; rm -rf $SNAP; mkdir -p $SNAP
+CK=$(find $RUN -name "*.ckpt" -mmin +2 -printf "%T@ %p\n" | sort -n | tail -1 | cut -d" " -f2)
+[ -n "$CK" ] || { echo "no checkpoint older than 2 min in $RUN"; exit 1; }
+cp "$(find $RUN -name config.gin | head -1)" $SNAP/config.gin
+cp "$CK" $SNAP/model.ckpt
+python -c "import torch; c=torch.load('$SNAP/model.ckpt', map_location='cpu'); print('checkpoint', '$CK', 'global_step', c.get('global_step'), 'epoch', c.get('epoch'))"
 for N in 4 16; do
-  python -u train/export_wrap.py --run $RUN --streaming=true --force_latent $N --name ${TAG}_z$N --output $OUT
+  python -u train/export_wrap.py --run $SNAP/model.ckpt --streaming=true --force_latent $N --name ${TAG}_z$N --output $OUT
+  mv -f $OUT/${TAG}_z${N}_streaming.ts $OUT/${TAG}_z$N.ts
 done
 python -u - <<PY
 import glob, time, torch
