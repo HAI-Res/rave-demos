@@ -46,7 +46,7 @@ def build(walk):
     L = 30
     Y = dict(menu=112, info=148, what=168, bars=200, barsc=430, btn=476)
     if walk:
-        Y.update(meta=522, metac=546, mrow=574, ss=608, ms=640, paint=676, nn=730, nnc=760, vol=802, h=870)
+        Y.update(meta=522, metac=546, mrow=578, paint=724, nn=778, nnc=808, vol=850, h=918)
     else:
         Y.update(nn=520, nnc=550, vol=592, h=660)
 
@@ -170,31 +170,31 @@ def build(walk):
         m.com("metah", "“metaparameters”", [700, 400, 200, 22], pres=[L, Y["meta"], 300, 22], fontsize=15.0)
         m.com("metac", "They shape the walk, not the model: how far each step goes, and how often it steps.",
               [700, 425, 560, 20], pres=[L, Y["metac"], 560, 20], textcolor=GREY)
-        m.box("go", "toggle", [700, 450, 26, 26], pres=[L, Y["mrow"], 26, 26], numinlets=1, numoutlets=1,
+        m.box("go", "toggle", [700, 450, 26, 26], pres=[L, Y["mrow"]+50, 26, 26], numinlets=1, numoutlets=1,
               outlettype=["int"], parameter_enable=0)
-        m.com("gol", "walk", [730, 452, 50, 20], pres=[L+32, Y["mrow"]+3, 50, 20])
+        m.com("gol", "walk", [730, 452, 50, 20], pres=[L+32, Y["mrow"]+53, 50, 20])
         # Two log sliders: equal movements multiply the value by the same factor (Weber), so
         # "twice as fast" or "twice as far" is the same distance anywhere on the slider.
-        def logslider(key, label, unit, lo, hi, row, px, fmt_int):
-            yy = Y[row]
-            m.com(key+"l", label, [px, 450, 80, 20], pres=[L, yy+3, 80, 20], textcolor=GREY)
-            m.box(key+"s", "slider", [px, 475, 160, 22], pres=[L+85, yy+2, 360, 22], numinlets=1, numoutlets=1,
+        def logslider(key, label, unit, lo, hi, cx, px, fmt_int):
+            yy = Y["mrow"]  # column: label, short vertical slider, readout
+            m.com(key+"l", label, [px, 450, 80, 20], pres=[cx, yy, 90, 20], textcolor=GREY)
+            m.box(key+"s", "slider", [px, 475, 22, 80], pres=[cx+4, yy+24, 22, 80], numinlets=1, numoutlets=1,
                   outlettype=[""], floatoutput=1, size=1.0, parameter_enable=0)
             m.obj(key+"x", f"expr {lo}*pow({hi/lo},$f1)", [px, 505, 160, 22], 2, 1)
             out = key+"x"
             if fmt_int:
                 m.obj(key+"r", "round 1", [px, 535, 60, 22], 2, 1); m.wire(key+"x",0,key+"r",0); out = key+"r"
             m.obj(key+"ps", "prepend set", [px+70, 535, 80, 22], 1, 1)
-            m.box(key+"n", "number" if fmt_int else "flonum", [px, 565, 60, 22], pres=[L+455, yy, 60, 26],
+            m.box(key+"n", "number" if fmt_int else "flonum", [px, 565, 60, 22], pres=[cx, yy+110, 56, 24],
                   numinlets=1, numoutlets=2, outlettype=["",""], ignoreclick=1, parameter_enable=0, fontsize=14.0,
                   **({} if fmt_int else {"numdecimalplaces": 2}))
-            m.com(key+"u", unit, [px+65, 565, 30, 20], pres=[L+520, yy+3, 40, 20], textcolor=GREY)
+            m.com(key+"u", unit, [px+65, 565, 30, 20], pres=[cx+58, yy+112, 30, 20], textcolor=GREY)
             m.msg(key+"0", "0.5", [px, 420, 35, 22])
             m.wire("lb",0,key+"0",0); m.wire(key+"0",0,key+"s",0)
             m.wire(key+"s",0,key+"x",0); m.wire(out,0,key+"ps",0); m.wire(key+"ps",0,key+"n",0)
             return out
-        ss_out = logslider("ss", "step size", "", 0.01, 1.0, "ss", 820, False)
-        ms_out = logslider("ms", "step every", "ms", 20, 2000, "ms", 1000, True)
+        ss_out = logslider("ss", "step size", "", 0.01, 1.0, L+130, 820, False)
+        ms_out = logslider("ms", "step every", "ms", 20, 2000, L+260, 1000, True)
         m.com("paintc", "Both sliders are logarithmic: the same distance doubles the value anywhere along them. "
               "The bars repaint at most 4 times a second; the decoder hears every step.",
               [700, 600, 560, 40], pres=[L, Y["paint"], 560, 40], textcolor=GREY)

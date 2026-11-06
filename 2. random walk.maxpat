@@ -13,7 +13,7 @@
    80,
    60,
    640,
-   870
+   918
   ],
   "gridsize": [
    15.0,
@@ -358,7 +358,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 778 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -413,7 +413,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario_fast decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario_fast decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 778 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -468,7 +468,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_full decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_full decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 778 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -523,7 +523,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ isis decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ isis decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 778 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -578,7 +578,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ VCTK decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ VCTK decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 778 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -633,7 +633,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ nasa decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ nasa decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 778 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -688,7 +688,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ percussion decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ percussion decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 778 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -743,7 +743,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ musicnet decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ musicnet decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 778 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -798,7 +798,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ vintage decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ vintage decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 778 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -3976,7 +3976,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      574,
+      628,
       26,
       26
      ],
@@ -4002,7 +4002,7 @@
      "presentation": 1,
      "presentation_rect": [
       62,
-      577,
+      631,
       50,
       20
      ],
@@ -4023,9 +4023,9 @@
      "text": "step size",
      "presentation": 1,
      "presentation_rect": [
-      30,
-      611,
-      80,
+      160,
+      578,
+      90,
       20
      ],
      "numinlets": 1,
@@ -4045,15 +4045,15 @@
      "patching_rect": [
       820,
       475,
-      160,
-      22
+      22,
+      80
      ],
      "presentation": 1,
      "presentation_rect": [
-      115,
-      610,
-      360,
-      22
+      164,
+      602,
+      22,
+      80
      ],
      "numinlets": 1,
      "numoutlets": 1,
@@ -4113,10 +4113,10 @@
      ],
      "presentation": 1,
      "presentation_rect": [
-      485,
-      608,
-      60,
-      26
+      160,
+      688,
+      56,
+      24
      ],
      "numinlets": 1,
      "numoutlets": 2,
@@ -4143,9 +4143,9 @@
      "text": "",
      "presentation": 1,
      "presentation_rect": [
-      550,
-      611,
-      40,
+      218,
+      690,
+      30,
       20
      ],
      "numinlets": 1,
@@ -4189,9 +4189,9 @@
      "text": "step every",
      "presentation": 1,
      "presentation_rect": [
-      30,
-      643,
-      80,
+      290,
+      578,
+      90,
       20
      ],
      "numinlets": 1,
@@ -4211,15 +4211,15 @@
      "patching_rect": [
       1000,
       475,
-      160,
-      22
+      22,
+      80
      ],
      "presentation": 1,
      "presentation_rect": [
-      115,
-      642,
-      360,
-      22
+      294,
+      602,
+      22,
+      80
      ],
      "numinlets": 1,
      "numoutlets": 1,
@@ -4297,10 +4297,10 @@
      ],
      "presentation": 1,
      "presentation_rect": [
-      485,
-      640,
-      60,
-      26
+      290,
+      688,
+      56,
+      24
      ],
      "numinlets": 1,
      "numoutlets": 2,
@@ -4326,9 +4326,9 @@
      "text": "ms",
      "presentation": 1,
      "presentation_rect": [
-      550,
-      643,
-      40,
+      348,
+      690,
+      30,
       20
      ],
      "numinlets": 1,
@@ -4373,7 +4373,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      676,
+      724,
       560,
       40
      ],
@@ -4453,7 +4453,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      730,
+      778,
       560,
       26
      ],
@@ -4480,7 +4480,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      760,
+      808,
       560,
       20
      ],
@@ -4507,7 +4507,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      802,
+      850,
       220,
       26
      ],
@@ -4535,7 +4535,7 @@
      "presentation": 1,
      "presentation_rect": [
       258,
-      805,
+      853,
       80,
       20
      ],
@@ -4562,7 +4562,7 @@
      "presentation": 1,
      "presentation_rect": [
       545,
-      792,
+      840,
       45,
       45
      ],
@@ -4584,7 +4584,7 @@
      "presentation": 1,
      "presentation_rect": [
       492,
-      805,
+      853,
       50,
       20
      ],
