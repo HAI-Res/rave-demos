@@ -8,6 +8,7 @@ import json, os
 MAXD = 16
 GREY = [0.45, 0.45, 0.45, 1.0]
 TINYSOL = "https://zenodo.org/records/3685331"
+MACAULAY = "https://search.macaulaylibrary.org/catalog?mediaType=audio"
 models = [("sol_ordinario",4,2048,"orchestral instruments, ordinary playing (IRCAM SOL)", TINYSOL),
           ("sol_ordinario_fast",8,512,"the same sounds, a smaller faster model", TINYSOL),
           ("sol_full",8,2048,"orchestral instruments, every playing technique (IRCAM SOL)", TINYSOL),
@@ -16,7 +17,9 @@ models = [("sol_ordinario",4,2048,"orchestral instruments, ordinary playing (IRC
           ("nasa",8,2048,"radio from the Apollo 11 mission", "https://www.youtube.com/watch?v=DejhGSEu8wk"),
           ("percussion",4,2048,"8 hours of percussion (never published)", None),
           ("musicnet",16,2048,"330 classical recordings (MusicNet)", "https://zenodo.org/records/5120004"),
-          ("vintage",16,2048,"80 hours of vintage music (never published)", None)]
+          ("vintage",16,2048,"80 hours of vintage music (never published)", None),
+          ("birds_z16",16,2048,"35 hours of birdsong from the Macaulay Library at Cornell (RAVE v2 trained here)", MACAULAY),
+          ("birds_z4",4,2048,"the same bird model, cut to its 4 strongest dimensions", MACAULAY)]
 
 def patcher(boxes, lines, rect, **kw):
     p = {"fileversion": 1, "appversion": {"major": 8, "minor": 6, "revision": 0, "architecture": "x64", "modernui": 1},
