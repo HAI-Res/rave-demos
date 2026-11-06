@@ -3826,14 +3826,70 @@
      "maxclass": "newobj",
      "patching_rect": [
       600,
-      560,
-      90,
+      590,
+      60,
       22
      ],
-     "text": "speedlim 250",
+     "text": "zl reg",
+     "numinlets": 2,
+     "numoutlets": 2,
+     "outlettype": [
+      "",
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "clock",
+     "maxclass": "newobj",
+     "patching_rect": [
+      600,
+      560,
+      80,
+      22
+     ],
+     "text": "qmetro 250",
      "numinlets": 2,
      "numoutlets": 1,
      "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "clock1",
+     "maxclass": "message",
+     "patching_rect": [
+      690,
+      530,
+      30,
+      22
+     ],
+     "text": "1",
+     "numinlets": 2,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "chg",
+     "maxclass": "newobj",
+     "patching_rect": [
+      600,
+      620,
+      80,
+      22
+     ],
+     "text": "zl change",
+     "numinlets": 2,
+     "numoutlets": 2,
+     "outlettype": [
+      "",
       ""
      ]
     }
@@ -3844,7 +3900,7 @@
      "maxclass": "newobj",
      "patching_rect": [
       600,
-      590,
+      650,
       80,
       22
      ],
@@ -3910,31 +3966,48 @@
    {
     "box": {
      "id": "go",
-     "maxclass": "textbutton",
+     "maxclass": "toggle",
      "patching_rect": [
       700,
       450,
-      100,
-      24
+      26,
+      26
      ],
-     "text": "start walk",
      "presentation": 1,
      "presentation_rect": [
       30,
       574,
-      100,
+      26,
       26
      ],
      "numinlets": 1,
-     "numoutlets": 3,
+     "numoutlets": 1,
      "outlettype": [
-      "",
-      "",
-      ""
+      "int"
      ],
-     "parameter_enable": 0,
-     "mode": 1,
-     "texton": "stop walk"
+     "parameter_enable": 0
+    }
+   },
+   {
+    "box": {
+     "id": "gol",
+     "maxclass": "comment",
+     "patching_rect": [
+      730,
+      452,
+      50,
+      20
+     ],
+     "text": "walk",
+     "presentation": 1,
+     "presentation_rect": [
+      62,
+      577,
+      50,
+      20
+     ],
+     "numinlets": 1,
+     "numoutlets": 0
     }
    },
    {
@@ -4600,6 +4673,42 @@
    {
     "patchline": {
      "source": [
+      "lb",
+      0
+     ],
+     "destination": [
+      "clock1",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "clock1",
+      0
+     ],
+     "destination": [
+      "clock",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "clock",
+      0
+     ],
+     "destination": [
+      "paint",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
       "cut",
       0
      ],
@@ -4665,7 +4774,7 @@
      ],
      "destination": [
       "paint",
-      0
+      1
      ]
     }
    },
@@ -4673,6 +4782,18 @@
     "patchline": {
      "source": [
       "paint",
+      0
+     ],
+     "destination": [
+      "chg",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "chg",
       0
      ],
      "destination": [

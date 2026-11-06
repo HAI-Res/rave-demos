@@ -155,17 +155,24 @@ def build(walk):
         # to the walk so it continues from there, and to the bars no faster than 4 times a second.
         m.obj("hub", "t l l l", [30, 560, 560, 22], 1, 3)
         m.obj("walk", "js walk.js", [400, 520, 80, 22], 1, 1)
-        m.obj("paint", "speedlim 250", [600, 560, 90, 22], 2, 1)
-        m.obj("pset", "prepend set", [600, 590, 80, 22], 1, 1)
+        # paint clock: store the latest position; every 250 ms, repaint only if it changed
+        m.obj("paint", "zl reg", [600, 590, 60, 22], 2, 2)
+        m.obj("clock", "qmetro 250", [600, 560, 80, 22], 2, 1)
+        m.msg("clock1", "1", [690, 530, 30, 22])
+        m.obj("chg", "zl change", [600, 620, 80, 22], 2, 2)
+        m.obj("pset", "prepend set", [600, 650, 80, 22], 1, 1)
+        m.wire("lb",0,"clock1",0); m.wire("clock1",0,"clock",0); m.wire("clock",0,"paint",0)
         m.wire("cut",0,"bars",0)          # zero / random land on the bars, which output into the hub
         m.wire("bars",0,"hub",0); m.wire("walk",0,"hub",0)
-        m.wire("hub",2,"smooth",0); m.wire("hub",1,"walk",0); m.wire("hub",0,"paint",0)
-        m.wire("paint",0,"pset",0); m.wire("pset",0,"bars",0)
+        m.wire("hub",2,"smooth",0); m.wire("hub",1,"walk",0); m.wire("hub",0,"paint",1)
+        m.wire("paint",0,"chg",0); m.wire("chg",0,"pset",0); m.wire("pset",0,"bars",0)
 
         m.com("metah", "“metaparameters”", [700, 400, 200, 22], pres=[L, Y["meta"], 300, 22], fontsize=15.0)
         m.com("metac", "They shape the walk, not the model: how far each step goes, and how often it steps.",
               [700, 425, 560, 20], pres=[L, Y["metac"], 560, 20], textcolor=GREY)
-        tbutton(m, "go", "start walk", [700, 450, 100, 24], [L, Y["mrow"], 100, 26], mode=1, texton="stop walk")
+        m.box("go", "toggle", [700, 450, 26, 26], pres=[L, Y["mrow"], 26, 26], numinlets=1, numoutlets=1,
+              outlettype=["int"], parameter_enable=0)
+        m.com("gol", "walk", [730, 452, 50, 20], pres=[L+32, Y["mrow"]+3, 50, 20])
         m.com("ssl", "step size", [820, 450, 70, 20], pres=[L+118, Y["mrow"]+3, 70, 20], textcolor=GREY)
         m.box("ss", "flonum", [890, 450, 60, 22], pres=[L+188, Y["mrow"], 64, 26], numinlets=1, numoutlets=2,
               outlettype=["",""], minimum=0.0, maximum=1.0, numdecimalplaces=2, parameter_enable=0, fontsize=14.0)
