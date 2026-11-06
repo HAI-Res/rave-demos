@@ -42,8 +42,8 @@ def tbutton(m, id, label, rect, pres, **kw):
                  outlettype=["","",""], parameter_enable=0, **kw)
 
 def build(kind):
-    walk, cap = kind == "walk", kind == "capture"
-    NS = {"hand": "rave1", "capture": "rave2", "walk": "rave3"}[kind]
+    walk, cap, phone = kind == "walk", kind == "capture", kind == "phone"
+    NS = {"hand": "rave1", "capture": "rave2", "walk": "rave3", "phone": "rave4"}[kind]
     L = 30
     Y = dict(mlab=58, menu=78, info=110, bars=138, btn=370)
     if walk:
@@ -52,6 +52,8 @@ def build(kind):
         Y.update(nn=412, vol=456, h=526)
     if cap:
         Y.update(slots=424, nn=560, vol=604, h=674)
+    if phone:
+        Y.update(motion=364, meta=404, mrow=434, nn=590, vol=634, h=700)
 
     # [p smooth]: list in, one line~ per dimension out. Glide time from NS.glide (default 30 ms).
     sm = P()
@@ -105,7 +107,7 @@ def build(kind):
 
     m = P()
     title = {"hand": "RAVE 1 · the decoder, by hand", "capture": "RAVE 2 · capture and return",
-             "walk": "RAVE 3 · a random walk"}[kind]
+             "walk": "RAVE 3 · a random walk", "phone": "RAVE 4 · the phone"}[kind]
     sub = ("Choose a model, switch the sound on, start the walk." if walk
            else "Choose a model, switch the sound on, drag the bars.")
     m.com("title", title, [30, 15, 500, 28], pres=[L, 20, 560, 28], fontsize=20.0)
@@ -131,21 +133,44 @@ def build(kind):
     m.obj("bars_r", f"r {NS}.bars", [30, 250, 90, 22], 0, 1)
     m.box("bars", "multislider", [30, 280, 560, 200], pres=[L, Y["bars"], 560, 220], numinlets=1, numoutlets=2, outlettype=["",""],
           size=4, setminmax=[-3.0, 3.0], setstyle=1, signed=1, parameter_enable=0,
-          slidercolor=[0.30,0.55,0.75,1.0], drawpeaks=0, spacing=6, thickness=2)
+          slidercolor=[0.30,0.55,0.75,1.0], drawpeaks=0, spacing=6, thickness=2,
+          **({"ignoreclick": 1} if phone else {}))
     m.wire("bars_r",0,"bars",0)
 
-    tbutton(m, "zero", "zero", [600, 280, 70, 24], [L, Y["btn"], 70, 24])
-    tbutton(m, "rnd", "random", [600, 310, 70, 24], [L+80, Y["btn"], 80, 24])
-    m.msg("zl", " ".join(["0"]*MAXD), [680, 280, 140, 22])
-    m.obj("rp", "p random", [680, 310, 70, 22], 1, 1, patcher=rd.sub([120,120,500,300]))
-    m.obj("tz", "t b", [600, 340, 30, 22], 1, 1); m.obj("trn", "t b", [640, 340, 30, 22], 1, 1)
-    m.obj("cut", "zl slice 4", [680, 370, 80, 22], 2, 2); m.obj("rn", f"r {NS}.n", [770, 340, 70, 22], 0, 1)
-    m.wire("zero",0,"tz",0); m.wire("tz",0,"zl",0); m.wire("rnd",0,"trn",0); m.wire("trn",0,"rp",0)
-    m.wire("zl",0,"cut",0); m.wire("rp",0,"cut",0); m.wire("rn",0,"cut",1)
+    if not phone:
+        tbutton(m, "zero", "zero", [600, 280, 70, 24], [L, Y["btn"], 70, 24])
+        tbutton(m, "rnd", "random", [600, 310, 70, 24], [L+80, Y["btn"], 80, 24])
+        m.msg("zl", " ".join(["0"]*MAXD), [680, 280, 140, 22])
+        m.obj("rp", "p random", [680, 310, 70, 22], 1, 1, patcher=rd.sub([120,120,500,300]))
+        m.obj("tz", "t b", [600, 340, 30, 22], 1, 1); m.obj("trn", "t b", [640, 340, 30, 22], 1, 1)
+        m.obj("cut", "zl slice 4", [680, 370, 80, 22], 2, 2); m.obj("rn", f"r {NS}.n", [770, 340, 70, 22], 0, 1)
+        m.wire("zero",0,"tz",0); m.wire("tz",0,"zl",0); m.wire("rnd",0,"trn",0); m.wire("trn",0,"rp",0)
+        m.wire("zl",0,"cut",0); m.wire("rp",0,"cut",0); m.wire("rn",0,"cut",1)
 
     m.obj("smooth", "p smooth", [30, 640, 560, 22], 1, MAXD, varname="smooth", patcher=sm.sub([140,140,1020,300]))
 
-    if not walk:
+    # Two log sliders: equal movements multiply the value by the same factor (Weber), so
+    # "twice as fast" or "twice as far" is the same distance anywhere on the slider.
+    def logslider(key, label, unit, lo, hi, cx, px, fmt_int):
+        yy = Y["mrow"]  # column: label, short vertical slider, readout
+        m.com(key+"l", label, [px, 450, 80, 20], pres=[cx, yy, 90, 20], textcolor=GREY)
+        m.box(key+"s", "slider", [px, 475, 22, 80], pres=[cx+4, yy+24, 22, 80], numinlets=1, numoutlets=1,
+              outlettype=[""], floatoutput=1, size=1.0, parameter_enable=0)
+        m.obj(key+"x", f"expr {lo}*pow({hi/lo},$f1)", [px, 505, 160, 22], 2, 1)
+        out = key+"x"
+        if fmt_int:
+            m.obj(key+"r", "round 1", [px, 535, 60, 22], 2, 1); m.wire(key+"x",0,key+"r",0); out = key+"r"
+        m.obj(key+"ps", "prepend set", [px+70, 535, 80, 22], 1, 1)
+        m.box(key+"n", "number" if fmt_int else "flonum", [px, 565, 60, 22], pres=[cx, yy+110, 56, 24],
+              numinlets=1, numoutlets=2, outlettype=["",""], ignoreclick=1, parameter_enable=0, fontsize=14.0,
+              **({} if fmt_int else {"numdecimalplaces": 2}))
+        m.com(key+"u", unit, [px+65, 565, 30, 20], pres=[cx+58, yy+112, 30, 20], textcolor=GREY)
+        m.msg(key+"0", "0.5", [px, 420, 35, 22])
+        m.wire("lb",0,key+"0",0); m.wire(key+"0",0,key+"s",0)
+        m.wire(key+"s",0,key+"x",0); m.wire(out,0,key+"ps",0); m.wire(key+"ps",0,key+"n",0)
+        return out
+
+    if not walk and not phone:
         m.wire("cut",0,"bars",0)
         m.wire("bars",0,"smooth",0)
     if cap:
@@ -205,26 +230,6 @@ def build(kind):
         m.box("go", "toggle", [700, 450, 26, 26], pres=[L, Y["mrow"]+50, 26, 26], numinlets=1, numoutlets=1,
               outlettype=["int"], parameter_enable=0)
         m.com("gol", "walk", [730, 452, 50, 20], pres=[L+32, Y["mrow"]+53, 50, 20])
-        # Two log sliders: equal movements multiply the value by the same factor (Weber), so
-        # "twice as fast" or "twice as far" is the same distance anywhere on the slider.
-        def logslider(key, label, unit, lo, hi, cx, px, fmt_int):
-            yy = Y["mrow"]  # column: label, short vertical slider, readout
-            m.com(key+"l", label, [px, 450, 80, 20], pres=[cx, yy, 90, 20], textcolor=GREY)
-            m.box(key+"s", "slider", [px, 475, 22, 80], pres=[cx+4, yy+24, 22, 80], numinlets=1, numoutlets=1,
-                  outlettype=[""], floatoutput=1, size=1.0, parameter_enable=0)
-            m.obj(key+"x", f"expr {lo}*pow({hi/lo},$f1)", [px, 505, 160, 22], 2, 1)
-            out = key+"x"
-            if fmt_int:
-                m.obj(key+"r", "round 1", [px, 535, 60, 22], 2, 1); m.wire(key+"x",0,key+"r",0); out = key+"r"
-            m.obj(key+"ps", "prepend set", [px+70, 535, 80, 22], 1, 1)
-            m.box(key+"n", "number" if fmt_int else "flonum", [px, 565, 60, 22], pres=[cx, yy+110, 56, 24],
-                  numinlets=1, numoutlets=2, outlettype=["",""], ignoreclick=1, parameter_enable=0, fontsize=14.0,
-                  **({} if fmt_int else {"numdecimalplaces": 2}))
-            m.com(key+"u", unit, [px+65, 565, 30, 20], pres=[cx+58, yy+112, 30, 20], textcolor=GREY)
-            m.msg(key+"0", "0.5", [px, 420, 35, 22])
-            m.wire("lb",0,key+"0",0); m.wire(key+"0",0,key+"s",0)
-            m.wire(key+"s",0,key+"x",0); m.wire(out,0,key+"ps",0); m.wire(key+"ps",0,key+"n",0)
-            return out
         ss_out = logslider("ss", "step size", "", 0.01, 1.0, L+130, 820, False)
         ms_out = logslider("ms", "step every", "ms", 20, 2000, L+260, 1000, True)
         m.obj("pss", "prepend stepsize", [820, 600, 110, 22], 1, 1)
@@ -232,6 +237,40 @@ def build(kind):
         m.obj("met", "metro 200", [700, 630, 80, 22], 2, 1)
         m.obj("sg", f"s {NS}.glide", [1000, 630, 90, 22], 1, 0)
         m.wire("go",0,"met",0); m.wire(ms_out,0,"met",1); m.wire(ms_out,0,"sg",0); m.wire("met",0,"walk",0)
+
+    if phone:
+        bp = dict(numinlets=0, viewvisibility=1, enablehscroll=0, enablevscroll=0, lockeddragscroll=0, offset=[0.0, 0.0])
+        m.box("qr", "bpatcher", [700, 20, 258, 312], pres=[630, 20, 258, 312], name="ap.qr.maxpat", numoutlets=0, **bp)
+        m.box("recv", "bpatcher", [700, 340, 208, 126], pres=[630, 344, 208, 126], name="ap.receive.maxpat", numoutlets=0, **bp)
+        for key, ch, x in [("tatt", "ap.attitude", 700), ("tgyr", "ap.gyro", 960), ("tacc", "ap.accel", 1220)]:
+            m.box(key, "bpatcher", [x, 480, 246, 24], name="ap.channel.maxpat", args=[ch], numoutlets=6, outlettype=[""]*6, **bp)
+        m.com("motionc", "z1 tilt  ·  z2 roll  ·  z3 spin  ·  z4 shake", [700, 510, 400, 20],
+              pres=[L, Y["motion"], 560, 20], textcolor=GREY)
+        # each motion: its range -> -1..1, clipped, times the spread. Spin and shake are never negative,
+        # so their range is centred on 0: holding still is the middle of the latent space.
+        m.obj("pak", "pak f f f f", [700, 640, 200, 22], 4, 1)
+        for k, (src, o, lo, hi) in enumerate([("tatt", 2, -90, 90), ("tatt", 3, -90, 90), ("tgyr", 5, -8, 8), ("tacc", 5, -15, 15)]):
+            x = 700 + k*130
+            m.obj(f"sc{k}", f"scale {lo}. {hi}. -1. 1.", [x, 540, 125, 22], 6, 1)
+            m.obj(f"cl{k}", "clip -1. 1.", [x, 570, 80, 22], 3, 1)
+            m.obj(f"sp{k}", "* 1.5", [x, 600, 50, 22], 2, 1)
+            m.wire(src, o, f"sc{k}", 0); m.wire(f"sc{k}",0,f"cl{k}",0); m.wire(f"cl{k}",0,f"sp{k}",0); m.wire(f"sp{k}",0,"pak",k)
+        # to the decoder at sensor rate; to the bars at most 4 times a second
+        m.obj("hub", "t l l", [700, 670, 100, 22], 1, 2)
+        m.obj("paint", "zl reg", [820, 730, 60, 22], 2, 2)
+        m.obj("clock", "qmetro 250", [820, 700, 80, 22], 2, 1)
+        m.msg("clock1", "1", [910, 670, 30, 22])
+        m.obj("chg", "zl change", [820, 760, 80, 22], 2, 2)
+        m.obj("pset", "prepend setlist", [820, 790, 100, 22], 1, 1)
+        m.wire("pak",0,"hub",0); m.wire("hub",1,"smooth",0); m.wire("hub",0,"paint",1)
+        m.wire("lb",0,"clock1",0); m.wire("clock1",0,"clock",0); m.wire("clock",0,"paint",0)
+        m.wire("paint",0,"chg",0); m.wire("chg",0,"pset",0); m.wire("pset",0,"bars",0)
+        m.com("metah", "mapping", [700, 400, 200, 22], pres=[L, Y["meta"], 300, 22], fontsize=15.0)
+        sp_out = logslider("spr", "spread", "", 0.5, 4.5, L, 1000, False)
+        sm_out = logslider("smo", "smoothing", "ms", 15, 1500, L+130, 1200, True)
+        for k in range(4): m.wire(sp_out, 0, f"sp{k}", 1)
+        m.obj("sg", f"s {NS}.glide", [1200, 640, 90, 22], 1, 0)
+        m.wire(sm_out,0,"sg",0)
 
     m.obj("rave", "nn~ sol_ordinario decode", [40, 700, 300, 22], 4, 1, varname="rave", pres=[L, Y["nn"], 560, 26], fontsize=14.0)
     for k in range(4): m.wire("smooth",k,"rave",k)
@@ -242,10 +281,10 @@ def build(kind):
     m.box("dac", "ezdac~", [40, 785, 45, 45], pres=[L+515, Y["vol"]-10, 45, 45], numinlets=2, numoutlets=0)
     m.com("dacc", "sound", [95, 800, 60, 20], pres=[L+462, Y["vol"]+3, 50, 20], textcolor=GREY)
     m.wire("rave",0,"vol",0); m.wire("vol",0,"dac",0); m.wire("vol",0,"dac",1)
-    return {"patcher": patcher(m.boxes, m.lines, [80, 60, 640, Y["h"]], openinpresentation=1)}
+    return {"patcher": patcher(m.boxes, m.lines, [80, 60, 910 if phone else 640, Y["h"]], openinpresentation=1)}
 
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 for kind, name in [("hand", "1. decoder by hand.maxpat"), ("capture", "2. capture and return.maxpat"),
-                   ("walk", "3. random walk.maxpat")]:
+                   ("walk", "3. random walk.maxpat"), ("phone", "4. phone to rave.maxpat")]:
     json.dump(build(kind), open(os.path.join(root, name), "w"), indent=1)
     print("wrote", name)

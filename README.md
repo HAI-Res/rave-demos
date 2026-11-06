@@ -74,8 +74,10 @@ repaint at most 4 times a second, while the decoder hears every step.
 
 ### 4. phone to rave
 
-The phone's motion replaces the bars. Tilt forward and back, and side to side,
-for the first two dimensions; spin for the third; shake for the fourth.
+The phone's motion moves the bars: tilt forward and back for z1, side to side
+for z2, spin for z3, shake for z4. **spread** sets how far the motion reaches
+into the latent space; **smoothing** sets how quickly the sound follows. Both
+are logarithmic.
 
 Scan the code in the patch with your phone's camera. It opens a web page.
 Type a name and tap **Start**. Your phone's data then goes to your laptop only.
