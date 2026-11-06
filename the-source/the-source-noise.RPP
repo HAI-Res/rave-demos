@@ -1,8 +1,7 @@
-<REAPER_PROJECT 0.1 "7.27/macOS-arm64" 1793980607
+<REAPER_PROJECT 0.1 "7.27/macOS-arm64" 1793981029
   <NOTES 0 2
     |Track 1: THE SOURCE, 12 output channels. It sends nothing to the master.
     |Track 2: one of those channels drives noise. Choose it in the FX window.
-    |Track 3 (muted): the same, driving an oscillator (sine/triangle/saw/square mix). Mute 2 and unmute 3 to swap.
   >
   RIPPLE 0
   GROUPOVERRIDE 0 0 0
@@ -200,8 +199,8 @@
       WAK 0 0
     >
   >
-  <TRACK {9D4F2A6B-7C1E-4B3A-8E5D-1F2A3B4C5D06}
-    NAME "oscillator"
+  <TRACK {6087C5EC-FF16-5C41-85E9-83965D44CB11}
+    NAME oscillator
     PEAKCOL 16576
     BEAT -1
     AUTOMODE 0
@@ -221,21 +220,22 @@
     INQ 0 0 0 0.5 100 0 0 100
     NCHAN 12
     FX 1
-    TRACKID {9D4F2A6B-7C1E-4B3A-8E5D-1F2A3B4C5D06}
+    TRACKID {6087C5EC-FF16-5C41-85E9-83965D44CB11}
     PERF 0
     AUXRECV 0 3 1 0 0 0 0 6144 0 -1:U 0 -1 ''
     MIDIOUT -1
     MAINSEND 1 0
     <FXCHAIN
+      WNDRECT 32 762 785 290
       SHOW 0
       LASTSEL 0
       DOCKED 0
       BYPASS 0 0 0
       <JS source-osc.jsfx ""
-        1 220 1 100 -12 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        1 220 1 100 -12 1 0 0 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       >
       FLOATPOS 0 0 0 0
-      FXID {2E5A7C9D-4B6F-4A1C-9E3D-7F8A9B0C1D07}
+      FXID {41B1B4CE-B2A7-AA4F-ADA6-DCB9521F823B}
       WAK 0 0
     >
   >
