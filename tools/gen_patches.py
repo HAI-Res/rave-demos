@@ -44,11 +44,11 @@ def tbutton(m, id, label, rect, pres, **kw):
 def build(walk):
     NS = "rave2" if walk else "rave1"
     L = 30
-    Y = dict(menu=112, info=148, what=168, bars=200, barsc=430, btn=476)
+    Y = dict(mlab=58, menu=78, info=110, bars=138, btn=370)
     if walk:
-        Y.update(meta=522, metac=546, mrow=578, paint=724, nn=778, nnc=808, vol=850, h=918)
+        Y.update(meta=414, mrow=444, nn=600, vol=644, h=714)
     else:
-        Y.update(nn=520, nnc=550, vol=592, h=660)
+        Y.update(nn=412, vol=456, h=526)
 
     # [p smooth]: list in, one line~ per dimension out. Glide time from NS.glide (default 30 ms).
     sm = P()
@@ -78,7 +78,7 @@ def build(walk):
                   f"script sendbox rave presentation_rect {L} {Y['nn']} 560 26")
         zeros = " ".join(["0"]*d)
         ui = (f"; {NS}.n {d}; {NS}.bars size {d}; {NS}.bars {zeros}; "
-              f"{NS}.info set {d} dimensions · one new frame every {hop} samples; "
+              f"{NS}.info set {d} dimensions; "
               f"{NS}.what set trained on {desc.replace(',', ' ·')}; {NS}.url symbol {url or '-'}")
         md.obj(f"t{i}", "t b b", [x, 100, 40, 22], 1, 2)
         md.msg(f"s{i}", script, [x, 140, 55, 22]); md.msg(f"u{i}", ui, [x, 180, 55, 22])
@@ -105,14 +105,12 @@ def build(walk):
     sub = ("Choose a model, switch the sound on, start the walk." if walk
            else "Choose a model, switch the sound on, drag the bars.")
     m.com("title", title, [30, 15, 500, 28], pres=[L, 20, 560, 28], fontsize=20.0)
-    m.com("sub", sub, [30, 45, 500, 20], pres=[L, 52, 560, 20], textcolor=GREY)
-    m.com("mlab", "model", [30, 80, 80, 20], pres=[L, 92, 80, 20], textcolor=GREY)
+    m.com("mlab", "model", [30, 80, 80, 20], pres=[L, Y["mlab"], 80, 20], textcolor=GREY)
     m.box("menu", "umenu", [30, 100, 200, 24], pres=[L, Y["menu"], 210, 26], numinlets=1, numoutlets=3, outlettype=["int","",""],
           items=sum([[n, ","] for n,*_ in models], [])[:-1], parameter_enable=0, fontsize=14.0)
     m.obj("info", f"r {NS}.info", [430, 140, 90, 22], 0, 1); m.obj("what", f"r {NS}.what", [530, 140, 90, 22], 0, 1)
-    m.com("infoc", "4 dimensions", [250, 170, 380, 20], pres=[L, Y["info"], 560, 20])
-    m.com("whatc", "", [250, 190, 380, 20], pres=[L, Y["what"], 560, 20], textcolor=GREY)
-    m.wire("info",0,"infoc",0); m.wire("what",0,"whatc",0)
+    m.com("infoc", "4 dimensions", [250, 170, 380, 20], pres=[L, Y["info"], 560, 20], textcolor=GREY)
+    m.wire("info",0,"infoc",0)
     m.obj("mdl", "p model", [250, 100, 70, 22], 1, 1, patcher=md.sub([100,100,700,540]))
     m.obj("tp", "thispatcher", [330, 100, 80, 22], 1, 2)
     m.wire("menu",0,"mdl",0); m.wire("mdl",0,"tp",0)
@@ -134,7 +132,6 @@ def build(walk):
     cap = ("Each bar is one number the decoder reads. The middle line is 0, the typical sound; "
            "top and bottom are ±3, the edge of what it learned. Bars on the left matter most.")
     if walk: cap = cap.replace("Bars on the left matter most.", "Drag them to move the walk.")
-    m.com("barsc", cap, [30, 485, 560, 40], pres=[L, Y["barsc"], 560, 40], textcolor=GREY)
 
     tbutton(m, "zero", "zero", [600, 280, 70, 24], [L, Y["btn"], 70, 24])
     tbutton(m, "rnd", "random", [600, 310, 70, 24], [L+80, Y["btn"], 80, 24])
@@ -168,8 +165,6 @@ def build(walk):
         m.wire("paint",0,"chg",0); m.wire("chg",0,"pset",0); m.wire("pset",0,"bars",0)
 
         m.com("metah", "“metaparameters”", [700, 400, 200, 22], pres=[L, Y["meta"], 300, 22], fontsize=15.0)
-        m.com("metac", "They shape the walk, not the model: how far each step goes, and how often it steps.",
-              [700, 425, 560, 20], pres=[L, Y["metac"], 560, 20], textcolor=GREY)
         m.box("go", "toggle", [700, 450, 26, 26], pres=[L, Y["mrow"]+50, 26, 26], numinlets=1, numoutlets=1,
               outlettype=["int"], parameter_enable=0)
         m.com("gol", "walk", [730, 452, 50, 20], pres=[L+32, Y["mrow"]+53, 50, 20])
@@ -195,9 +190,6 @@ def build(walk):
             return out
         ss_out = logslider("ss", "step size", "", 0.01, 1.0, L+130, 820, False)
         ms_out = logslider("ms", "step every", "ms", 20, 2000, L+260, 1000, True)
-        m.com("paintc", "Both sliders are logarithmic: the same distance doubles the value anywhere along them. "
-              "The bars repaint at most 4 times a second; the decoder hears every step.",
-              [700, 600, 560, 40], pres=[L, Y["paint"], 560, 40], textcolor=GREY)
         m.obj("pss", "prepend stepsize", [820, 600, 110, 22], 1, 1)
         m.wire(ss_out,0,"pss",0); m.wire("pss",0,"walk",0)
         m.obj("met", "metro 200", [700, 630, 80, 22], 2, 1)
@@ -206,7 +198,6 @@ def build(walk):
 
     m.obj("rave", "nn~ sol_ordinario decode", [40, 700, 300, 22], 4, 1, varname="rave", pres=[L, Y["nn"], 560, 26], fontsize=14.0)
     for k in range(4): m.wire("smooth",k,"rave",k)
-    m.com("ravec", "the decoder: these numbers in, sound out", [350, 700, 300, 20], pres=[L, Y["nnc"], 560, 20], textcolor=GREY)
     m.box("vol", "gain~", [40, 740, 200, 26], pres=[L, Y["vol"], 220, 26], varname="vol", numinlets=2, numoutlets=2,
           outlettype=["signal",""], parameter_enable=0)
     m.wire("v0",0,"vol",0)

@@ -13,7 +13,7 @@
    80,
    60,
    640,
-   660
+   526
   ],
   "gridsize": [
    15.0,
@@ -46,34 +46,6 @@
    },
    {
     "box": {
-     "id": "sub",
-     "maxclass": "comment",
-     "patching_rect": [
-      30,
-      45,
-      500,
-      20
-     ],
-     "text": "Choose a model, switch the sound on, drag the bars.",
-     "presentation": 1,
-     "presentation_rect": [
-      30,
-      52,
-      560,
-      20
-     ],
-     "numinlets": 1,
-     "numoutlets": 0,
-     "textcolor": [
-      0.45,
-      0.45,
-      0.45,
-      1.0
-     ]
-    }
-   },
-   {
-    "box": {
      "id": "mlab",
      "maxclass": "comment",
      "patching_rect": [
@@ -86,7 +58,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      92,
+      58,
       80,
       20
      ],
@@ -113,7 +85,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      112,
+      78,
       210,
       26
      ],
@@ -197,29 +169,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      148,
-      560,
-      20
-     ],
-     "numinlets": 1,
-     "numoutlets": 0
-    }
-   },
-   {
-    "box": {
-     "id": "whatc",
-     "maxclass": "comment",
-     "patching_rect": [
-      250,
-      190,
-      380,
-      20
-     ],
-     "text": "",
-     "presentation": 1,
-     "presentation_rect": [
-      30,
-      168,
+      110,
       560,
       20
      ],
@@ -358,7 +308,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 412 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -376,7 +326,7 @@
           55,
           22
          ],
-         "text": "; rave1.n 4; rave1.bars size 4; rave1.bars 0 0 0 0; rave1.info set 4 dimensions \u00b7 one new frame every 2048 samples; rave1.what set trained on orchestral instruments \u00b7 ordinary playing (IRCAM SOL); rave1.url symbol https://zenodo.org/records/3685331",
+         "text": "; rave1.n 4; rave1.bars size 4; rave1.bars 0 0 0 0; rave1.info set 4 dimensions; rave1.what set trained on orchestral instruments \u00b7 ordinary playing (IRCAM SOL); rave1.url symbol https://zenodo.org/records/3685331",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -413,7 +363,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario_fast decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario_fast decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 412 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -431,7 +381,7 @@
           55,
           22
          ],
-         "text": "; rave1.n 8; rave1.bars size 8; rave1.bars 0 0 0 0 0 0 0 0; rave1.info set 8 dimensions \u00b7 one new frame every 512 samples; rave1.what set trained on the same sounds \u00b7 a smaller faster model; rave1.url symbol https://zenodo.org/records/3685331",
+         "text": "; rave1.n 8; rave1.bars size 8; rave1.bars 0 0 0 0 0 0 0 0; rave1.info set 8 dimensions; rave1.what set trained on the same sounds \u00b7 a smaller faster model; rave1.url symbol https://zenodo.org/records/3685331",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -468,7 +418,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_full decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_full decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 412 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -486,7 +436,7 @@
           55,
           22
          ],
-         "text": "; rave1.n 8; rave1.bars size 8; rave1.bars 0 0 0 0 0 0 0 0; rave1.info set 8 dimensions \u00b7 one new frame every 2048 samples; rave1.what set trained on orchestral instruments \u00b7 every playing technique (IRCAM SOL); rave1.url symbol https://zenodo.org/records/3685331",
+         "text": "; rave1.n 8; rave1.bars size 8; rave1.bars 0 0 0 0 0 0 0 0; rave1.info set 8 dimensions; rave1.what set trained on orchestral instruments \u00b7 every playing technique (IRCAM SOL); rave1.url symbol https://zenodo.org/records/3685331",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -523,7 +473,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ isis decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ isis decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 412 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -541,7 +491,7 @@
           55,
           22
          ],
-         "text": "; rave1.n 8; rave1.bars size 8; rave1.bars 0 0 0 0 0 0 0 0; rave1.info set 8 dimensions \u00b7 one new frame every 2048 samples; rave1.what set trained on three singers recorded for IRCAM's ISiS synthesizer; rave1.url symbol https://isis-documentation.readthedocs.io/en/latest/voice_installation.html",
+         "text": "; rave1.n 8; rave1.bars size 8; rave1.bars 0 0 0 0 0 0 0 0; rave1.info set 8 dimensions; rave1.what set trained on three singers recorded for IRCAM's ISiS synthesizer; rave1.url symbol https://isis-documentation.readthedocs.io/en/latest/voice_installation.html",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -578,7 +528,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ VCTK decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ VCTK decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 412 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -596,7 +546,7 @@
           55,
           22
          ],
-         "text": "; rave1.n 8; rave1.bars size 8; rave1.bars 0 0 0 0 0 0 0 0; rave1.info set 8 dimensions \u00b7 one new frame every 2048 samples; rave1.what set trained on speech \u00b7 110 English speakers reading aloud; rave1.url symbol https://huggingface.co/datasets/CSTR-Edinburgh/vctk",
+         "text": "; rave1.n 8; rave1.bars size 8; rave1.bars 0 0 0 0 0 0 0 0; rave1.info set 8 dimensions; rave1.what set trained on speech \u00b7 110 English speakers reading aloud; rave1.url symbol https://huggingface.co/datasets/CSTR-Edinburgh/vctk",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -633,7 +583,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ nasa decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ nasa decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 412 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -651,7 +601,7 @@
           55,
           22
          ],
-         "text": "; rave1.n 8; rave1.bars size 8; rave1.bars 0 0 0 0 0 0 0 0; rave1.info set 8 dimensions \u00b7 one new frame every 2048 samples; rave1.what set trained on radio from the Apollo 11 mission; rave1.url symbol https://www.youtube.com/watch?v=DejhGSEu8wk",
+         "text": "; rave1.n 8; rave1.bars size 8; rave1.bars 0 0 0 0 0 0 0 0; rave1.info set 8 dimensions; rave1.what set trained on radio from the Apollo 11 mission; rave1.url symbol https://www.youtube.com/watch?v=DejhGSEu8wk",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -688,7 +638,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ percussion decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ percussion decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 412 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -706,7 +656,7 @@
           55,
           22
          ],
-         "text": "; rave1.n 4; rave1.bars size 4; rave1.bars 0 0 0 0; rave1.info set 4 dimensions \u00b7 one new frame every 2048 samples; rave1.what set trained on 8 hours of percussion (never published); rave1.url symbol -",
+         "text": "; rave1.n 4; rave1.bars size 4; rave1.bars 0 0 0 0; rave1.info set 4 dimensions; rave1.what set trained on 8 hours of percussion (never published); rave1.url symbol -",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -743,7 +693,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ musicnet decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ musicnet decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 412 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -761,7 +711,7 @@
           55,
           22
          ],
-         "text": "; rave1.n 16; rave1.bars size 16; rave1.bars 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0; rave1.info set 16 dimensions \u00b7 one new frame every 2048 samples; rave1.what set trained on 330 classical recordings (MusicNet); rave1.url symbol https://zenodo.org/records/5120004",
+         "text": "; rave1.n 16; rave1.bars size 16; rave1.bars 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0; rave1.info set 16 dimensions; rave1.what set trained on 330 classical recordings (MusicNet); rave1.url symbol https://zenodo.org/records/5120004",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -798,7 +748,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ vintage decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ vintage decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 412 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -816,7 +766,7 @@
           55,
           22
          ],
-         "text": "; rave1.n 16; rave1.bars size 16; rave1.bars 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0; rave1.info set 16 dimensions \u00b7 one new frame every 2048 samples; rave1.what set trained on 80 hours of vintage music (never published); rave1.url symbol -",
+         "text": "; rave1.n 16; rave1.bars size 16; rave1.bars 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0; rave1.info set 16 dimensions; rave1.what set trained on 80 hours of vintage music (never published); rave1.url symbol -",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -1376,7 +1326,7 @@
      "presentation": 1,
      "presentation_rect": [
       255,
-      112,
+      78,
       150,
       26
      ],
@@ -1513,7 +1463,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      200,
+      138,
       560,
       220
      ],
@@ -1544,34 +1494,6 @@
    },
    {
     "box": {
-     "id": "barsc",
-     "maxclass": "comment",
-     "patching_rect": [
-      30,
-      485,
-      560,
-      40
-     ],
-     "text": "Each bar is one number the decoder reads. The middle line is 0, the typical sound; top and bottom are \u00b13, the edge of what it learned. Bars on the left matter most.",
-     "presentation": 1,
-     "presentation_rect": [
-      30,
-      430,
-      560,
-      40
-     ],
-     "numinlets": 1,
-     "numoutlets": 0,
-     "textcolor": [
-      0.45,
-      0.45,
-      0.45,
-      1.0
-     ]
-    }
-   },
-   {
-    "box": {
      "id": "zero",
      "maxclass": "textbutton",
      "patching_rect": [
@@ -1584,7 +1506,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      476,
+      370,
       70,
       24
      ],
@@ -1612,7 +1534,7 @@
      "presentation": 1,
      "presentation_rect": [
       110,
-      476,
+      370,
       80,
       24
      ],
@@ -3796,7 +3718,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      520,
+      412,
       560,
       26
      ],
@@ -3807,34 +3729,6 @@
      ],
      "varname": "rave",
      "fontsize": 14.0
-    }
-   },
-   {
-    "box": {
-     "id": "ravec",
-     "maxclass": "comment",
-     "patching_rect": [
-      350,
-      700,
-      300,
-      20
-     ],
-     "text": "the decoder: these numbers in, sound out",
-     "presentation": 1,
-     "presentation_rect": [
-      30,
-      550,
-      560,
-      20
-     ],
-     "numinlets": 1,
-     "numoutlets": 0,
-     "textcolor": [
-      0.45,
-      0.45,
-      0.45,
-      1.0
-     ]
     }
    },
    {
@@ -3850,7 +3744,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      592,
+      456,
       220,
       26
      ],
@@ -3878,7 +3772,7 @@
      "presentation": 1,
      "presentation_rect": [
       258,
-      595,
+      459,
       80,
       20
      ],
@@ -3905,7 +3799,7 @@
      "presentation": 1,
      "presentation_rect": [
       545,
-      582,
+      446,
       45,
       45
      ],
@@ -3927,7 +3821,7 @@
      "presentation": 1,
      "presentation_rect": [
       492,
-      595,
+      459,
       50,
       20
      ],
@@ -3951,18 +3845,6 @@
      ],
      "destination": [
       "infoc",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "what",
-      0
-     ],
-     "destination": [
-      "whatc",
       0
      ]
     }
