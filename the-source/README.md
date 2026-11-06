@@ -83,7 +83,7 @@ Open `the-source-noise.RPP`.
 | track | what it does |
 | --- | --- |
 | 1 THE SOURCE | the plugin. Its fader is down on purpose: its outputs are raw values, not sound |
-| 2 noise | one channel drives noise |
+| 2 noise | one channel drives the loudness of noise |
 | 3 oscillator | one channel drives the loudness of an oscillator. Mix sine, triangle, saw and square. Muted at first |
 
 To swap, mute track 2 and unmute track 3. Open a track's FX window to choose
@@ -103,13 +103,13 @@ signal from the menu and switch the sound on.
 
 ## Controls (both versions)
 
-- **signal**: which channel drives the noise.
-- **drives** (REAPER noise track only): loudness, brightness, or both. Brightness is a lowpass
-  filter whose cutoff moves from 200 Hz to 12 kHz.
+The signal drives the loudness of the sound.
+
+- **signal**: which channel drives it.
+- **depth**: how much the signal changes the loudness.
+- **smoothing**: how quickly the sound follows the signal.
 - **frequency**, **sin**, **tri**, **saw**, **sqr** (oscillator): its pitch and
   the mix of its four waves.
-- **depth**: how much the signal changes the noise.
-- **smoothing**: how quickly the noise follows the signal.
 
 The signal is rescaled to 0 to 1 by tracking its own range over about 10
 seconds, so every channel works without setup.
