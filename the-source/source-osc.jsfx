@@ -1,5 +1,6 @@
 desc:THE SOURCE -> oscillator
-// One of THE SOURCE's 12 output channels drives the loudness of a sine wave.
+// One of THE SOURCE's 12 output channels drives the loudness of an oscillator:
+// a mix of sine, triangle, saw and square.
 // The input is normalised to 0..1 by tracking its own range, so any channel works.
 // No graphics: nothing on screen moves.
 
@@ -8,6 +9,10 @@ slider2:freq=220<40,2000,1:log>frequency (Hz)
 slider3:depth=1<0,1,0.01>depth
 slider4:smoothing=100<5,2000,1:log>smoothing (ms)
 slider5:gain_db=-12<-60,0,0.1>gain (dB)
+slider6:m_sin=1<0,1,0.01>sine
+slider7:m_tri=0<0,1,0.01>triangle
+slider8:m_saw=0<0,1,0.01>saw
+slider9:m_sqr=0<0,1,0.01>square
 
 in_pin:1 Raw ECG
 in_pin:2 Cooked ECG
@@ -27,9 +32,16 @@ out_pin:right
 @init
 mn = 0; mx = 0; started = 0;
 c = 0; ph = 0;
+
+function blep(t, dt) (                    // PolyBLEP: removes the aliasing of a hard edge
+  t < dt ? (t /= dt; t + t - t * t - 1) :
+  t > 1 - dt ? (t = (t - 1) / dt; t * t + t + t + 1) : 0;
+);
 range_k = 1 - exp(-1 / (10 * srate));    // range forgets over about 10 s
 
 @slider
+msum = m_sin + m_tri + m_saw + m_sqr;
+mnorm = msum > 1 ? 1 / msum : 1;          // a mix over 1 is scaled down, never clipped
 smooth_k = 1 - exp(-1 / (smoothing * 0.001 * srate));
 gain = 10 ^ (gain_db / 20);
 
@@ -43,8 +55,14 @@ n = r > 0.000001 ? (x - mn) / r : 0;
 c += (n - c) * smooth_k;                  // smoothed control, 0..1
 
 level = 1 - depth + depth * c;            // depth 0: the signal does nothing
-ph += freq / srate; ph >= 1 ? ph -= 1;
-y = sin(2 * $pi * ph) * level * gain;
+dt = freq / srate;
+ph += dt; ph >= 1 ? ph -= 1;
+osin = sin(2 * $pi * ph);
+otri = 1 - 4 * abs(ph - 0.5);
+osaw = 2 * ph - 1 - blep(ph, dt);
+p2 = ph + 0.5; p2 >= 1 ? p2 -= 1;
+osqr = (ph < 0.5 ? 1 : -1) + blep(ph, dt) - blep(p2, dt);
+y = (m_sin * osin + m_tri * otri + m_saw * osaw + m_sqr * osqr) * mnorm * level * gain;
 spl0 = y;
 spl1 = y;
 i = 2; loop(10, spl(i) = 0; i += 1;);

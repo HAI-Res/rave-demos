@@ -2,7 +2,7 @@
   <NOTES 0 2
     |Track 1: THE SOURCE, 12 output channels. It sends nothing to the master.
     |Track 2: one of those channels drives noise. Choose it in the FX window.
-    |Track 3 (muted): the same, driving a sine wave. Mute 2 and unmute 3 to swap.
+    |Track 3 (muted): the same, driving an oscillator (sine/triangle/saw/square mix). Mute 2 and unmute 3 to swap.
   >
   RIPPLE 0
   GROUPOVERRIDE 0 0 0

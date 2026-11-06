@@ -84,7 +84,7 @@ Open `the-source-noise.RPP`.
 | --- | --- |
 | 1 THE SOURCE | the plugin. Its fader is down on purpose: its outputs are raw values, not sound |
 | 2 noise | one channel drives noise |
-| 3 oscillator | one channel drives the loudness of a sine wave. Muted at first |
+| 3 oscillator | one channel drives the loudness of an oscillator. Mix sine, triangle, saw and square. Muted at first |
 
 To swap, mute track 2 and unmute track 3. Open a track's FX window to choose
 the signal. Cooked ECG is the default. Without the device connected, only BPM,
