@@ -18,9 +18,24 @@ drive noise, in REAPER or in Max.
 | 10 | Touch Plate |
 | 11, 12 | unused |
 
-## Setup
+## Setup: install THE SOURCE
 
-### THE SOURCE, 4 Hz version (Mac with Apple Silicon)
+Pick one of these. Both put the app and the VST3 plugin on your computer.
+
+### bioMECI's builds (Mac, Windows, Linux)
+
+In `official/`:
+
+| system | file | install |
+| --- | --- | --- |
+| Mac | `THE_SOURCE_0.9.2_Mac.dmg.zip` | unzip, open the `.dmg`, follow its steps |
+| Windows | `THE_SOURCE_0.9.0_Windows_x64.zip` | unzip, run the `Setup.exe` |
+| Linux, Ubuntu or Debian | `THE_SOURCE_0.9.0_amd64.zip` | unzip, then `sudo apt install ./THE_SOURCE_0.9.0_amd64.deb` |
+| Linux, any | `THE_SOURCE_0.9.0_Linux_x86_64.tar.gz` | unpack, then follow its `README.txt`: the plugin goes in `~/.vst3/` |
+
+These update their visuals at full speed.
+
+### 4 Hz version (Mac with Apple Silicon only)
 
 `4hz/` holds THE SOURCE v0.9.0, app and VST3, with its visuals slowed to 4
 updates a second. It runs only on Macs with Apple Silicon (M1 or later).
@@ -37,12 +52,9 @@ updates a second. It runs only on Macs with Apple Silicon (M1 or later).
    xattr -dr com.apple.quarantine "/Applications/THE SOURCE.app" "/Library/Audio/Plug-Ins/VST3/THE SOURCE.vst3"
    ```
 
-To patch a copy you installed from bioMECI instead, see `4hz-patch/`.
-
-### THE SOURCE on Windows or Linux
-
-The 4 Hz version is Mac only. Install THE SOURCE from bioMECI if they offer it
-for your system. Its visuals will update at full speed.
+`4hz-patch/patch.py` makes the same change to a fresh install of version 0.9.0
+only. It refuses to run on any other version, including the 0.9.2 Mac build in
+`official/`.
 
 ## REAPER
 
