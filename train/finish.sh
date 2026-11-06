@@ -18,7 +18,7 @@ rssh() { ssh -o ConnectTimeout=20 agents "$@" 2>&1 | grep -v 'Permission denied'
 say "waiting for export job $JOB"
 fails=0
 while :; do
-  st=$(rssh "squeue -h -j $JOB -o %T") || { fails=$((fails+1)); say "ssh failed ($fails)"; [ $fails -ge 3 ] && die "ssh to agents failed 3 times; not retrying (auth?)"; sleep $((120*fails)); continue; }
+  st=$(rssh "squeue -h -j $JOB -o %T 2>/dev/null")  # a finished job makes squeue print an error, not nothing || { fails=$((fails+1)); say "ssh failed ($fails)"; [ $fails -ge 3 ] && die "ssh to agents failed 3 times; not retrying (auth?)"; sleep $((120*fails)); continue; }
   fails=0
   [ -z "$st" ] && break
   sleep 120
