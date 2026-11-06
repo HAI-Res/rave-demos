@@ -2,6 +2,10 @@
 
 Max and REAPER demos for class.
 
+**Easiest:** download `rave-demos-everything.zip` (1.9 GB) from
+https://github.com/HAI-Res/rave-demos/releases/latest. It is this repo with all
+the models already in place.
+
 | folder | what is in it |
 | --- | --- |
 | `rave/` | RAVE, a neural audio model from IRCAM: four Max patches |
@@ -20,15 +24,15 @@ a phone.
 2. Install nn~ from https://github.com/acids-ircam/nn_tilde/releases. Put the
    `nn_tilde` folder in `~/Documents/Max 9/Packages` (or `Max 8`). On Max 8,
    use version 1.5.6. Restart Max.
-3. Download the models (1.6 GB) into `rave/`:
+3. If you cloned the repo instead of downloading the zip, get the 11 models
+   (1.9 GB) into `rave/`:
 
    ```sh
    rave/get-models.sh
    ```
 
-   The bird models (`birds_z16`, `birds_z4`) are not in that download. We
-   trained them on birdsong from the Macaulay Library; they play from the
-   instructor's laptop.
+   Nine are IRCAM's. Two (`birds_z16`, `birds_z4`) we trained on birdsong
+   from the Macaulay Library.
 
 ### Patches
 
