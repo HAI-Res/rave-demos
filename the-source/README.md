@@ -88,7 +88,15 @@ Options, Show REAPER resource path, then open `Effects`. The folder is usually:
 | Windows | `%APPDATA%\REAPER\Effects` |
 | Linux | `~/.config/REAPER/Effects` |
 
-### 4. Open the session
+### 4. Choose THE SOURCE as REAPER's audio input
+
+Plug in the device. THE SOURCE is also a USB audio interface: the body signals
+arrive on its 2 inputs. In REAPER: Preferences, Audio, Device. Set the input
+device to **THE SOURCE** and keep your usual output. Track 1 takes inputs 1+2.
+It is armed with monitoring on so the signal reaches the plugin; it is set to
+record nothing.
+
+### 5. Open the session
 
 Open `the-source-noise.RPP`.
 
