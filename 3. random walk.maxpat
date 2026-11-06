@@ -31,7 +31,7 @@
       500,
       28
      ],
-     "text": "RAVE 2 \u00b7 a random walk",
+     "text": "RAVE 3 \u00b7 a random walk",
      "presentation": 1,
      "presentation_rect": [
       30,
@@ -129,7 +129,7 @@
       90,
       22
      ],
-     "text": "r rave2.info",
+     "text": "r rave3.info",
      "numinlets": 0,
      "numoutlets": 1,
      "outlettype": [
@@ -147,7 +147,7 @@
       90,
       22
      ],
-     "text": "r rave2.what",
+     "text": "r rave3.what",
      "numinlets": 0,
      "numoutlets": 1,
      "outlettype": [
@@ -326,7 +326,7 @@
           55,
           22
          ],
-         "text": "; rave2.n 4; rave2.bars size 4; rave2.bars 0 0 0 0; rave2.info set 4 dimensions; rave2.what set trained on orchestral instruments \u00b7 ordinary playing (IRCAM SOL); rave2.url symbol https://zenodo.org/records/3685331",
+         "text": "; rave3.n 4; rave3.bars size 4; rave3.bars 0 0 0 0; rave3.info set 4 dimensions; rave3.what set trained on orchestral instruments \u00b7 ordinary playing (IRCAM SOL); rave3.url symbol https://zenodo.org/records/3685331",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -381,7 +381,7 @@
           55,
           22
          ],
-         "text": "; rave2.n 8; rave2.bars size 8; rave2.bars 0 0 0 0 0 0 0 0; rave2.info set 8 dimensions; rave2.what set trained on the same sounds \u00b7 a smaller faster model; rave2.url symbol https://zenodo.org/records/3685331",
+         "text": "; rave3.n 8; rave3.bars size 8; rave3.bars 0 0 0 0 0 0 0 0; rave3.info set 8 dimensions; rave3.what set trained on the same sounds \u00b7 a smaller faster model; rave3.url symbol https://zenodo.org/records/3685331",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -436,7 +436,7 @@
           55,
           22
          ],
-         "text": "; rave2.n 8; rave2.bars size 8; rave2.bars 0 0 0 0 0 0 0 0; rave2.info set 8 dimensions; rave2.what set trained on orchestral instruments \u00b7 every playing technique (IRCAM SOL); rave2.url symbol https://zenodo.org/records/3685331",
+         "text": "; rave3.n 8; rave3.bars size 8; rave3.bars 0 0 0 0 0 0 0 0; rave3.info set 8 dimensions; rave3.what set trained on orchestral instruments \u00b7 every playing technique (IRCAM SOL); rave3.url symbol https://zenodo.org/records/3685331",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -491,7 +491,7 @@
           55,
           22
          ],
-         "text": "; rave2.n 8; rave2.bars size 8; rave2.bars 0 0 0 0 0 0 0 0; rave2.info set 8 dimensions; rave2.what set trained on three singers recorded for IRCAM's ISiS synthesizer; rave2.url symbol https://isis-documentation.readthedocs.io/en/latest/voice_installation.html",
+         "text": "; rave3.n 8; rave3.bars size 8; rave3.bars 0 0 0 0 0 0 0 0; rave3.info set 8 dimensions; rave3.what set trained on three singers recorded for IRCAM's ISiS synthesizer; rave3.url symbol https://isis-documentation.readthedocs.io/en/latest/voice_installation.html",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -546,7 +546,7 @@
           55,
           22
          ],
-         "text": "; rave2.n 8; rave2.bars size 8; rave2.bars 0 0 0 0 0 0 0 0; rave2.info set 8 dimensions; rave2.what set trained on speech \u00b7 110 English speakers reading aloud; rave2.url symbol https://huggingface.co/datasets/CSTR-Edinburgh/vctk",
+         "text": "; rave3.n 8; rave3.bars size 8; rave3.bars 0 0 0 0 0 0 0 0; rave3.info set 8 dimensions; rave3.what set trained on speech \u00b7 110 English speakers reading aloud; rave3.url symbol https://huggingface.co/datasets/CSTR-Edinburgh/vctk",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -601,7 +601,7 @@
           55,
           22
          ],
-         "text": "; rave2.n 8; rave2.bars size 8; rave2.bars 0 0 0 0 0 0 0 0; rave2.info set 8 dimensions; rave2.what set trained on radio from the Apollo 11 mission; rave2.url symbol https://www.youtube.com/watch?v=DejhGSEu8wk",
+         "text": "; rave3.n 8; rave3.bars size 8; rave3.bars 0 0 0 0 0 0 0 0; rave3.info set 8 dimensions; rave3.what set trained on radio from the Apollo 11 mission; rave3.url symbol https://www.youtube.com/watch?v=DejhGSEu8wk",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -656,7 +656,7 @@
           55,
           22
          ],
-         "text": "; rave2.n 4; rave2.bars size 4; rave2.bars 0 0 0 0; rave2.info set 4 dimensions; rave2.what set trained on 8 hours of percussion (never published); rave2.url symbol -",
+         "text": "; rave3.n 4; rave3.bars size 4; rave3.bars 0 0 0 0; rave3.info set 4 dimensions; rave3.what set trained on 8 hours of percussion (never published); rave3.url symbol -",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -711,7 +711,7 @@
           55,
           22
          ],
-         "text": "; rave2.n 16; rave2.bars size 16; rave2.bars 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0; rave2.info set 16 dimensions; rave2.what set trained on 330 classical recordings (MusicNet); rave2.url symbol https://zenodo.org/records/5120004",
+         "text": "; rave3.n 16; rave3.bars size 16; rave3.bars 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0; rave3.info set 16 dimensions; rave3.what set trained on 330 classical recordings (MusicNet); rave3.url symbol https://zenodo.org/records/5120004",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -766,7 +766,7 @@
           55,
           22
          ],
-         "text": "; rave2.n 16; rave2.bars size 16; rave2.bars 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0; rave2.info set 16 dimensions; rave2.what set trained on 80 hours of vintage music (never published); rave2.url symbol -",
+         "text": "; rave3.n 16; rave3.bars size 16; rave3.bars 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0; rave3.info set 16 dimensions; rave3.what set trained on 80 hours of vintage music (never published); rave3.url symbol -",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -1368,7 +1368,7 @@
       80,
       22
      ],
-     "text": "r rave2.url",
+     "text": "r rave3.url",
      "numinlets": 0,
      "numoutlets": 1,
      "outlettype": [
@@ -1442,7 +1442,7 @@
       90,
       22
      ],
-     "text": "r rave2.bars",
+     "text": "r rave3.bars",
      "numinlets": 0,
      "numoutlets": 1,
      "outlettype": [
@@ -1957,7 +1957,7 @@
       70,
       22
      ],
-     "text": "r rave2.n",
+     "text": "r rave3.n",
      "numinlets": 0,
      "numoutlets": 1,
      "outlettype": [
@@ -2079,7 +2079,7 @@
           90,
           22
          ],
-         "text": "r rave2.glide",
+         "text": "r rave3.glide",
          "numinlets": 0,
          "numoutlets": 1,
          "outlettype": [
@@ -4299,7 +4299,7 @@
       90,
       22
      ],
-     "text": "s rave2.glide",
+     "text": "s rave3.glide",
      "numinlets": 1,
      "numoutlets": 0,
      "outlettype": []

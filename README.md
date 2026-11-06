@@ -48,7 +48,14 @@ Things to try:
 - Press **random** a few times on **VCTK** (speech) and **musicnet**
   (classical recordings).
 
-### 2. random walk
+### 2. capture and return
+
+Tick **capture**, then click a slot (1–6) to keep the bars as they are.
+Click a filled slot to go back to it. **glide** sets how long the sound
+takes to travel there, from 30 ms to 3 s, so slots can also be used to morph
+between sounds. Changing the model empties the slots.
+
+### 3. random walk
 
 The same bars, moved by a random walk: every step, each dimension moves a
 random amount. Two "metaparameters" shape the walk (they are settings of the
@@ -65,7 +72,7 @@ Small steps taken often drift slowly through nearby sounds; big steps jump
 around. Drag a bar while it walks and the walk carries on from there. The bars
 repaint at most 4 times a second, while the decoder hears every step.
 
-### 3. phone to rave
+### 4. phone to rave
 
 The phone's motion replaces the bars. Tilt forward and back, and side to side,
 for the first two dimensions; spin for the third; shake for the fourth.

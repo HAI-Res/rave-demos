@@ -1,4 +1,4 @@
-"""Writes '1. decoder by hand.maxpat' and '2. random walk.maxpat'.
+"""Writes '1. decoder by hand', '2. capture and return' and '3. random walk' (.maxpat).
 
 The patches are generated so their layout stays exact; edit this file, run
   python3 tools/gen_patches.py
@@ -41,14 +41,17 @@ def tbutton(m, id, label, rect, pres, **kw):
     return m.box(id, "textbutton", rect, pres=pres, text=label, numinlets=1, numoutlets=3,
                  outlettype=["","",""], parameter_enable=0, **kw)
 
-def build(walk):
-    NS = "rave2" if walk else "rave1"
+def build(kind):
+    walk, cap = kind == "walk", kind == "capture"
+    NS = {"hand": "rave1", "capture": "rave2", "walk": "rave3"}[kind]
     L = 30
     Y = dict(mlab=58, menu=78, info=110, bars=138, btn=370)
     if walk:
         Y.update(meta=414, mrow=444, nn=600, vol=644, h=714)
     else:
         Y.update(nn=412, vol=456, h=526)
+    if cap:
+        Y.update(slots=424, nn=560, vol=604, h=674)
 
     # [p smooth]: list in, one line~ per dimension out. Glide time from NS.glide (default 30 ms).
     sm = P()
@@ -101,7 +104,8 @@ def build(walk):
     rd.wire("ex",0,"tl",0); rd.wire("tl",0,"out",0)
 
     m = P()
-    title = "RAVE 2 · a random walk" if walk else "RAVE 1 · the decoder, by hand"
+    title = {"hand": "RAVE 1 · the decoder, by hand", "capture": "RAVE 2 · capture and return",
+             "walk": "RAVE 3 · a random walk"}[kind]
     sub = ("Choose a model, switch the sound on, start the walk." if walk
            else "Choose a model, switch the sound on, drag the bars.")
     m.com("title", title, [30, 15, 500, 28], pres=[L, 20, 560, 28], fontsize=20.0)
@@ -129,9 +133,6 @@ def build(walk):
           size=4, setminmax=[-3.0, 3.0], setstyle=1, signed=1, parameter_enable=0,
           slidercolor=[0.30,0.55,0.75,1.0], drawpeaks=0, spacing=6, thickness=2)
     m.wire("bars_r",0,"bars",0)
-    cap = ("Each bar is one number the decoder reads. The middle line is 0, the typical sound; "
-           "top and bottom are ±3, the edge of what it learned. Bars on the left matter most.")
-    if walk: cap = cap.replace("Bars on the left matter most.", "Drag them to move the walk.")
 
     tbutton(m, "zero", "zero", [600, 280, 70, 24], [L, Y["btn"], 70, 24])
     tbutton(m, "rnd", "random", [600, 310, 70, 24], [L+80, Y["btn"], 80, 24])
@@ -147,7 +148,43 @@ def build(walk):
     if not walk:
         m.wire("cut",0,"bars",0)
         m.wire("bars",0,"smooth",0)
-    else:
+    if cap:
+        sy = Y["slots"]
+        m.obj("slots", "js slots.js", [700, 420, 80, 22], 1, 3)
+        m.wire("bars",0,"slots",0)
+        m.box("capt", "toggle", [700, 380, 26, 26], pres=[L, sy, 26, 26], numinlets=1, numoutlets=1,
+              outlettype=["int"], parameter_enable=0)
+        m.com("captl", "capture", [730, 382, 60, 20], pres=[L+32, sy+3, 70, 20])
+        m.obj("pcap", "prepend capture", [700, 450, 110, 22], 1, 1)
+        m.wire("capt",0,"pcap",0); m.wire("pcap",0,"slots",0); m.wire("slots",2,"capt",0)
+        m.wire("slots",0,"bars",0)
+        m.obj("srt", "route 1 2 3 4 5 6", [820, 450, 130, 22], 1, 7)
+        m.wire("slots",1,"srt",0)
+        for k in range(6):
+            n = k + 1
+            tbutton(m, f"slot{n}", str(n), [820+k*50, 380, 44, 26], [L+120+k*48, sy, 42, 26])
+            m.obj(f"st{n}", "t b", [820+k*50, 410, 30, 22], 1, 1)
+            m.msg(f"sn{n}", str(n), [820+k*50, 420+30, 30, 22])
+            m.wire(f"slot{n}",0,f"st{n}",0); m.wire(f"st{n}",0,f"sn{n}",0); m.wire(f"sn{n}",0,"slots",0)
+            m.wire("srt",k,f"slot{n}",0)
+        m.obj("rnc", f"r {NS}.n", [960, 420, 70, 22], 0, 1); m.msg("clr", "clear", [960, 450, 45, 22])
+        m.wire("rnc",0,"clr",0); m.wire("clr",0,"slots",0)
+        # glide: how long the sound takes to travel to the returned values (log, 30-3000 ms)
+        gx = L + 440
+        m.com("gll", "glide", [1100, 380, 60, 20], pres=[gx, sy-24, 60, 20], textcolor=GREY)
+        m.box("gls", "slider", [1100, 405, 22, 80], pres=[gx+4, sy, 22, 80], numinlets=1, numoutlets=1,
+              outlettype=[""], floatoutput=1, size=1.0, parameter_enable=0)
+        m.obj("glx", "expr 30*pow(100.,$f1)", [1100, 490, 140, 22], 2, 1)
+        m.obj("glr", "round 1", [1100, 520, 60, 22], 2, 1)
+        m.obj("glp", "prepend set", [1170, 520, 80, 22], 1, 1)
+        m.box("gln", "number", [1100, 550, 56, 24], pres=[gx, sy+86, 56, 24], numinlets=1, numoutlets=2,
+              outlettype=["",""], ignoreclick=1, parameter_enable=0, fontsize=14.0)
+        m.com("glu", "ms", [1160, 550, 30, 20], pres=[gx+58, sy+88, 30, 20], textcolor=GREY)
+        m.obj("gsend", f"s {NS}.glide", [1170, 580, 90, 22], 1, 0)
+        m.msg("gl0", "0.5", [1100, 350, 35, 22])
+        m.wire("lb",0,"gl0",0); m.wire("gl0",0,"gls",0); m.wire("gls",0,"glx",0); m.wire("glx",0,"glr",0)
+        m.wire("glr",0,"glp",0); m.wire("glp",0,"gln",0); m.wire("glr",0,"gsend",0)
+    if walk:
         # Every position, from any source, goes through one hub: to the decoder at full rate,
         # to the walk so it continues from there, and to the bars no faster than 4 times a second.
         m.obj("hub", "t l l l", [30, 560, 560, 22], 1, 3)
@@ -208,6 +245,7 @@ def build(walk):
     return {"patcher": patcher(m.boxes, m.lines, [80, 60, 640, Y["h"]], openinpresentation=1)}
 
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-for walk, name in [(False, "1. decoder by hand.maxpat"), (True, "2. random walk.maxpat")]:
-    json.dump(build(walk), open(os.path.join(root, name), "w"), indent=1)
+for kind, name in [("hand", "1. decoder by hand.maxpat"), ("capture", "2. capture and return.maxpat"),
+                   ("walk", "3. random walk.maxpat")]:
+    json.dump(build(kind), open(os.path.join(root, name), "w"), indent=1)
     print("wrote", name)
