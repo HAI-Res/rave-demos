@@ -18,7 +18,8 @@ rssh() { ssh -o ConnectTimeout=20 agents "$@" 2>&1 | grep -v 'Permission denied'
 say "waiting for export job $JOB"
 fails=0
 while :; do
-  st=$(rssh "squeue -h -j $JOB -o %T 2>/dev/null")  # a finished job makes squeue print an error, not nothing || { fails=$((fails+1)); say "ssh failed ($fails)"; [ $fails -ge 3 ] && die "ssh to agents failed 3 times; not retrying (auth?)"; sleep $((120*fails)); continue; }
+  # a finished job makes `squeue -j` print an error rather than nothing, so drop stderr
+  st=$(rssh "squeue -h -j $JOB -o %T 2>/dev/null") || { fails=$((fails+1)); say "ssh failed ($fails)"; [ $fails -ge 3 ] && die "ssh to agents failed 3 times; not retrying (auth?)"; sleep $((120*fails)); continue; }
   fails=0
   [ -z "$st" ] && break
   sleep 120
@@ -45,9 +46,8 @@ if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 fi
 git push -q -u origin birds-models || die "push failed"
-URL=$(gh pr create --base main --head birds-models \
-  --title "Bird models in the patch menu (RAVE v2, Macaulay birdsong)" \
-  --body "$(cat <<EOF
+# the PR body is a file: macOS bash 3.2 cannot parse a quote inside a heredoc inside $(...)
+BODY=$(mktemp); cat > "$BODY" <<EOF
 Adds \`birds_z16\` and \`birds_z4\` to the model menu of all four patches (via \`tools/gen_patches.py\`), and \`train/\`: the CSAIL jobs that trained them.
 
 - Data: Jon's Macaulay Library birdsong corpus, 940 recordings, 47.3 h, gated to 35.3 h (quiet runs over ~0.5 s removed; \`train/silence.py\`).
@@ -59,7 +59,8 @@ Export job $JOB. Lab journal: thread \`rave-birds\`.
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
 EOF
-)") || die "gh pr create failed"
+URL=$(gh pr create --base main --head birds-models \
+  --title "Bird models in the patch menu (RAVE v2, Macaulay birdsong)" --body-file "$BODY") || die "gh pr create failed"
 say "PR $URL"
 gh pr merge birds-models --merge --delete-branch || die "merge failed ($URL)"
 git checkout -q main && git pull -q --ff-only || die "pull after merge failed"
