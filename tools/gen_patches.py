@@ -122,6 +122,9 @@ def build(kind):
     m.wire("menu",0,"mdl",0); m.wire("mdl",0,"tp",0)
     m.obj("lb", "loadbang", [640, 15, 65, 22], 1, 1); m.msg("m0", "0", [640, 45, 30, 22]); m.msg("v0", "100", [680, 45, 40, 22])
     m.wire("lb",0,"m0",0); m.wire("m0",0,"menu",0); m.wire("lb",0,"v0",0)
+    # the file already says openinpresentation; this makes sure, once the window exists
+    m.obj("dl", "deferlow", [560, 15, 65, 22], 1, 1); m.msg("pres1", "presentation 1", [560, 45, 100, 22])
+    m.wire("lb",0,"dl",0); m.wire("dl",0,"pres1",0); m.wire("pres1",0,"tp",0)
 
     tbutton(m, "data", "training data ↗", [800, 100, 150, 26], [L+225, Y["menu"], 150, 26])
     m.obj("td", "t b", [800, 130, 30, 22], 1, 1); m.obj("ru", f"r {NS}.url", [860, 130, 80, 22], 0, 1)
