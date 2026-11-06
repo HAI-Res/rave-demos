@@ -118,7 +118,9 @@ graphs should update about 4 times a second, not smoothly.
 Open `the source to noise.maxpat`. It loads THE SOURCE in `vst~`. **sound**
 switches between the noise and the oscillator. In both, the signal drives the
 loudness. If you
-installed or replaced the plugin while Max was open, restart Max. Choose the
+installed or replaced the plugin while Max was open, restart Max. In Options,
+Audio Status, set the input device to **THE SOURCE**: the body signals arrive
+on its 2 inputs. Choose the
 signal from the menu and switch the sound on.
 
 ## Controls (both versions)

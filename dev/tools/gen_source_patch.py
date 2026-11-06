@@ -93,6 +93,9 @@ m.obj("to", "t b", [30, 90, 30, 22], 1, 1); m.msg("om", "open", [30, 115, 40, 22
 m.wire("open",0,"to",0); m.wire("to",0,"om",0)
 m.obj("vst", 'vst~ 2 12 "THE SOURCE.vst3"', [30, 160, 700, 22], 2, 16)
 m.wire("om",0,"vst",0)
+# the body signals arrive as audio on THE SOURCE's 2 inputs (Max's input device must be THE SOURCE)
+m.obj("adc", "adc~ 1 2", [300, 120, 70, 22], 1, 2, outlettype=["signal", "signal"])
+m.wire("adc",0,"vst",0); m.wire("adc",1,"vst",1)
 m.com("snl", "sound", [430, 200, 60, 20], pres=[L, 112, 80, 20], textcolor=GREY)
 m.box("snd", "umenu", [430, 220, 140, 24], pres=[L, 132, 140, 26], numinlets=1, numoutlets=3, outlettype=["int","",""],
       items=["noise", ",", "oscillator"], parameter_enable=0, fontsize=14.0)
