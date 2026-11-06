@@ -3,7 +3,20 @@ Same logic as the-source/source-noise.jsfx (REAPER). Run from the repo root."""
 import json, os
 GREY = [0.45, 0.45, 0.45, 1.0]
 NAMES = ["Raw ECG","Cooked ECG","BPM","R2R","Valence","Arousal","RSP","RSP Rate","RSP Effort","Touch Plate","Unused","Unused"]
-GEN = """Param depth(1, min=0, max=1);
+GEN = """// PolyBLEP: removes the aliasing of a hard edge in the saw and square
+blep(t, dt) {
+    if (t < dt) { u = t / dt; return u + u - u * u - 1; }
+    else if (t > 1 - dt) { u = (t - 1) / dt; return u * u + u + u + 1; }
+    else { return 0; }
+}
+Param sound(0, min=0, max=1);
+Param freq(220, min=40, max=2000);
+Param msin(1, min=0, max=1);
+Param mtri(0, min=0, max=1);
+Param msaw(0, min=0, max=1);
+Param msqr(0, min=0, max=1);
+History ph(0);
+Param depth(1, min=0, max=1);
 Param smoothing(100, min=5, max=2000);
 Param drives(2, min=0, max=2);
 History mn(0);
@@ -29,8 +42,22 @@ fc = 200 * pow(60, bright);
 a = 1 - exp(-2 * pi * fc / samplerate);
 lpl = lpl + (noise() - lpl) * a;
 lpr = lpr + (noise() - lpr) * a;
-out1 = lpl * level;
-out2 = lpr * level;"""
+// oscillator: a mix of four waves, its loudness following the signal
+dt = freq / samplerate;
+ph = ph + dt;
+if (ph >= 1) { ph = ph - 1; }
+p2 = ph + 0.5;
+if (p2 >= 1) { p2 = p2 - 1; }
+osin = sin(2 * pi * ph);
+otri = 1 - 4 * abs(ph - 0.5);
+osaw = 2 * ph - 1 - blep(ph, dt);
+osqr = ((ph < 0.5) ? 1 : -1) + blep(ph, dt) - blep(p2, dt);
+msum = msin + mtri + msaw + msqr;
+mnorm = (msum > 1) ? 1 / msum : 1;
+osc = (msin * osin + mtri * otri + msaw * osaw + msqr * osqr) * mnorm * m;
+// sound 0: noise, sound 1: oscillator
+out1 = (sound < 0.5) ? lpl * level : osc;
+out2 = (sound < 0.5) ? lpr * level : osc;"""
 
 class P:
     def __init__(s): s.boxes, s.lines = [], []
@@ -66,21 +93,25 @@ m.obj("to", "t b", [30, 90, 30, 22], 1, 1); m.msg("om", "open", [30, 115, 40, 22
 m.wire("open",0,"to",0); m.wire("to",0,"om",0)
 m.obj("vst", 'vst~ 2 12 "THE SOURCE.vst3"', [30, 160, 700, 22], 2, 16)
 m.wire("om",0,"vst",0)
-m.com("sl", "signal", [30, 200, 60, 20], pres=[L, 112, 80, 20], textcolor=GREY)
-m.box("sig", "umenu", [30, 220, 180, 24], pres=[L, 132, 180, 26], numinlets=1, numoutlets=3, outlettype=["int","",""],
+m.com("snl", "sound", [430, 200, 60, 20], pres=[L, 112, 80, 20], textcolor=GREY)
+m.box("snd", "umenu", [430, 220, 140, 24], pres=[L, 132, 140, 26], numinlets=1, numoutlets=3, outlettype=["int","",""],
+      items=["noise", ",", "oscillator"], parameter_enable=0, fontsize=14.0)
+m.msg("sndm", "sound $1", [430, 250, 70, 22]); m.wire("snd",0,"sndm",0)
+m.com("sl", "signal", [30, 200, 60, 20], pres=[L+150, 112, 80, 20], textcolor=GREY)
+m.box("sig", "umenu", [30, 220, 180, 24], pres=[L+150, 132, 170, 26], numinlets=1, numoutlets=3, outlettype=["int","",""],
       items=sum([[f"{i+1} {n}", ","] for i,n in enumerate(NAMES)], [])[:-1], parameter_enable=0, fontsize=14.0)
 m.obj("p1", "+ 1", [30, 250, 40, 22], 2, 1)
 m.obj("sel", "selector~ 12 2", [30, 280, 700, 22], 13, 1)
 m.wire("sig",0,"p1",0); m.wire("p1",0,"sel",0)
 for k in range(12): m.wire("vst", k, "sel", k+1)
-m.com("dl", "drives", [230, 200, 60, 20], pres=[L+200, 112, 80, 20], textcolor=GREY)
-m.box("drv", "umenu", [230, 220, 140, 24], pres=[L+200, 132, 140, 26], numinlets=1, numoutlets=3, outlettype=["int","",""],
+m.com("dl", "noise drives", [230, 200, 60, 20], pres=[L+330, 112, 120, 20], textcolor=GREY)
+m.box("drv", "umenu", [230, 220, 140, 24], pres=[L+330, 132, 130, 26], numinlets=1, numoutlets=3, outlettype=["int","",""],
       items=["loudness", ",", "brightness", ",", "both"], parameter_enable=0, fontsize=14.0)
 m.msg("dm", "drives $1", [230, 250, 70, 22]); m.wire("drv",0,"dm",0)
 m.box("gen", "newobj", [30, 320, 200, 22], "gen~", numinlets=1, numoutlets=2, outlettype=["signal","signal"], patcher=genp)
-m.wire("sel",0,"gen",0); m.wire("dm",0,"gen",0)
+m.wire("sel",0,"gen",0); m.wire("dm",0,"gen",0); m.wire("sndm",0,"gen",0)
 
-def vslider(key, label, unit, lo, hi, cx, px, log, init_p, fmt_int):
+def vslider(key, label, unit, lo, hi, cx, px, log, init_p, fmt_int, rw=56):
     yy = 184
     m.com(key+"l", label, [px, 360, 90, 20], pres=[cx, yy, 90, 20], textcolor=GREY)
     m.box(key+"s", "slider", [px, 385, 22, 80], pres=[cx+4, yy+24, 22, 80], numinlets=1, numoutlets=1,
@@ -90,19 +121,25 @@ def vslider(key, label, unit, lo, hi, cx, px, log, init_p, fmt_int):
     if fmt_int:
         m.obj(key+"r", "round 1", [px, 500, 60, 22], 2, 1); m.wire(key+"x",0,key+"r",0); out = key+"r"
     m.obj(key+"ps", "prepend set", [px+70, 500, 80, 22], 1, 1)
-    m.box(key+"n", "number" if fmt_int else "flonum", [px, 530, 56, 24], pres=[cx, yy+110, 56, 24], numinlets=1, numoutlets=2,
+    m.box(key+"n", "number" if fmt_int else "flonum", [px, 530, 56, 24], pres=[cx, yy+110, rw, 24], numinlets=1, numoutlets=2,
           outlettype=["",""], ignoreclick=1, parameter_enable=0, fontsize=14.0, **({} if fmt_int else {"numdecimalplaces": 2}))
-    m.com(key+"u", unit, [px+60, 530, 30, 20], pres=[cx+58, yy+112, 30, 20], textcolor=GREY)
+    m.com(key+"u", unit, [px+60, 530, 30, 20], pres=[cx+rw+2, yy+112, 30, 20], textcolor=GREY)
     m.msg(key+"0", str(init_p), [px, 335, 35, 22])
     m.wire("lb",0,key+"0",0); m.wire(key+"0",0,key+"s",0); m.wire(key+"s",0,key+"x",0)
     m.wire(out,0,key+"ps",0); m.wire(key+"ps",0,key+"n",0)
     return out
 
 m.obj("lb", "loadbang", [400, 15, 65, 22], 1, 1)
+m.msg("snd0", "0", [440, 45, 30, 22]); m.wire("lb",0,"snd0",0); m.wire("snd0",0,"snd",0)
 m.msg("sig0", "1", [480, 15, 30, 22]); m.msg("drv0", "2", [520, 15, 30, 22]); m.msg("v0", "100", [560, 15, 40, 22])
 m.wire("lb",0,"sig0",0); m.wire("sig0",0,"sig",0); m.wire("lb",0,"drv0",0); m.wire("drv0",0,"drv",0)
 d_out = vslider("dep", "depth", "", 0, 1, L, 400, False, 1.0, False)
 s_out = vslider("smo", "smoothing", "ms", 5, 2000, L+130, 600, True, 0.6, True)
+f_out = vslider("frq", "frequency", "Hz", 40, 2000, L+220, 800, True, 0.4358, True)
+m.msg("frqm", "freq $1", [800, 560, 70, 22]); m.wire(f_out,0,"frqm",0); m.wire("frqm",0,"gen",0)
+for k, (key, lab, init) in enumerate([("msin", "sin", 1.0), ("mtri", "tri", 0.0), ("msaw", "saw", 0.0), ("msqr", "sqr", 0.0)]):
+    o = vslider(key, lab, "", 0, 1, L+330+k*48, 1000+k*160, False, init, False, rw=44)
+    m.msg(key+"m", key+" $1", [1000+k*160, 560, 70, 22]); m.wire(o,0,key+"m",0); m.wire(key+"m",0,"gen",0)
 m.msg("depm", "depth $1", [400, 560, 70, 22]); m.msg("smom", "smoothing $1", [600, 560, 90, 22])
 m.wire(d_out,0,"depm",0); m.wire("depm",0,"gen",0); m.wire(s_out,0,"smom",0); m.wire("smom",0,"gen",0)
 
@@ -120,5 +157,5 @@ m.wire("lb",0,"dfl",0); m.wire("dfl",0,"pres1",0); m.wire("pres1",0,"tp",0)
 
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 out = os.path.join(root, "the-source", "the source to noise.maxpat")
-json.dump({"patcher": patcher(m.boxes, m.lines, [80, 60, 440, 400], openinpresentation=1)}, open(out, "w"), indent=1)
+json.dump({"patcher": patcher(m.boxes, m.lines, [80, 60, 560, 400], openinpresentation=1)}, open(out, "w"), indent=1)
 print("wrote", out)
