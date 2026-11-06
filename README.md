@@ -1,94 +1,48 @@
 # RAVE demos
 
-Playing a neural audio model by hand, then with a phone.
+Max patches for playing RAVE, a neural audio model from IRCAM.
 
-RAVE (IRCAM) is an autoencoder for sound: an **encoder** turns audio into a
-few numbers per moment, and a **decoder** turns those numbers back into audio
-in the voice of whatever it was trained on — orchestral instruments, speech,
-percussion. These patches skip the encoder and let you set the numbers
-yourself.
+RAVE turns sound into a short list of numbers and back. These patches let you
+change those numbers yourself, save them, let them wander, and move them with
+a phone.
 
-`how RAVE works.html` explains the model, what each patch is showing, and
-BRAVE, a newer low-latency version. Open it in a browser.
+## Setup
 
-## Setup (once)
-
-1. **Max 8 or 9.**
-2. **nn~**, IRCAM's external that runs RAVE models in Max:
-   download it from <https://github.com/acids-ircam/nn_tilde/releases> and put
-   the `nn_tilde` folder in `~/Documents/Max 9/Packages` (or `Max 8`). On
-   Max 8, use **v1.5.6**: v1.6.0 needs Max 9. Restart Max.
-3. **The models**, about 1.6 GB, into this folder:
+1. Install Max 8 or 9.
+2. Install nn~ from https://github.com/acids-ircam/nn_tilde/releases. Put the
+   `nn_tilde` folder in `~/Documents/Max 9/Packages` (or `Max 8`). On Max 8,
+   use version 1.5.6. Restart Max.
+3. Download the models (1.6 GB) into this folder:
 
    ```sh
    ./get-models.sh
    ```
 
-   They come from IRCAM's public model server. Max finds them by name
-   because they sit next to the patches.
+## Patches
 
-## The patches
+1. **decoder by hand**: drag the bars to change the sound.
+2. **capture and return**: save the bars in slots and go back to them.
+3. **random walk**: the bars wander on their own.
+4. **phone to rave**: your phone moves the bars. Scan the code with your
+   phone's camera. Needs internet.
 
-### 1. decoder by hand
+Each bar is one number the model reads. 0 is the middle. Pick a model from
+the menu. Models have 4, 8 or 16 bars. **training data** opens the sounds the
+model learned from.
 
-Choose a model, switch the sound on, drag the bars. Each bar is one number
-the decoder reads, called a latent dimension. Different models have different
-numbers of bars: 4, 8 or 16. The middle line is 0, the typical sound; the top
-and bottom are ±3, the edge of what the model learned. Bars on the left
-matter most. **training data ↗** opens the page for the sound the model was
-trained on, where it is public.
+## Files
 
-Things to try:
-
-- On **percussion**, pull the first bar below zero. The sound almost
-  disappears, whatever the others do. Nobody designed that bar to be volume.
-  Loud-versus-silent was simply the biggest difference in the training audio.
-- Compare **sol_ordinario** and **sol_ordinario_fast**. Same sounds, but the
-  fast one hears a new set of numbers 86 times a second instead of 21.5.
-- Press **random** a few times on **VCTK** (speech) and **musicnet**
-  (classical recordings).
-
-### 2. capture and return
-
-Tick **capture**, then click a slot (1–6) to keep the bars as they are.
-Click a filled slot to go back to it. **glide** sets how long the sound
-takes to travel there, from 30 ms to 3 s, so slots can also be used to morph
-between sounds. Changing the model empties the slots.
-
-### 3. random walk
-
-The same bars, moved by a random walk: every step, each dimension moves a
-random amount. Two "metaparameters" shape the walk (they are settings of the
-walk, not of the model):
-
-- **step size**: how far a typical step goes, in the same units as the bars
-  (0.01 to 1).
-- **step every**: how often it steps (20 to 2000 ms).
-
-Both sliders are logarithmic. We hear rates and sizes as ratios, so moving a
-slider the same distance anywhere along it doubles (or halves) the value.
-
-Small steps taken often drift slowly through nearby sounds; big steps jump
-around. Drag a bar while it walks and the walk carries on from there. The bars
-repaint at most 4 times a second, while the decoder hears every step.
-
-### 4. phone to rave
-
-The phone's motion moves the bars: tilt forward and back for z1, side to side
-for z2, spin for z3, shake for z4, then spin around each axis for z5–z7 and
-shake along each axis for z8–z10, which way is down for z11–z13, which way
-you face for z14–z15, and a slow "energy" of shaking for z16. **spread** sets how far the motion reaches
-into the latent space; **smoothing** sets how quickly the sound follows. Both
-are logarithmic.
-
-Scan the code in the patch with your phone's camera. It opens a web page.
-Type a name and tap **Start**. Your phone's data then goes to your laptop only.
-Max needs internet for this.
+| file | what it is |
+| --- | --- |
+| `1.` to `4.` | the patches |
+| `how RAVE works.html` | how the model works, open in a browser |
+| `get-models.sh` | downloads the models |
+| `walk.js`, `slots.js` | the random walk and the slots |
+| `ap.*`, other `.js`, `vendor/` | receive the phone's data |
+| `tools/gen_patches.py` | writes patches 1 to 4 |
 
 ## Credits
 
-RAVE: Antoine Caillon and Philippe Esling, IRCAM. nn~ and the pretrained
-models: IRCAM ACIDS team. The phone mapping is a simplification of Sarah
-Nabi's "direct motion exploration" (MOCO 2024,
-<https://github.com/ircam-ismm/embodied-latent-exploration>). BRAVE: Franco
-Caspe et al., 2025, <https://fcaspe.github.io/brave>.
+RAVE: Antoine Caillon and Philippe Esling, IRCAM. nn~ and the models: IRCAM
+ACIDS. Patch 4 is based on Sarah Nabi's embodied latent exploration,
+https://github.com/ircam-ismm/embodied-latent-exploration.
