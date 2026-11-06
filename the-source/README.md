@@ -65,9 +65,9 @@ If REAPER was open while you installed or replaced the plugin: Preferences,
 Plug-ins, VST, then click **Clear cache/re-scan**. REAPER keeps a list of the
 plugins it found, and this makes it look again.
 
-### 3. Add the noise effect
+### 3. Add the two effects
 
-Copy `source-noise.jsfx` into REAPER's Effects folder. To find it in REAPER:
+Copy `source-noise.jsfx` and `source-osc.jsfx` into REAPER's Effects folder. To find it in REAPER:
 Options, Show REAPER resource path, then open `Effects`. The folder is usually:
 
 | system | folder |
@@ -78,9 +78,17 @@ Options, Show REAPER resource path, then open `Effects`. The folder is usually:
 
 ### 4. Open the session
 
-Open `the-source-noise.RPP`. Track 1 holds THE SOURCE. Track 2 receives its 12
-channels and runs `source-noise`. Open track 2's FX window to choose the
-signal.
+Open `the-source-noise.RPP`.
+
+| track | what it does |
+| --- | --- |
+| 1 THE SOURCE | the plugin. Its fader is down on purpose: its outputs are raw values, not sound |
+| 2 noise | one channel drives noise |
+| 3 oscillator | one channel drives the loudness of a sine wave. Muted at first |
+
+To swap, mute track 2 and unmute track 3. Open a track's FX window to choose
+the signal. Cooked ECG is the default. Without the device connected, only BPM,
+R2R and Valence move.
 
 To check you have the 4 Hz version: open THE SOURCE's window on track 1. Its
 graphs should update about 4 times a second, not smoothly.

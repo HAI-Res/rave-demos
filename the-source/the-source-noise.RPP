@@ -1,7 +1,8 @@
-<REAPER_PROJECT 0.1 "7.27/macOS-arm64" 1792957300
+<REAPER_PROJECT 0.1 "7.27/macOS-arm64" 1793980607
   <NOTES 0 2
     |Track 1: THE SOURCE, 12 output channels. It sends nothing to the master.
     |Track 2: one of those channels drives noise. Choose it in the FX window.
+    |Track 3 (muted): the same, driving a sine wave. Mute 2 and unmute 3 to swap.
   >
   RIPPLE 0
   GROUPOVERRIDE 0 0 0
@@ -20,7 +21,7 @@
   VIDEO_CONFIG 0 0 65792
   PANMODE 3
   PANLAWFLAGS 3
-  CURSOR 293.5
+  CURSOR 298
   ZOOM 100 29079 0
   VZOOMEX 6 0
   USE_REC_CFG 0
@@ -92,7 +93,7 @@
   >
   <TEMPOENVEX
     EGUID {B9C5B9DA-ABBA-B64F-867A-FABD49ABB5F5}
-    ACT 1 -1
+    ACT 0 -1
     VIS 1 0 1
     LANEHEIGHT 0 0
     ARM 0
@@ -126,7 +127,7 @@
     MIDIOUT -1
     MAINSEND 0 0
     <FXCHAIN
-      WNDRECT 525 144 1091 801
+      WNDRECT 545 202 1091 801
       SHOW 0
       LASTSEL 0
       DOCKED 0
@@ -160,7 +161,7 @@
     >
   >
   <TRACK {5B1E7C2A-3F4D-4E8B-9A1C-2D7E6F8A9B01}
-    NAME "noise"
+    NAME noise
     PEAKCOL 16576
     BEAT -1
     AUTOMODE 0
@@ -173,7 +174,7 @@
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
     FIXEDLANES 9 0 0 0 0
-    SEL 1
+    SEL 0
     REC 0 0 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 0 0 0
@@ -186,6 +187,7 @@
     MIDIOUT -1
     MAINSEND 1 0
     <FXCHAIN
+      WNDRECT 557 702 785 211
       SHOW 0
       LASTSEL 0
       DOCKED 0
@@ -195,6 +197,45 @@
       >
       FLOATPOS 0 0 0 0
       FXID {7C2D9E4B-1A3F-4B6C-8D2E-5F9A0B1C2D03}
+      WAK 0 0
+    >
+  >
+  <TRACK {9D4F2A6B-7C1E-4B3A-8E5D-1F2A3B4C5D06}
+    NAME "oscillator"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 1 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 0 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 12
+    FX 1
+    TRACKID {9D4F2A6B-7C1E-4B3A-8E5D-1F2A3B4C5D06}
+    PERF 0
+    AUXRECV 0 3 1 0 0 0 0 6144 0 -1:U 0 -1 ''
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <JS source-osc.jsfx ""
+        1 220 1 100 -12 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      >
+      FLOATPOS 0 0 0 0
+      FXID {2E5A7C9D-4B6F-4A1C-9E3D-7F8A9B0C1D07}
       WAK 0 0
     >
   >

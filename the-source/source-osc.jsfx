@@ -1,0 +1,50 @@
+desc:THE SOURCE -> oscillator
+// One of THE SOURCE's 12 output channels drives the loudness of a sine wave.
+// The input is normalised to 0..1 by tracking its own range, so any channel works.
+// No graphics: nothing on screen moves.
+
+slider1:signal=1<0,11,1{1 Raw ECG,2 Cooked ECG,3 BPM,4 R2R,5 Valence,6 Arousal,7 RSP,8 RSP Rate,9 RSP Effort,10 Touch Plate,11 Unused,12 Unused}>signal
+slider2:freq=220<40,2000,1:log>frequency (Hz)
+slider3:depth=1<0,1,0.01>depth
+slider4:smoothing=100<5,2000,1:log>smoothing (ms)
+slider5:gain_db=-12<-60,0,0.1>gain (dB)
+
+in_pin:1 Raw ECG
+in_pin:2 Cooked ECG
+in_pin:3 BPM
+in_pin:4 R2R
+in_pin:5 Valence
+in_pin:6 Arousal
+in_pin:7 RSP
+in_pin:8 RSP Rate
+in_pin:9 RSP Effort
+in_pin:10 Touch Plate
+in_pin:11 Unused
+in_pin:12 Unused
+out_pin:left
+out_pin:right
+
+@init
+mn = 0; mx = 0; started = 0;
+c = 0; ph = 0;
+range_k = 1 - exp(-1 / (10 * srate));    // range forgets over about 10 s
+
+@slider
+smooth_k = 1 - exp(-1 / (smoothing * 0.001 * srate));
+gain = 10 ^ (gain_db / 20);
+
+@sample
+x = spl(signal);
+!started ? ( mn = mx = x; started = 1; );
+x > mx ? mx = x : mx -= (mx - x) * range_k;
+x < mn ? mn = x : mn += (x - mn) * range_k;
+r = mx - mn;
+n = r > 0.000001 ? (x - mn) / r : 0;
+c += (n - c) * smooth_k;                  // smoothed control, 0..1
+
+level = 1 - depth + depth * c;            // depth 0: the signal does nothing
+ph += freq / srate; ph >= 1 ? ph -= 1;
+y = sin(2 * $pi * ph) * level * gain;
+spl0 = y;
+spl1 = y;
+i = 2; loop(10, spl(i) = 0; i += 1;);
