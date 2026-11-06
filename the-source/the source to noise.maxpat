@@ -339,87 +339,6 @@
    },
    {
     "box": {
-     "id": "dl",
-     "maxclass": "comment",
-     "patching_rect": [
-      230,
-      200,
-      60,
-      20
-     ],
-     "text": "noise drives",
-     "presentation": 1,
-     "presentation_rect": [
-      360,
-      112,
-      120,
-      20
-     ],
-     "numinlets": 1,
-     "numoutlets": 0,
-     "textcolor": [
-      0.45,
-      0.45,
-      0.45,
-      1.0
-     ]
-    }
-   },
-   {
-    "box": {
-     "id": "drv",
-     "maxclass": "umenu",
-     "patching_rect": [
-      230,
-      220,
-      140,
-      24
-     ],
-     "presentation": 1,
-     "presentation_rect": [
-      360,
-      132,
-      130,
-      26
-     ],
-     "numinlets": 1,
-     "numoutlets": 3,
-     "outlettype": [
-      "int",
-      "",
-      ""
-     ],
-     "items": [
-      "loudness",
-      ",",
-      "brightness",
-      ",",
-      "both"
-     ],
-     "parameter_enable": 0,
-     "fontsize": 14.0
-    }
-   },
-   {
-    "box": {
-     "id": "dm",
-     "maxclass": "message",
-     "patching_rect": [
-      230,
-      250,
-      70,
-      22
-     ],
-     "text": "drives $1",
-     "numinlets": 2,
-     "numoutlets": 1,
-     "outlettype": [
-      ""
-     ]
-    }
-   },
-   {
-    "box": {
      "id": "gen",
      "maxclass": "newobj",
      "patching_rect": [
@@ -485,7 +404,7 @@
           560,
           520
          ],
-         "code": "// PolyBLEP: removes the aliasing of a hard edge in the saw and square\nblep(t, dt) {\n    if (t < dt) { u = t / dt; return u + u - u * u - 1; }\n    else if (t > 1 - dt) { u = (t - 1) / dt; return u * u + u + u + 1; }\n    else { return 0; }\n}\nParam sound(0, min=0, max=1);\nParam freq(220, min=40, max=2000);\nParam msin(1, min=0, max=1);\nParam mtri(0, min=0, max=1);\nParam msaw(0, min=0, max=1);\nParam msqr(0, min=0, max=1);\nHistory ph(0);\nParam depth(1, min=0, max=1);\nParam smoothing(100, min=5, max=2000);\nParam drives(2, min=0, max=2);\nHistory mn(0);\nHistory mx(0);\nHistory started(0);\nHistory c(0);\nHistory lpl(0);\nHistory lpr(0);\n// the input is normalised to 0..1 by tracking its own range (forgets over ~10 s)\nx = in1;\nif (started == 0) { mn = x; mx = x; started = 1; }\nrk = 1 - exp(-1 / (10 * samplerate));\nif (x > mx) { mx = x; } else { mx = mx - (mx - x) * rk; }\nif (x < mn) { mn = x; } else { mn = mn + (x - mn) * rk; }\nr = mx - mn;\nn = (r > 0.000001) ? (x - mn) / r : 0;\nsk = 1 - exp(-1 / (smoothing * 0.001 * samplerate));\nc = c + (n - c) * sk;\nm = 1 - depth + depth * c;\nlevel = (drives == 1) ? 1 : m;\nbright = (drives == 0) ? 1 : m;\nfc = 200 * pow(60, bright);\na = 1 - exp(-2 * pi * fc / samplerate);\nlpl = lpl + (noise() - lpl) * a;\nlpr = lpr + (noise() - lpr) * a;\n// oscillator: a mix of four waves, its loudness following the signal\ndt = freq / samplerate;\nph = ph + dt;\nif (ph >= 1) { ph = ph - 1; }\np2 = ph + 0.5;\nif (p2 >= 1) { p2 = p2 - 1; }\nosin = sin(2 * pi * ph);\notri = 1 - 4 * abs(ph - 0.5);\nosaw = 2 * ph - 1 - blep(ph, dt);\nosqr = ((ph < 0.5) ? 1 : -1) + blep(ph, dt) - blep(p2, dt);\nmsum = msin + mtri + msaw + msqr;\nmnorm = (msum > 1) ? 1 / msum : 1;\nosc = (msin * osin + mtri * otri + msaw * osaw + msqr * osqr) * mnorm * m;\n// sound 0: noise, sound 1: oscillator\nout1 = (sound < 0.5) ? lpl * level : osc;\nout2 = (sound < 0.5) ? lpr * level : osc;",
+         "code": "// PolyBLEP: removes the aliasing of a hard edge in the saw and square\nblep(t, dt) {\n    if (t < dt) { u = t / dt; return u + u - u * u - 1; }\n    else if (t > 1 - dt) { u = (t - 1) / dt; return u * u + u + u + 1; }\n    else { return 0; }\n}\nParam sound(0, min=0, max=1);\nParam freq(220, min=40, max=2000);\nParam msin(1, min=0, max=1);\nParam mtri(0, min=0, max=1);\nParam msaw(0, min=0, max=1);\nParam msqr(0, min=0, max=1);\nHistory ph(0);\nParam depth(1, min=0, max=1);\nParam smoothing(100, min=5, max=2000);\nParam drives(0, min=0, max=2);   // 0: the signal drives loudness\nHistory mn(0);\nHistory mx(0);\nHistory started(0);\nHistory c(0);\nHistory lpl(0);\nHistory lpr(0);\n// the input is normalised to 0..1 by tracking its own range (forgets over ~10 s)\nx = in1;\nif (started == 0) { mn = x; mx = x; started = 1; }\nrk = 1 - exp(-1 / (10 * samplerate));\nif (x > mx) { mx = x; } else { mx = mx - (mx - x) * rk; }\nif (x < mn) { mn = x; } else { mn = mn + (x - mn) * rk; }\nr = mx - mn;\nn = (r > 0.000001) ? (x - mn) / r : 0;\nsk = 1 - exp(-1 / (smoothing * 0.001 * samplerate));\nc = c + (n - c) * sk;\nm = 1 - depth + depth * c;\nlevel = (drives == 1) ? 1 : m;\nbright = (drives == 0) ? 1 : m;\nfc = 200 * pow(60, bright);\na = 1 - exp(-2 * pi * fc / samplerate);\nlpl = lpl + (noise() - lpl) * a;\nlpr = lpr + (noise() - lpr) * a;\n// oscillator: a mix of four waves, its loudness following the signal\ndt = freq / samplerate;\nph = ph + dt;\nif (ph >= 1) { ph = ph - 1; }\np2 = ph + 0.5;\nif (p2 >= 1) { p2 = p2 - 1; }\nosin = sin(2 * pi * ph);\notri = 1 - 4 * abs(ph - 0.5);\nosaw = 2 * ph - 1 - blep(ph, dt);\nosqr = ((ph < 0.5) ? 1 : -1) + blep(ph, dt) - blep(p2, dt);\nmsum = msin + mtri + msaw + msqr;\nmnorm = (msum > 1) ? 1 / msum : 1;\nosc = (msin * osin + mtri * otri + msaw * osaw + msqr * osqr) * mnorm * m;\n// sound 0: noise, sound 1: oscillator\nout1 = (sound < 0.5) ? lpl * level : osc;\nout2 = (sound < 0.5) ? lpr * level : osc;",
          "numinlets": 1,
          "numoutlets": 2,
          "outlettype": [
@@ -615,24 +534,6 @@
       22
      ],
      "text": "1",
-     "numinlets": 2,
-     "numoutlets": 1,
-     "outlettype": [
-      ""
-     ]
-    }
-   },
-   {
-    "box": {
-     "id": "drv0",
-     "maxclass": "message",
-     "patching_rect": [
-      520,
-      15,
-      30,
-      22
-     ],
-     "text": "2",
      "numinlets": 2,
      "numoutlets": 1,
      "outlettype": [
@@ -2378,31 +2279,7 @@
    {
     "patchline": {
      "source": [
-      "drv",
-      0
-     ],
-     "destination": [
-      "dm",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
       "sel",
-      0
-     ],
-     "destination": [
-      "gen",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "dm",
       0
      ],
      "destination": [
@@ -2467,30 +2344,6 @@
      ],
      "destination": [
       "sig",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "lb",
-      0
-     ],
-     "destination": [
-      "drv0",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "drv0",
-      0
-     ],
-     "destination": [
-      "drv",
       0
      ]
     }

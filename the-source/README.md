@@ -96,15 +96,15 @@ graphs should update about 4 times a second, not smoothly.
 ## Max
 
 Open `the source to noise.maxpat`. It loads THE SOURCE in `vst~`. **sound**
-switches between the noise and the oscillator, with the same controls as
-tracks 2 and 3 in REAPER. If you
+switches between the noise and the oscillator. In both, the signal drives the
+loudness. If you
 installed or replaced the plugin while Max was open, restart Max. Choose the
 signal from the menu and switch the sound on.
 
 ## Controls (both versions)
 
 - **signal**: which channel drives the noise.
-- **drives** (noise): loudness, brightness, or both. Brightness is a lowpass
+- **drives** (REAPER noise track only): loudness, brightness, or both. Brightness is a lowpass
   filter whose cutoff moves from 200 Hz to 12 kHz.
 - **frequency**, **sin**, **tri**, **saw**, **sqr** (oscillator): its pitch and
   the mix of its four waves.

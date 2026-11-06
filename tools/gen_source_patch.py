@@ -18,7 +18,7 @@ Param msqr(0, min=0, max=1);
 History ph(0);
 Param depth(1, min=0, max=1);
 Param smoothing(100, min=5, max=2000);
-Param drives(2, min=0, max=2);
+Param drives(0, min=0, max=2);   // 0: the signal drives loudness
 History mn(0);
 History mx(0);
 History started(0);
@@ -104,12 +104,8 @@ m.obj("p1", "+ 1", [30, 250, 40, 22], 2, 1)
 m.obj("sel", "selector~ 12 2", [30, 280, 700, 22], 13, 1)
 m.wire("sig",0,"p1",0); m.wire("p1",0,"sel",0)
 for k in range(12): m.wire("vst", k, "sel", k+1)
-m.com("dl", "noise drives", [230, 200, 60, 20], pres=[L+330, 112, 120, 20], textcolor=GREY)
-m.box("drv", "umenu", [230, 220, 140, 24], pres=[L+330, 132, 130, 26], numinlets=1, numoutlets=3, outlettype=["int","",""],
-      items=["loudness", ",", "brightness", ",", "both"], parameter_enable=0, fontsize=14.0)
-m.msg("dm", "drives $1", [230, 250, 70, 22]); m.wire("drv",0,"dm",0)
 m.box("gen", "newobj", [30, 320, 200, 22], "gen~", numinlets=1, numoutlets=2, outlettype=["signal","signal"], patcher=genp)
-m.wire("sel",0,"gen",0); m.wire("dm",0,"gen",0); m.wire("sndm",0,"gen",0)
+m.wire("sel",0,"gen",0); m.wire("sndm",0,"gen",0)
 
 def vslider(key, label, unit, lo, hi, cx, px, log, init_p, fmt_int, rw=56):
     yy = 184
@@ -131,8 +127,8 @@ def vslider(key, label, unit, lo, hi, cx, px, log, init_p, fmt_int, rw=56):
 
 m.obj("lb", "loadbang", [400, 15, 65, 22], 1, 1)
 m.msg("snd0", "0", [440, 45, 30, 22]); m.wire("lb",0,"snd0",0); m.wire("snd0",0,"snd",0)
-m.msg("sig0", "1", [480, 15, 30, 22]); m.msg("drv0", "2", [520, 15, 30, 22]); m.msg("v0", "100", [560, 15, 40, 22])
-m.wire("lb",0,"sig0",0); m.wire("sig0",0,"sig",0); m.wire("lb",0,"drv0",0); m.wire("drv0",0,"drv",0)
+m.msg("sig0", "1", [480, 15, 30, 22]); m.msg("v0", "100", [560, 15, 40, 22])
+m.wire("lb",0,"sig0",0); m.wire("sig0",0,"sig",0); 
 d_out = vslider("dep", "depth", "", 0, 1, L, 400, False, 1.0, False)
 s_out = vslider("smo", "smoothing", "ms", 5, 2000, L+130, 600, True, 0.6, True)
 f_out = vslider("frq", "frequency", "Hz", 40, 2000, L+220, 800, True, 0.4358, True)
