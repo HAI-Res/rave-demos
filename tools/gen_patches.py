@@ -160,7 +160,7 @@ def build(walk):
         m.obj("clock", "qmetro 250", [600, 560, 80, 22], 2, 1)
         m.msg("clock1", "1", [690, 530, 30, 22])
         m.obj("chg", "zl change", [600, 620, 80, 22], 2, 2)
-        m.obj("pset", "prepend set", [600, 650, 80, 22], 1, 1)
+        m.obj("pset", "prepend setlist", [600, 650, 100, 22], 1, 1)  # multislider: set = one slider; setlist = all
         m.wire("lb",0,"clock1",0); m.wire("clock1",0,"clock",0); m.wire("clock",0,"paint",0)
         m.wire("cut",0,"bars",0)          # zero / random land on the bars, which output into the hub
         m.wire("bars",0,"hub",0); m.wire("walk",0,"hub",0)
