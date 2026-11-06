@@ -3,7 +3,7 @@ desc:THE SOURCE -> noise
 // The input is normalised to 0..1 by tracking its own range, so any channel works.
 // No graphics: nothing on screen moves.
 
-slider1:signal=2<0,11,1{1 Raw ECG,2 Cooked ECG,3 BPM,4 R2R,5 Valence,6 Arousal,7 RSP,8 RSP Rate,9 RSP Effort,10 Touch Plate,11 Unused,12 Unused}>signal
+slider1:signal=1<0,11,1{1 Raw ECG,2 Cooked ECG,3 BPM,4 R2R,5 Valence,6 Arousal,7 RSP,8 RSP Rate,9 RSP Effort,10 Touch Plate,11 Unused,12 Unused}>signal
 slider2:drives=2<0,2,1{loudness,brightness,both}>drives
 slider3:depth=1<0,1,0.01>depth
 slider4:smoothing=100<5,2000,1:log>smoothing (ms)
