@@ -143,6 +143,25 @@
    },
    {
     "box": {
+     "id": "adc",
+     "maxclass": "newobj",
+     "patching_rect": [
+      300,
+      120,
+      70,
+      22
+     ],
+     "text": "adc~ 1 2",
+     "numinlets": 1,
+     "numoutlets": 2,
+     "outlettype": [
+      "",
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
      "id": "snl",
      "maxclass": "comment",
      "patching_rect": [
@@ -2093,6 +2112,30 @@
      "destination": [
       "vst",
       0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "adc",
+      0
+     ],
+     "destination": [
+      "vst",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "adc",
+      1
+     ],
+     "destination": [
+      "vst",
+      1
      ]
     }
    },
