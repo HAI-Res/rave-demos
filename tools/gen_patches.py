@@ -245,23 +245,33 @@ def build(kind):
         bp = dict(numinlets=0, viewvisibility=1, enablehscroll=0, enablevscroll=0, lockeddragscroll=0, offset=[0.0, 0.0])
         m.box("qr", "bpatcher", [700, 20, 258, 312], pres=[630, 20, 258, 312], name="ap.qr.maxpat", numoutlets=0, **bp)
         m.box("recv", "bpatcher", [700, 340, 208, 126], pres=[630, 344, 208, 126], name="ap.receive.maxpat", numoutlets=0, **bp)
-        for key, ch, x in [("tatt", "ap.attitude", 700), ("tgyr", "ap.gyro", 960), ("tacc", "ap.accel", 1220)]:
+        for key, ch, x in [("tatt", "ap.attitude", 700), ("tgyr", "ap.gyro", 960), ("tacc", "ap.accel", 1220),
+                           ("tgrv", "ap.gravity", 1480)]:
             m.box(key, "bpatcher", [x, 480, 246, 24], name="ap.channel.maxpat", args=[ch], numoutlets=6, outlettype=[""]*6, **bp)
-        m.com("motionc", "1 tilt  ·  2 roll  ·  3 spin  ·  4 shake\n5–7 spin x y z  ·  8–10 shake x y z  ·  11–16 still",
+        m.com("motionc", "1 tilt · 2 roll · 3 spin · 4 shake · 5–7 spin x y z · 8–10 shake x y z\n11–13 which way is down · 14–15 which way you face · 16 energy",
               [700, 510, 400, 40], pres=[L, Y["motion"], 560, 40], textcolor=GREY)
         # each motion: its range -> -1..1, clipped, times the spread. Spin and shake are never negative,
         # so their range is centred on 0: holding still is the middle of the latent space.
         MOTIONS = [("tatt", 2, -90, 90), ("tatt", 3, -90, 90),      # tilt, roll (degrees)
                    ("tgyr", 5, -8, 8), ("tacc", 5, -15, 15),        # spin, shake (magnitudes)
                    ("tgyr", 1, -6, 6), ("tgyr", 2, -6, 6), ("tgyr", 3, -6, 6),       # spin x y z (rad/s)
-                   ("tacc", 1, -10, 10), ("tacc", 2, -10, 10), ("tacc", 3, -10, 10)]  # shake x y z (m/s²)
+                   ("tacc", 1, -10, 10), ("tacc", 2, -10, 10), ("tacc", 3, -10, 10),  # shake x y z (m/s²)
+                   ("tgrv", 1, -9.8, 9.8), ("tgrv", 2, -9.8, 9.8), ("tgrv", 3, -9.8, 9.8),  # which way is down
+                   ("tatt", 1, -1, 1, "expr sin($f1*0.0174533)"),   # which way you face, as sine and
+                   ("tatt", 1, -1, 1, "expr cos($f1*0.0174533)"),   # cosine so 180 -> -180 does not jump
+                   ("tacc", 5, -6, 6, "slide 20 150")]              # energy: shake, slow up, slower down
         m.obj("pak", "pak " + " ".join(["f"]*len(MOTIONS)), [700, 640, 400, 22], len(MOTIONS), 1)
-        for k, (src, o, lo, hi) in enumerate(MOTIONS):
+        for k, (src, o, lo, hi, *pre) in enumerate(MOTIONS):
             x = 700 + k*130
             m.obj(f"sc{k}", f"scale {lo}. {hi}. -1. 1.", [x, 540, 125, 22], 6, 1)
             m.obj(f"cl{k}", "clip -1. 1.", [x, 570, 80, 22], 3, 1)
             m.obj(f"sp{k}", "* 1.5", [x, 600, 50, 22], 2, 1)
-            m.wire(src, o, f"sc{k}", 0); m.wire(f"sc{k}",0,f"cl{k}",0); m.wire(f"cl{k}",0,f"sp{k}",0); m.wire(f"sp{k}",0,"pak",k)
+            if pre:
+                m.obj(f"pre{k}", pre[0], [x, 515, 125, 22], 3, 1)
+                m.wire(src, o, f"pre{k}", 0); m.wire(f"pre{k}", 0, f"sc{k}", 0)
+            else:
+                m.wire(src, o, f"sc{k}", 0)
+            m.wire(f"sc{k}",0,f"cl{k}",0); m.wire(f"cl{k}",0,f"sp{k}",0); m.wire(f"sp{k}",0,"pak",k)
         # to the decoder at sensor rate; to the bars at most 4 times a second
         m.obj("hub", "t l l", [700, 670, 100, 22], 1, 2)
         m.obj("paint", "zl reg", [820, 730, 60, 22], 2, 2)
