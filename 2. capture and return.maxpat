@@ -113,7 +113,11 @@
       ",",
       "musicnet",
       ",",
-      "vintage"
+      "vintage",
+      ",",
+      "birds_z16",
+      ",",
+      "birds_z4"
      ],
      "parameter_enable": 0,
      "fontsize": 14.0
@@ -245,13 +249,15 @@
          "patching_rect": [
           20,
           60,
-          540,
+          660,
           22
          ],
-         "text": "route 0 1 2 3 4 5 6 7 8",
+         "text": "route 0 1 2 3 4 5 6 7 8 9 10",
          "numinlets": 1,
-         "numoutlets": 10,
+         "numoutlets": 12,
          "outlettype": [
+          "",
+          "",
           "",
           "",
           "",
@@ -776,6 +782,116 @@
        },
        {
         "box": {
+         "id": "t9",
+         "maxclass": "newobj",
+         "patching_rect": [
+          560,
+          100,
+          40,
+          22
+         ],
+         "text": "t b b",
+         "numinlets": 1,
+         "numoutlets": 2,
+         "outlettype": [
+          "",
+          ""
+         ]
+        }
+       },
+       {
+        "box": {
+         "id": "s9",
+         "maxclass": "message",
+         "patching_rect": [
+          560,
+          140,
+          55,
+          22
+         ],
+         "text": "script delete rave, script newdefault rave 40 700 nn~ birds_z16 decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 560 560 26",
+         "numinlets": 2,
+         "numoutlets": 1,
+         "outlettype": [
+          ""
+         ]
+        }
+       },
+       {
+        "box": {
+         "id": "u9",
+         "maxclass": "message",
+         "patching_rect": [
+          560,
+          180,
+          55,
+          22
+         ],
+         "text": "; rave2.n 16; rave2.bars size 16; rave2.bars 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0; rave2.info set 16 dimensions; rave2.what set trained on 35 hours of birdsong from the Macaulay Library at Cornell (RAVE v2 trained here); rave2.url symbol https://search.macaulaylibrary.org/catalog?mediaType=audio",
+         "numinlets": 2,
+         "numoutlets": 1,
+         "outlettype": [
+          ""
+         ]
+        }
+       },
+       {
+        "box": {
+         "id": "t10",
+         "maxclass": "newobj",
+         "patching_rect": [
+          620,
+          100,
+          40,
+          22
+         ],
+         "text": "t b b",
+         "numinlets": 1,
+         "numoutlets": 2,
+         "outlettype": [
+          "",
+          ""
+         ]
+        }
+       },
+       {
+        "box": {
+         "id": "s10",
+         "maxclass": "message",
+         "patching_rect": [
+          620,
+          140,
+          55,
+          22
+         ],
+         "text": "script delete rave, script newdefault rave 40 700 nn~ birds_z4 decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 560 560 26",
+         "numinlets": 2,
+         "numoutlets": 1,
+         "outlettype": [
+          ""
+         ]
+        }
+       },
+       {
+        "box": {
+         "id": "u10",
+         "maxclass": "message",
+         "patching_rect": [
+          620,
+          180,
+          55,
+          22
+         ],
+         "text": "; rave2.n 4; rave2.bars size 4; rave2.bars 0 0 0 0; rave2.info set 4 dimensions; rave2.what set trained on the same bird model \u00b7 cut to its 4 strongest dimensions; rave2.url symbol https://search.macaulaylibrary.org/catalog?mediaType=audio",
+         "numinlets": 2,
+         "numoutlets": 1,
+         "outlettype": [
+          ""
+         ]
+        }
+       },
+       {
+        "box": {
          "id": "c",
          "maxclass": "comment",
          "patching_rect": [
@@ -1227,6 +1343,102 @@
         "patchline": {
          "source": [
           "s8",
+          0
+         ],
+         "destination": [
+          "out",
+          0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "rt",
+          9
+         ],
+         "destination": [
+          "t9",
+          0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "t9",
+          1
+         ],
+         "destination": [
+          "s9",
+          0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "t9",
+          0
+         ],
+         "destination": [
+          "u9",
+          0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "s9",
+          0
+         ],
+         "destination": [
+          "out",
+          0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "rt",
+          10
+         ],
+         "destination": [
+          "t10",
+          0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "t10",
+          1
+         ],
+         "destination": [
+          "s10",
+          0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "t10",
+          0
+         ],
+         "destination": [
+          "u10",
+          0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "s10",
           0
          ],
          "destination": [
