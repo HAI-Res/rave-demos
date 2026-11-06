@@ -13,7 +13,7 @@
    80,
    60,
    910,
-   700
+   712
   ],
   "gridsize": [
    15.0,
@@ -308,7 +308,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 590 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 602 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -363,7 +363,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario_fast decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 590 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario_fast decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 602 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -418,7 +418,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_full decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 590 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_full decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 602 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -473,7 +473,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ isis decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 590 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ isis decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 602 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -528,7 +528,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ VCTK decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 590 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ VCTK decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 602 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -583,7 +583,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ nasa decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 590 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ nasa decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 602 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -638,7 +638,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ percussion decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 590 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ percussion decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 602 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -693,7 +693,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ musicnet decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 590 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ musicnet decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 602 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -748,7 +748,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ vintage decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 590 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ vintage decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 602 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -3438,15 +3438,15 @@
       700,
       510,
       400,
-      20
+      40
      ],
-     "text": "z1 tilt  \u00b7  z2 roll  \u00b7  z3 spin  \u00b7  z4 shake",
+     "text": "1 tilt  \u00b7  2 roll  \u00b7  3 spin  \u00b7  4 shake\n5\u20137 spin x y z  \u00b7  8\u201310 shake x y z  \u00b7  11\u201316 still",
      "presentation": 1,
      "presentation_rect": [
       30,
       364,
       560,
-      20
+      40
      ],
      "numinlets": 1,
      "numoutlets": 0,
@@ -3465,11 +3465,11 @@
      "patching_rect": [
       700,
       640,
-      200,
+      400,
       22
      ],
-     "text": "pak f f f f",
-     "numinlets": 4,
+     "text": "pak f f f f f f f f f f",
+     "numinlets": 10,
      "numoutlets": 1,
      "outlettype": [
       ""
@@ -3694,6 +3694,330 @@
    },
    {
     "box": {
+     "id": "sc4",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1220,
+      540,
+      125,
+      22
+     ],
+     "text": "scale -6. 6. -1. 1.",
+     "numinlets": 6,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "cl4",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1220,
+      570,
+      80,
+      22
+     ],
+     "text": "clip -1. 1.",
+     "numinlets": 3,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "sp4",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1220,
+      600,
+      50,
+      22
+     ],
+     "text": "* 1.5",
+     "numinlets": 2,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "sc5",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1350,
+      540,
+      125,
+      22
+     ],
+     "text": "scale -6. 6. -1. 1.",
+     "numinlets": 6,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "cl5",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1350,
+      570,
+      80,
+      22
+     ],
+     "text": "clip -1. 1.",
+     "numinlets": 3,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "sp5",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1350,
+      600,
+      50,
+      22
+     ],
+     "text": "* 1.5",
+     "numinlets": 2,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "sc6",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1480,
+      540,
+      125,
+      22
+     ],
+     "text": "scale -6. 6. -1. 1.",
+     "numinlets": 6,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "cl6",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1480,
+      570,
+      80,
+      22
+     ],
+     "text": "clip -1. 1.",
+     "numinlets": 3,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "sp6",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1480,
+      600,
+      50,
+      22
+     ],
+     "text": "* 1.5",
+     "numinlets": 2,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "sc7",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1610,
+      540,
+      125,
+      22
+     ],
+     "text": "scale -10. 10. -1. 1.",
+     "numinlets": 6,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "cl7",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1610,
+      570,
+      80,
+      22
+     ],
+     "text": "clip -1. 1.",
+     "numinlets": 3,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "sp7",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1610,
+      600,
+      50,
+      22
+     ],
+     "text": "* 1.5",
+     "numinlets": 2,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "sc8",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1740,
+      540,
+      125,
+      22
+     ],
+     "text": "scale -10. 10. -1. 1.",
+     "numinlets": 6,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "cl8",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1740,
+      570,
+      80,
+      22
+     ],
+     "text": "clip -1. 1.",
+     "numinlets": 3,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "sp8",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1740,
+      600,
+      50,
+      22
+     ],
+     "text": "* 1.5",
+     "numinlets": 2,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "sc9",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1870,
+      540,
+      125,
+      22
+     ],
+     "text": "scale -10. 10. -1. 1.",
+     "numinlets": 6,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "cl9",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1870,
+      570,
+      80,
+      22
+     ],
+     "text": "clip -1. 1.",
+     "numinlets": 3,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "sp9",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1870,
+      600,
+      50,
+      22
+     ],
+     "text": "* 1.5",
+     "numinlets": 2,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
      "id": "hub",
      "maxclass": "newobj",
      "patching_rect": [
@@ -3805,6 +4129,43 @@
    },
    {
     "box": {
+     "id": "pcut",
+     "maxclass": "newobj",
+     "patching_rect": [
+      820,
+      670,
+      80,
+      22
+     ],
+     "text": "zl slice 4",
+     "numinlets": 2,
+     "numoutlets": 2,
+     "outlettype": [
+      "",
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "prn",
+     "maxclass": "newobj",
+     "patching_rect": [
+      910,
+      640,
+      70,
+      22
+     ],
+     "text": "r rave4.n",
+     "numinlets": 0,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
      "id": "metah",
      "maxclass": "comment",
      "patching_rect": [
@@ -3817,7 +4178,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      404,
+      416,
       300,
       22
      ],
@@ -3840,7 +4201,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      434,
+      446,
       90,
       20
      ],
@@ -3867,7 +4228,7 @@
      "presentation": 1,
      "presentation_rect": [
       34,
-      458,
+      470,
       22,
       80
      ],
@@ -3930,7 +4291,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      544,
+      556,
       56,
       24
      ],
@@ -3960,7 +4321,7 @@
      "presentation": 1,
      "presentation_rect": [
       88,
-      546,
+      558,
       30,
       20
      ],
@@ -4006,7 +4367,7 @@
      "presentation": 1,
      "presentation_rect": [
       160,
-      434,
+      446,
       90,
       20
      ],
@@ -4033,7 +4394,7 @@
      "presentation": 1,
      "presentation_rect": [
       164,
-      458,
+      470,
       22,
       80
      ],
@@ -4114,7 +4475,7 @@
      "presentation": 1,
      "presentation_rect": [
       160,
-      544,
+      556,
       56,
       24
      ],
@@ -4143,7 +4504,7 @@
      "presentation": 1,
      "presentation_rect": [
       218,
-      546,
+      558,
       30,
       20
      ],
@@ -4205,7 +4566,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      590,
+      602,
       560,
       26
      ],
@@ -4231,7 +4592,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      634,
+      646,
       220,
       26
      ],
@@ -4259,7 +4620,7 @@
      "presentation": 1,
      "presentation_rect": [
       258,
-      637,
+      649,
       80,
       20
      ],
@@ -4286,7 +4647,7 @@
      "presentation": 1,
      "presentation_rect": [
       545,
-      624,
+      636,
       45,
       45
      ],
@@ -4308,7 +4669,7 @@
      "presentation": 1,
      "presentation_rect": [
       492,
-      637,
+      649,
       50,
       20
      ],
@@ -4699,6 +5060,294 @@
    {
     "patchline": {
      "source": [
+      "tgyr",
+      1
+     ],
+     "destination": [
+      "sc4",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sc4",
+      0
+     ],
+     "destination": [
+      "cl4",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "cl4",
+      0
+     ],
+     "destination": [
+      "sp4",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sp4",
+      0
+     ],
+     "destination": [
+      "pak",
+      4
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "tgyr",
+      2
+     ],
+     "destination": [
+      "sc5",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sc5",
+      0
+     ],
+     "destination": [
+      "cl5",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "cl5",
+      0
+     ],
+     "destination": [
+      "sp5",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sp5",
+      0
+     ],
+     "destination": [
+      "pak",
+      5
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "tgyr",
+      3
+     ],
+     "destination": [
+      "sc6",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sc6",
+      0
+     ],
+     "destination": [
+      "cl6",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "cl6",
+      0
+     ],
+     "destination": [
+      "sp6",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sp6",
+      0
+     ],
+     "destination": [
+      "pak",
+      6
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "tacc",
+      1
+     ],
+     "destination": [
+      "sc7",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sc7",
+      0
+     ],
+     "destination": [
+      "cl7",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "cl7",
+      0
+     ],
+     "destination": [
+      "sp7",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sp7",
+      0
+     ],
+     "destination": [
+      "pak",
+      7
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "tacc",
+      2
+     ],
+     "destination": [
+      "sc8",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sc8",
+      0
+     ],
+     "destination": [
+      "cl8",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "cl8",
+      0
+     ],
+     "destination": [
+      "sp8",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sp8",
+      0
+     ],
+     "destination": [
+      "pak",
+      8
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "tacc",
+      3
+     ],
+     "destination": [
+      "sc9",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sc9",
+      0
+     ],
+     "destination": [
+      "cl9",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "cl9",
+      0
+     ],
+     "destination": [
+      "sp9",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sp9",
+      0
+     ],
+     "destination": [
+      "pak",
+      9
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
       "pak",
       0
      ],
@@ -4724,6 +5373,30 @@
     "patchline": {
      "source": [
       "hub",
+      0
+     ],
+     "destination": [
+      "pcut",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "prn",
+      0
+     ],
+     "destination": [
+      "pcut",
+      1
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "pcut",
       0
      ],
      "destination": [
@@ -4980,6 +5653,78 @@
      ],
      "destination": [
       "sp3",
+      1
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sprx",
+      0
+     ],
+     "destination": [
+      "sp4",
+      1
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sprx",
+      0
+     ],
+     "destination": [
+      "sp5",
+      1
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sprx",
+      0
+     ],
+     "destination": [
+      "sp6",
+      1
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sprx",
+      0
+     ],
+     "destination": [
+      "sp7",
+      1
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sprx",
+      0
+     ],
+     "destination": [
+      "sp8",
+      1
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sprx",
+      0
+     ],
+     "destination": [
+      "sp9",
       1
      ]
     }

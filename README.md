@@ -75,7 +75,8 @@ repaint at most 4 times a second, while the decoder hears every step.
 ### 4. phone to rave
 
 The phone's motion moves the bars: tilt forward and back for z1, side to side
-for z2, spin for z3, shake for z4. **spread** sets how far the motion reaches
+for z2, spin for z3, shake for z4, then spin around each axis for z5–z7 and
+shake along each axis for z8–z10. Models with 16 bars leave 11–16 still. **spread** sets how far the motion reaches
 into the latent space; **smoothing** sets how quickly the sound follows. Both
 are logarithmic.
 

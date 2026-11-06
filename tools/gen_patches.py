@@ -53,7 +53,7 @@ def build(kind):
     if cap:
         Y.update(slots=424, nn=560, vol=604, h=674)
     if phone:
-        Y.update(motion=364, meta=404, mrow=434, nn=590, vol=634, h=700)
+        Y.update(motion=364, meta=416, mrow=446, nn=602, vol=646, h=712)
 
     # [p smooth]: list in, one line~ per dimension out. Glide time from NS.glide (default 30 ms).
     sm = P()
@@ -247,12 +247,16 @@ def build(kind):
         m.box("recv", "bpatcher", [700, 340, 208, 126], pres=[630, 344, 208, 126], name="ap.receive.maxpat", numoutlets=0, **bp)
         for key, ch, x in [("tatt", "ap.attitude", 700), ("tgyr", "ap.gyro", 960), ("tacc", "ap.accel", 1220)]:
             m.box(key, "bpatcher", [x, 480, 246, 24], name="ap.channel.maxpat", args=[ch], numoutlets=6, outlettype=[""]*6, **bp)
-        m.com("motionc", "z1 tilt  ·  z2 roll  ·  z3 spin  ·  z4 shake", [700, 510, 400, 20],
-              pres=[L, Y["motion"], 560, 20], textcolor=GREY)
+        m.com("motionc", "1 tilt  ·  2 roll  ·  3 spin  ·  4 shake\n5–7 spin x y z  ·  8–10 shake x y z  ·  11–16 still",
+              [700, 510, 400, 40], pres=[L, Y["motion"], 560, 40], textcolor=GREY)
         # each motion: its range -> -1..1, clipped, times the spread. Spin and shake are never negative,
         # so their range is centred on 0: holding still is the middle of the latent space.
-        m.obj("pak", "pak f f f f", [700, 640, 200, 22], 4, 1)
-        for k, (src, o, lo, hi) in enumerate([("tatt", 2, -90, 90), ("tatt", 3, -90, 90), ("tgyr", 5, -8, 8), ("tacc", 5, -15, 15)]):
+        MOTIONS = [("tatt", 2, -90, 90), ("tatt", 3, -90, 90),      # tilt, roll (degrees)
+                   ("tgyr", 5, -8, 8), ("tacc", 5, -15, 15),        # spin, shake (magnitudes)
+                   ("tgyr", 1, -6, 6), ("tgyr", 2, -6, 6), ("tgyr", 3, -6, 6),       # spin x y z (rad/s)
+                   ("tacc", 1, -10, 10), ("tacc", 2, -10, 10), ("tacc", 3, -10, 10)]  # shake x y z (m/s²)
+        m.obj("pak", "pak " + " ".join(["f"]*len(MOTIONS)), [700, 640, 400, 22], len(MOTIONS), 1)
+        for k, (src, o, lo, hi) in enumerate(MOTIONS):
             x = 700 + k*130
             m.obj(f"sc{k}", f"scale {lo}. {hi}. -1. 1.", [x, 540, 125, 22], 6, 1)
             m.obj(f"cl{k}", "clip -1. 1.", [x, 570, 80, 22], 3, 1)
@@ -265,13 +269,15 @@ def build(kind):
         m.msg("clock1", "1", [910, 670, 30, 22])
         m.obj("chg", "zl change", [820, 760, 80, 22], 2, 2)
         m.obj("pset", "prepend setlist", [820, 790, 100, 22], 1, 1)
-        m.wire("pak",0,"hub",0); m.wire("hub",1,"smooth",0); m.wire("hub",0,"paint",1)
+        m.obj("pcut", "zl slice 4", [820, 670, 80, 22], 2, 2); m.obj("prn", f"r {NS}.n", [910, 640, 70, 22], 0, 1)
+        m.wire("pak",0,"hub",0); m.wire("hub",1,"smooth",0); m.wire("hub",0,"pcut",0); m.wire("prn",0,"pcut",1)
+        m.wire("pcut",0,"paint",1)   # only as many values as the model has bars
         m.wire("lb",0,"clock1",0); m.wire("clock1",0,"clock",0); m.wire("clock",0,"paint",0)
         m.wire("paint",0,"chg",0); m.wire("chg",0,"pset",0); m.wire("pset",0,"bars",0)
         m.com("metah", "mapping", [700, 400, 200, 22], pres=[L, Y["meta"], 300, 22], fontsize=15.0)
         sp_out = logslider("spr", "spread", "", 0.5, 4.5, L, 1000, False)
         sm_out = logslider("smo", "smoothing", "ms", 15, 1500, L+130, 1200, True)
-        for k in range(4): m.wire(sp_out, 0, f"sp{k}", 1)
+        for k in range(len(MOTIONS)): m.wire(sp_out, 0, f"sp{k}", 1)
         m.obj("sg", f"s {NS}.glide", [1200, 640, 90, 22], 1, 0)
         m.wire(sm_out,0,"sg",0)
 
