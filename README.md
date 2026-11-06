@@ -44,6 +44,7 @@ model learned from.
 | `walk.js`, `slots.js` | the random walk and the slots |
 | `ap.*`, other `.js`, `vendor/` | receive the phone's data |
 | `tools/gen_patches.py` | writes patches 1 to 4 |
+| `the-source/` | THE SOURCE (bioMECI) driving noise, in REAPER and Max |
 | `train/` | how the bird models were trained (CSAIL cluster jobs) |
 
 ## Credits
