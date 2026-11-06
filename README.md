@@ -18,6 +18,10 @@ a phone.
    ./get-models.sh
    ```
 
+   The bird models (`birds_z16`, `birds_z4`) are not in that download. We
+   trained them on birdsong from the Macaulay Library; they play from the
+   instructor's laptop.
+
 ## Patches
 
 1. **decoder by hand**: drag the bars to change the sound.
@@ -40,6 +44,7 @@ model learned from.
 | `walk.js`, `slots.js` | the random walk and the slots |
 | `ap.*`, other `.js`, `vendor/` | receive the phone's data |
 | `tools/gen_patches.py` | writes patches 1 to 4 |
+| `train/` | how the bird models were trained (CSAIL cluster jobs) |
 
 ## Credits
 
