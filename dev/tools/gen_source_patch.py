@@ -152,6 +152,7 @@ m.obj("dfl", "deferlow", [480, 90, 65, 22], 1, 1); m.msg("pres1", "presentation 
 m.wire("lb",0,"dfl",0); m.wire("dfl",0,"pres1",0); m.wire("pres1",0,"tp",0)
 
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if os.path.basename(root) == "dev": root = os.path.dirname(root)   # tools/ may live in dev/
 out = os.path.join(root, "the-source", "the source to noise.maxpat")
 json.dump({"patcher": patcher(m.boxes, m.lines, [80, 60, 560, 400], openinpresentation=1)}, open(out, "w"), indent=1)
 print("wrote", out)

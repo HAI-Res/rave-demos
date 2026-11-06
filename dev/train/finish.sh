@@ -2,7 +2,7 @@
 # Morning handoff for the overnight bird model (run on Jon's Mac, in the background):
 #   1. wait for the cluster export job (submitted with --begin, so SLURM starts it on time
 #      whatever happens to this Mac's ssh),
-#   2. copy birds_z4.ts / birds_z16.ts into the repo folder (*.ts is gitignored),
+#   2. copy birds_z4.ts / birds_z16.ts into the repo's rave/ folder (*.ts is gitignored),
 #   3. rebase the birds-models branch (menu entries + README) onto main, push, open a PR
 #      and merge it, so the patch menus on GitHub list the two models.
 # Nothing is pushed unless both models exported, loaded and copied.
@@ -31,15 +31,15 @@ rssh "tail -c 3000 $R/logs/export_$JOB.out"
 rssh "grep -q 'birds_z4.ts: methods' $R/logs/export_$JOB.out && grep -q 'birds_z16.ts: methods' $R/logs/export_$JOB.out" || die "export log lacks the load checks"
 
 for N in 4 16; do
-  rsync -a --partial agents:$R/export/birds_z$N.ts "$REPO/birds_z$N.ts.part" && mv "$REPO/birds_z$N.ts.part" "$REPO/birds_z$N.ts" || die "copy of birds_z$N.ts failed"
-  sz=$(stat -f %z "$REPO/birds_z$N.ts"); [ "$sz" -gt 50000000 ] || die "birds_z$N.ts is only $sz bytes"
+  rsync -a --partial agents:$R/export/birds_z$N.ts "$REPO/rave/birds_z$N.ts.part" && mv "$REPO/rave/birds_z$N.ts.part" "$REPO/rave/birds_z$N.ts" || die "copy of birds_z$N.ts failed"
+  sz=$(stat -f %z "$REPO/rave/birds_z$N.ts"); [ "$sz" -gt 50000000 ] || die "birds_z$N.ts is only $sz bytes"
   say "copied birds_z$N.ts ($sz bytes)"
 done
 
 cd "$REPO" || die "no repo"
 [ -z "$(git status --porcelain --untracked-files=no)" ] || die "repo has uncommitted changes; not touching git"
 git checkout -q birds-models && git rebase -q main || die "rebase of birds-models onto main failed"
-python3 tools/gen_patches.py >/dev/null || die "gen_patches failed"
+python3 dev/tools/gen_patches.py >/dev/null || die "gen_patches failed"
 if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
   git commit -qam "Regenerate patches after rebase
 

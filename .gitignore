@@ -1,5 +1,5 @@
 *.ts
 .DS_Store
-train/GIT_REV
-train/finish.log
+dev/train/GIT_REV
+dev/train/finish.log
 *.RPP-bak

@@ -2,7 +2,7 @@
 
 The patches are generated so their layout stays exact; edit this file, run
   python3 tools/gen_patches.py
-from the repo root, and restart Max (it caches abstractions and open patches).
+from the repo root (it writes into rave/), and restart Max (it caches abstractions and open patches).
 """
 import json, os
 MAXD = 16
@@ -306,7 +306,8 @@ def build(kind):
     return {"patcher": patcher(m.boxes, m.lines, [80, 60, 910 if phone else 640, Y["h"]], openinpresentation=1)}
 
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if os.path.basename(root) == "dev": root = os.path.dirname(root)   # tools/ may live in dev/
 for kind, name in [("hand", "1. decoder by hand.maxpat"), ("capture", "2. capture and return.maxpat"),
                    ("walk", "3. random walk.maxpat"), ("phone", "4. phone to rave.maxpat")]:
-    json.dump(build(kind), open(os.path.join(root, name), "w"), indent=1)
+    json.dump(build(kind), open(os.path.join(root, "rave", name), "w"), indent=1)
     print("wrote", name)
