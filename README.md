@@ -54,8 +54,12 @@ The same bars, moved by a random walk: every step, each dimension moves a
 random amount. Two "metaparameters" shape the walk (they are settings of the
 walk, not of the model):
 
-- **step size**: how far a typical step goes, in the same units as the bars.
-- **step every**: how often it steps, in milliseconds.
+- **step size**: how far a typical step goes, in the same units as the bars
+  (0.01 to 1).
+- **step every**: how often it steps (20 to 2000 ms).
+
+Both sliders are logarithmic. We hear rates and sizes as ratios, so moving a
+slider the same distance anywhere along it doubles (or halves) the value.
 
 Small steps taken often drift slowly through nearby sounds; big steps jump
 around. Drag a bar while it walks and the walk carries on from there. The bars

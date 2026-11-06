@@ -13,7 +13,7 @@
    80,
    60,
    640,
-   790
+   870
   ],
   "gridsize": [
    15.0,
@@ -358,7 +358,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 650 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -413,7 +413,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario_fast decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 650 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario_fast decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -468,7 +468,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_full decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 650 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_full decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -523,7 +523,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ isis decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 650 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ isis decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -578,7 +578,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ VCTK decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 650 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ VCTK decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -633,7 +633,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ nasa decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 650 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ nasa decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -688,7 +688,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ percussion decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 650 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ percussion decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -743,7 +743,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ musicnet decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 650 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ musicnet decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -798,7 +798,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 700 nn~ vintage decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 650 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ vintage decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 730 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -4017,15 +4017,15 @@
      "patching_rect": [
       820,
       450,
-      70,
+      80,
       20
      ],
      "text": "step size",
      "presentation": 1,
      "presentation_rect": [
-      148,
-      577,
-      70,
+      30,
+      611,
+      80,
       20
      ],
      "numinlets": 1,
@@ -4040,19 +4040,82 @@
    },
    {
     "box": {
-     "id": "ss",
-     "maxclass": "flonum",
+     "id": "sss",
+     "maxclass": "slider",
+     "patching_rect": [
+      820,
+      475,
+      160,
+      22
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      115,
+      610,
+      360,
+      22
+     ],
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "floatoutput": 1,
+     "size": 1.0,
+     "parameter_enable": 0
+    }
+   },
+   {
+    "box": {
+     "id": "ssx",
+     "maxclass": "newobj",
+     "patching_rect": [
+      820,
+      505,
+      160,
+      22
+     ],
+     "text": "expr 0.01*pow(100.0,$f1)",
+     "numinlets": 2,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "ssps",
+     "maxclass": "newobj",
      "patching_rect": [
       890,
-      450,
+      535,
+      80,
+      22
+     ],
+     "text": "prepend set",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "ssn",
+     "maxclass": "flonum",
+     "patching_rect": [
+      820,
+      565,
       60,
       22
      ],
      "presentation": 1,
      "presentation_rect": [
-      218,
-      574,
-      64,
+      485,
+      608,
+      60,
       26
      ],
      "numinlets": 1,
@@ -4061,114 +4124,28 @@
       "",
       ""
      ],
-     "minimum": 0.0,
-     "maximum": 1.0,
-     "numdecimalplaces": 2,
+     "ignoreclick": 1,
      "parameter_enable": 0,
-     "fontsize": 14.0
+     "fontsize": 14.0,
+     "numdecimalplaces": 2
     }
    },
    {
     "box": {
-     "id": "sev",
+     "id": "ssu",
      "maxclass": "comment",
      "patching_rect": [
-      960,
-      450,
-      80,
-      20
-     ],
-     "text": "step every",
-     "presentation": 1,
-     "presentation_rect": [
-      305,
-      577,
-      80,
-      20
-     ],
-     "numinlets": 1,
-     "numoutlets": 0,
-     "textcolor": [
-      0.45,
-      0.45,
-      0.45,
-      1.0
-     ]
-    }
-   },
-   {
-    "box": {
-     "id": "ms",
-     "maxclass": "number",
-     "patching_rect": [
-      1040,
-      450,
-      60,
-      22
-     ],
-     "presentation": 1,
-     "presentation_rect": [
-      382,
-      574,
-      64,
-      26
-     ],
-     "numinlets": 1,
-     "numoutlets": 2,
-     "outlettype": [
-      "",
-      ""
-     ],
-     "minimum": 20,
-     "maximum": 4000,
-     "parameter_enable": 0,
-     "fontsize": 14.0
-    }
-   },
-   {
-    "box": {
-     "id": "msu",
-     "maxclass": "comment",
-     "patching_rect": [
-      1105,
-      450,
+      885,
+      565,
       30,
       20
      ],
-     "text": "ms",
+     "text": "",
      "presentation": 1,
      "presentation_rect": [
-      450,
-      577,
-      30,
-      20
-     ],
-     "numinlets": 1,
-     "numoutlets": 0,
-     "textcolor": [
-      0.45,
-      0.45,
-      0.45,
-      1.0
-     ]
-    }
-   },
-   {
-    "box": {
-     "id": "paintc",
-     "maxclass": "comment",
-     "patching_rect": [
-      700,
-      480,
-      560,
-      20
-     ],
-     "text": "The bars repaint at most 4 times a second. The decoder hears every step.",
-     "presentation": 1,
-     "presentation_rect": [
-      30,
-      606,
-      560,
+      550,
+      611,
+      40,
       20
      ],
      "numinlets": 1,
@@ -4186,16 +4163,181 @@
      "id": "ss0",
      "maxclass": "message",
      "patching_rect": [
-      700,
-      15,
-      40,
+      820,
+      420,
+      35,
       22
      ],
-     "text": "0.15",
+     "text": "0.5",
      "numinlets": 2,
      "numoutlets": 1,
      "outlettype": [
       ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "msl",
+     "maxclass": "comment",
+     "patching_rect": [
+      1000,
+      450,
+      80,
+      20
+     ],
+     "text": "step every",
+     "presentation": 1,
+     "presentation_rect": [
+      30,
+      643,
+      80,
+      20
+     ],
+     "numinlets": 1,
+     "numoutlets": 0,
+     "textcolor": [
+      0.45,
+      0.45,
+      0.45,
+      1.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "mss",
+     "maxclass": "slider",
+     "patching_rect": [
+      1000,
+      475,
+      160,
+      22
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      115,
+      642,
+      360,
+      22
+     ],
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "floatoutput": 1,
+     "size": 1.0,
+     "parameter_enable": 0
+    }
+   },
+   {
+    "box": {
+     "id": "msx",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1000,
+      505,
+      160,
+      22
+     ],
+     "text": "expr 20*pow(100.0,$f1)",
+     "numinlets": 2,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "msr",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1000,
+      535,
+      60,
+      22
+     ],
+     "text": "round 1",
+     "numinlets": 2,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "msps",
+     "maxclass": "newobj",
+     "patching_rect": [
+      1070,
+      535,
+      80,
+      22
+     ],
+     "text": "prepend set",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "msn",
+     "maxclass": "number",
+     "patching_rect": [
+      1000,
+      565,
+      60,
+      22
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      485,
+      640,
+      60,
+      26
+     ],
+     "numinlets": 1,
+     "numoutlets": 2,
+     "outlettype": [
+      "",
+      ""
+     ],
+     "ignoreclick": 1,
+     "parameter_enable": 0,
+     "fontsize": 14.0
+    }
+   },
+   {
+    "box": {
+     "id": "msu",
+     "maxclass": "comment",
+     "patching_rect": [
+      1065,
+      565,
+      30,
+      20
+     ],
+     "text": "ms",
+     "presentation": 1,
+     "presentation_rect": [
+      550,
+      643,
+      40,
+      20
+     ],
+     "numinlets": 1,
+     "numoutlets": 0,
+     "textcolor": [
+      0.45,
+      0.45,
+      0.45,
+      1.0
      ]
     }
    },
@@ -4204,12 +4346,12 @@
      "id": "ms0",
      "maxclass": "message",
      "patching_rect": [
-      750,
-      15,
-      40,
+      1000,
+      420,
+      35,
       22
      ],
-     "text": "200",
+     "text": "0.5",
      "numinlets": 2,
      "numoutlets": 1,
      "outlettype": [
@@ -4219,11 +4361,39 @@
    },
    {
     "box": {
+     "id": "paintc",
+     "maxclass": "comment",
+     "patching_rect": [
+      700,
+      600,
+      560,
+      40
+     ],
+     "text": "Both sliders are logarithmic: the same distance doubles the value anywhere along them. The bars repaint at most 4 times a second; the decoder hears every step.",
+     "presentation": 1,
+     "presentation_rect": [
+      30,
+      676,
+      560,
+      40
+     ],
+     "numinlets": 1,
+     "numoutlets": 0,
+     "textcolor": [
+      0.45,
+      0.45,
+      0.45,
+      1.0
+     ]
+    }
+   },
+   {
+    "box": {
      "id": "pss",
      "maxclass": "newobj",
      "patching_rect": [
-      890,
-      480,
+      820,
+      600,
       110,
       22
      ],
@@ -4241,7 +4411,7 @@
      "maxclass": "newobj",
      "patching_rect": [
       700,
-      510,
+      630,
       80,
       22
      ],
@@ -4258,8 +4428,8 @@
      "id": "sg",
      "maxclass": "newobj",
      "patching_rect": [
-      1040,
-      510,
+      1000,
+      630,
       90,
       22
      ],
@@ -4283,7 +4453,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      650,
+      730,
       560,
       26
      ],
@@ -4310,7 +4480,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      680,
+      760,
       560,
       20
      ],
@@ -4337,7 +4507,7 @@
      "presentation": 1,
      "presentation_rect": [
       30,
-      722,
+      802,
       220,
       26
      ],
@@ -4365,7 +4535,7 @@
      "presentation": 1,
      "presentation_rect": [
       258,
-      725,
+      805,
       80,
       20
      ],
@@ -4392,7 +4562,7 @@
      "presentation": 1,
      "presentation_rect": [
       545,
-      712,
+      792,
       45,
       45
      ],
@@ -4414,7 +4584,7 @@
      "presentation": 1,
      "presentation_rect": [
       492,
-      725,
+      805,
       50,
       20
      ],
@@ -4829,6 +4999,66 @@
    {
     "patchline": {
      "source": [
+      "ss0",
+      0
+     ],
+     "destination": [
+      "sss",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "sss",
+      0
+     ],
+     "destination": [
+      "ssx",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "ssx",
+      0
+     ],
+     "destination": [
+      "ssps",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "ssps",
+      0
+     ],
+     "destination": [
+      "ssn",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "msx",
+      0
+     ],
+     "destination": [
+      "msr",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
       "lb",
       0
      ],
@@ -4841,23 +5071,11 @@
    {
     "patchline": {
      "source": [
-      "ss0",
-      0
-     ],
-     "destination": [
-      "ss",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
       "ms0",
       0
      ],
      "destination": [
-      "ms",
+      "mss",
       0
      ]
     }
@@ -4865,7 +5083,43 @@
    {
     "patchline": {
      "source": [
-      "ss",
+      "mss",
+      0
+     ],
+     "destination": [
+      "msx",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "msr",
+      0
+     ],
+     "destination": [
+      "msps",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "msps",
+      0
+     ],
+     "destination": [
+      "msn",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "ssx",
       0
      ],
      "destination": [
@@ -4901,7 +5155,7 @@
    {
     "patchline": {
      "source": [
-      "ms",
+      "msr",
       0
      ],
      "destination": [
@@ -4913,7 +5167,7 @@
    {
     "patchline": {
      "source": [
-      "ms",
+      "msr",
       0
      ],
      "destination": [

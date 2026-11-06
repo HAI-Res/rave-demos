@@ -46,7 +46,7 @@ def build(walk):
     L = 30
     Y = dict(menu=112, info=148, what=168, bars=200, barsc=430, btn=476)
     if walk:
-        Y.update(meta=522, metac=546, mrow=574, paint=606, nn=650, nnc=680, vol=722, h=790)
+        Y.update(meta=522, metac=546, mrow=574, ss=608, ms=640, paint=676, nn=730, nnc=760, vol=802, h=870)
     else:
         Y.update(nn=520, nnc=550, vol=592, h=660)
 
@@ -173,22 +173,36 @@ def build(walk):
         m.box("go", "toggle", [700, 450, 26, 26], pres=[L, Y["mrow"], 26, 26], numinlets=1, numoutlets=1,
               outlettype=["int"], parameter_enable=0)
         m.com("gol", "walk", [730, 452, 50, 20], pres=[L+32, Y["mrow"]+3, 50, 20])
-        m.com("ssl", "step size", [820, 450, 70, 20], pres=[L+118, Y["mrow"]+3, 70, 20], textcolor=GREY)
-        m.box("ss", "flonum", [890, 450, 60, 22], pres=[L+188, Y["mrow"], 64, 26], numinlets=1, numoutlets=2,
-              outlettype=["",""], minimum=0.0, maximum=1.0, numdecimalplaces=2, parameter_enable=0, fontsize=14.0)
-        m.com("sev", "step every", [960, 450, 80, 20], pres=[L+275, Y["mrow"]+3, 80, 20], textcolor=GREY)
-        m.box("ms", "number", [1040, 450, 60, 22], pres=[L+352, Y["mrow"], 64, 26], numinlets=1, numoutlets=2,
-              outlettype=["",""], minimum=20, maximum=4000, parameter_enable=0, fontsize=14.0)
-        m.com("msu", "ms", [1105, 450, 30, 20], pres=[L+420, Y["mrow"]+3, 30, 20], textcolor=GREY)
-        m.com("paintc", "The bars repaint at most 4 times a second. The decoder hears every step.",
-              [700, 480, 560, 20], pres=[L, Y["paint"], 560, 20], textcolor=GREY)
-        m.msg("ss0", "0.15", [700, 15, 40, 22]); m.msg("ms0", "200", [750, 15, 40, 22])
-        m.wire("lb",0,"ss0",0); m.wire("lb",0,"ms0",0); m.wire("ss0",0,"ss",0); m.wire("ms0",0,"ms",0)
-        m.obj("pss", "prepend stepsize", [890, 480, 110, 22], 1, 1)
-        m.wire("ss",0,"pss",0); m.wire("pss",0,"walk",0)
-        m.obj("met", "metro 200", [700, 510, 80, 22], 2, 1)
-        m.obj("sg", f"s {NS}.glide", [1040, 510, 90, 22], 1, 0)
-        m.wire("go",0,"met",0); m.wire("ms",0,"met",1); m.wire("ms",0,"sg",0); m.wire("met",0,"walk",0)
+        # Two log sliders: equal movements multiply the value by the same factor (Weber), so
+        # "twice as fast" or "twice as far" is the same distance anywhere on the slider.
+        def logslider(key, label, unit, lo, hi, row, px, fmt_int):
+            yy = Y[row]
+            m.com(key+"l", label, [px, 450, 80, 20], pres=[L, yy+3, 80, 20], textcolor=GREY)
+            m.box(key+"s", "slider", [px, 475, 160, 22], pres=[L+85, yy+2, 360, 22], numinlets=1, numoutlets=1,
+                  outlettype=[""], floatoutput=1, size=1.0, parameter_enable=0)
+            m.obj(key+"x", f"expr {lo}*pow({hi/lo},$f1)", [px, 505, 160, 22], 2, 1)
+            out = key+"x"
+            if fmt_int:
+                m.obj(key+"r", "round 1", [px, 535, 60, 22], 2, 1); m.wire(key+"x",0,key+"r",0); out = key+"r"
+            m.obj(key+"ps", "prepend set", [px+70, 535, 80, 22], 1, 1)
+            m.box(key+"n", "number" if fmt_int else "flonum", [px, 565, 60, 22], pres=[L+455, yy, 60, 26],
+                  numinlets=1, numoutlets=2, outlettype=["",""], ignoreclick=1, parameter_enable=0, fontsize=14.0,
+                  **({} if fmt_int else {"numdecimalplaces": 2}))
+            m.com(key+"u", unit, [px+65, 565, 30, 20], pres=[L+520, yy+3, 40, 20], textcolor=GREY)
+            m.msg(key+"0", "0.5", [px, 420, 35, 22])
+            m.wire("lb",0,key+"0",0); m.wire(key+"0",0,key+"s",0)
+            m.wire(key+"s",0,key+"x",0); m.wire(out,0,key+"ps",0); m.wire(key+"ps",0,key+"n",0)
+            return out
+        ss_out = logslider("ss", "step size", "", 0.01, 1.0, "ss", 820, False)
+        ms_out = logslider("ms", "step every", "ms", 20, 2000, "ms", 1000, True)
+        m.com("paintc", "Both sliders are logarithmic: the same distance doubles the value anywhere along them. "
+              "The bars repaint at most 4 times a second; the decoder hears every step.",
+              [700, 600, 560, 40], pres=[L, Y["paint"], 560, 40], textcolor=GREY)
+        m.obj("pss", "prepend stepsize", [820, 600, 110, 22], 1, 1)
+        m.wire(ss_out,0,"pss",0); m.wire("pss",0,"walk",0)
+        m.obj("met", "metro 200", [700, 630, 80, 22], 2, 1)
+        m.obj("sg", f"s {NS}.glide", [1000, 630, 90, 22], 1, 0)
+        m.wire("go",0,"met",0); m.wire(ms_out,0,"met",1); m.wire(ms_out,0,"sg",0); m.wire("met",0,"walk",0)
 
     m.obj("rave", "nn~ sol_ordinario decode", [40, 700, 300, 22], 4, 1, varname="rave", pres=[L, Y["nn"], 560, 26], fontsize=14.0)
     for k in range(4): m.wire("smooth",k,"rave",k)
