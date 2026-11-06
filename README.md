@@ -48,7 +48,20 @@ Things to try:
 - Press **random** a few times on **VCTK** (speech) and **musicnet**
   (classical recordings).
 
-### 2. phone to rave
+### 2. random walk
+
+The same bars, moved by a random walk: every step, each dimension moves a
+random amount. Two "metaparameters" shape the walk (they are settings of the
+walk, not of the model):
+
+- **step size**: how far a typical step goes, in the same units as the bars.
+- **step every**: how often it steps, in milliseconds.
+
+Small steps taken often drift slowly through nearby sounds; big steps jump
+around. Drag a bar while it walks and the walk carries on from there. The bars
+repaint at most 4 times a second, while the decoder hears every step.
+
+### 3. phone to rave
 
 The phone's motion replaces the bars. Tilt forward and back, and side to side,
 for the first two dimensions; spin for the third; shake for the fourth.

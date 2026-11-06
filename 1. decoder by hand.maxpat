@@ -153,7 +153,7 @@
      "maxclass": "newobj",
      "patching_rect": [
       430,
-      100,
+      140,
       90,
       22
      ],
@@ -171,7 +171,7 @@
      "maxclass": "newobj",
      "patching_rect": [
       530,
-      100,
+      140,
       90,
       22
      ],
@@ -189,7 +189,7 @@
      "maxclass": "comment",
      "patching_rect": [
       250,
-      130,
+      170,
       380,
       20
      ],
@@ -211,7 +211,7 @@
      "maxclass": "comment",
      "patching_rect": [
       250,
-      150,
+      190,
       380,
       20
      ],
@@ -358,7 +358,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 500 nn~ sol_ordinario decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -413,7 +413,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 500 nn~ sol_ordinario_fast decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_ordinario_fast decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -468,7 +468,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 500 nn~ sol_full decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ sol_full decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -523,7 +523,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 500 nn~ isis decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ isis decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -578,7 +578,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 500 nn~ VCTK decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ VCTK decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -633,7 +633,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 500 nn~ nasa decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ nasa decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -688,7 +688,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 500 nn~ percussion decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ percussion decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -743,7 +743,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 500 nn~ musicnet decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ musicnet decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -798,7 +798,7 @@
           55,
           22
          ],
-         "text": "script delete rave, script newdefault rave 40 500 nn~ vintage decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
+         "text": "script delete rave, script newdefault rave 40 700 nn~ vintage decode, script connect smooth 0 rave 0, script connect smooth 1 rave 1, script connect smooth 2 rave 2, script connect smooth 3 rave 3, script connect smooth 4 rave 4, script connect smooth 5 rave 5, script connect smooth 6 rave 6, script connect smooth 7 rave 7, script connect smooth 8 rave 8, script connect smooth 9 rave 9, script connect smooth 10 rave 10, script connect smooth 11 rave 11, script connect smooth 12 rave 12, script connect smooth 13 rave 13, script connect smooth 14 rave 14, script connect smooth 15 rave 15, script connect rave 0 vol 0, script sendbox rave presentation 1, script sendbox rave presentation_rect 30 520 560 26",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -1364,11 +1364,131 @@
    },
    {
     "box": {
+     "id": "data",
+     "maxclass": "textbutton",
+     "patching_rect": [
+      800,
+      100,
+      150,
+      26
+     ],
+     "text": "training data \u2197",
+     "presentation": 1,
+     "presentation_rect": [
+      255,
+      112,
+      150,
+      26
+     ],
+     "numinlets": 1,
+     "numoutlets": 3,
+     "outlettype": [
+      "",
+      "",
+      ""
+     ],
+     "parameter_enable": 0
+    }
+   },
+   {
+    "box": {
+     "id": "td",
+     "maxclass": "newobj",
+     "patching_rect": [
+      800,
+      130,
+      30,
+      22
+     ],
+     "text": "t b",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "ru",
+     "maxclass": "newobj",
+     "patching_rect": [
+      860,
+      130,
+      80,
+      22
+     ],
+     "text": "r rave1.url",
+     "numinlets": 0,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "ureg",
+     "maxclass": "newobj",
+     "patching_rect": [
+      800,
+      160,
+      60,
+      22
+     ],
+     "text": "zl reg",
+     "numinlets": 2,
+     "numoutlets": 2,
+     "outlettype": [
+      "",
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "usel",
+     "maxclass": "newobj",
+     "patching_rect": [
+      800,
+      190,
+      50,
+      22
+     ],
+     "text": "sel -",
+     "numinlets": 2,
+     "numoutlets": 2,
+     "outlettype": [
+      "",
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "ulaunch",
+     "maxclass": "message",
+     "patching_rect": [
+      800,
+      220,
+      160,
+      22
+     ],
+     "text": "; max launchbrowser $1",
+     "numinlets": 2,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ]
+    }
+   },
+   {
+    "box": {
      "id": "bars_r",
      "maxclass": "newobj",
      "patching_rect": [
       30,
-      180,
+      250,
       90,
       22
      ],
@@ -1386,7 +1506,7 @@
      "maxclass": "multislider",
      "patching_rect": [
       30,
-      210,
+      280,
       560,
       200
      ],
@@ -1428,7 +1548,7 @@
      "maxclass": "comment",
      "patching_rect": [
       30,
-      415,
+      485,
       560,
       40
      ],
@@ -1456,7 +1576,7 @@
      "maxclass": "textbutton",
      "patching_rect": [
       600,
-      210,
+      280,
       70,
       24
      ],
@@ -1484,7 +1604,7 @@
      "maxclass": "textbutton",
      "patching_rect": [
       600,
-      240,
+      310,
       70,
       24
      ],
@@ -1512,7 +1632,7 @@
      "maxclass": "message",
      "patching_rect": [
       680,
-      210,
+      280,
       140,
       22
      ],
@@ -1530,7 +1650,7 @@
      "maxclass": "newobj",
      "patching_rect": [
       680,
-      240,
+      310,
       70,
       22
      ],
@@ -1856,7 +1976,7 @@
      "maxclass": "newobj",
      "patching_rect": [
       600,
-      270,
+      340,
       30,
       22
      ],
@@ -1874,7 +1994,7 @@
      "maxclass": "newobj",
      "patching_rect": [
       640,
-      270,
+      340,
       30,
       22
      ],
@@ -1892,7 +2012,7 @@
      "maxclass": "newobj",
      "patching_rect": [
       680,
-      300,
+      370,
       80,
       22
      ],
@@ -1911,7 +2031,7 @@
      "maxclass": "newobj",
      "patching_rect": [
       770,
-      270,
+      340,
       70,
       22
      ],
@@ -1925,152 +2045,11 @@
    },
    {
     "box": {
-     "id": "data",
-     "maxclass": "textbutton",
-     "patching_rect": [
-      800,
-      100,
-      150,
-      26
-     ],
-     "text": "training data \u2197",
-     "presentation": 1,
-     "presentation_rect": [
-      255,
-      112,
-      150,
-      26
-     ],
-     "numinlets": 1,
-     "numoutlets": 3,
-     "outlettype": [
-      "",
-      "",
-      ""
-     ],
-     "parameter_enable": 0
-    }
-   },
-   {
-    "box": {
-     "id": "td",
-     "maxclass": "newobj",
-     "patching_rect": [
-      800,
-      130,
-      30,
-      22
-     ],
-     "text": "t b",
-     "numinlets": 1,
-     "numoutlets": 1,
-     "outlettype": [
-      ""
-     ]
-    }
-   },
-   {
-    "box": {
-     "id": "ru",
-     "maxclass": "newobj",
-     "patching_rect": [
-      860,
-      130,
-      80,
-      22
-     ],
-     "text": "r rave1.url",
-     "numinlets": 0,
-     "numoutlets": 1,
-     "outlettype": [
-      ""
-     ]
-    }
-   },
-   {
-    "box": {
-     "id": "ureg",
-     "maxclass": "newobj",
-     "patching_rect": [
-      800,
-      160,
-      60,
-      22
-     ],
-     "text": "zl reg",
-     "numinlets": 2,
-     "numoutlets": 2,
-     "outlettype": [
-      "",
-      ""
-     ]
-    }
-   },
-   {
-    "box": {
-     "id": "usel",
-     "maxclass": "newobj",
-     "patching_rect": [
-      800,
-      190,
-      50,
-      22
-     ],
-     "text": "sel -",
-     "numinlets": 2,
-     "numoutlets": 2,
-     "outlettype": [
-      "",
-      ""
-     ]
-    }
-   },
-   {
-    "box": {
-     "id": "ulaunch",
-     "maxclass": "message",
-     "patching_rect": [
-      800,
-      220,
-      160,
-      22
-     ],
-     "text": "; max launchbrowser $1",
-     "numinlets": 2,
-     "numoutlets": 1,
-     "outlettype": [
-      ""
-     ]
-    }
-   },
-   {
-    "box": {
-     "id": "datac",
-     "maxclass": "comment",
-     "patching_rect": [
-      800,
-      250,
-      300,
-      34
-     ],
-     "text": "opens the dataset page; percussion and vintage were never published",
-     "numinlets": 1,
-     "numoutlets": 0,
-     "textcolor": [
-      0.45,
-      0.45,
-      0.45,
-      1.0
-     ]
-    }
-   },
-   {
-    "box": {
      "id": "smooth",
      "maxclass": "newobj",
      "patching_rect": [
       30,
-      460,
+      640,
       560,
       22
      ],
@@ -2110,7 +2089,7 @@
        140,
        140,
        1020,
-       260
+       300
       ],
       "gridsize": [
        15.0,
@@ -2170,15 +2149,33 @@
        },
        {
         "box": {
-         "id": "m0",
-         "maxclass": "message",
+         "id": "rg",
+         "maxclass": "newobj",
          "patching_rect": [
           20,
           100,
-          45,
+          90,
           22
          ],
-         "text": "$1 30",
+         "text": "r rave1.glide",
+         "numinlets": 0,
+         "numoutlets": 1,
+         "outlettype": [
+          ""
+         ]
+        }
+       },
+       {
+        "box": {
+         "id": "m0",
+         "maxclass": "newobj",
+         "patching_rect": [
+          20,
+          140,
+          55,
+          22
+         ],
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2192,7 +2189,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           20,
-          135,
+          175,
           45,
           22
          ],
@@ -2211,7 +2208,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           20,
-          175,
+          215,
           30,
           22
          ],
@@ -2222,14 +2219,14 @@
        {
         "box": {
          "id": "m1",
-         "maxclass": "message",
+         "maxclass": "newobj",
          "patching_rect": [
           80,
-          100,
-          45,
+          140,
+          55,
           22
          ],
-         "text": "$1 30",
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2243,7 +2240,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           80,
-          135,
+          175,
           45,
           22
          ],
@@ -2262,7 +2259,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           80,
-          175,
+          215,
           30,
           22
          ],
@@ -2273,14 +2270,14 @@
        {
         "box": {
          "id": "m2",
-         "maxclass": "message",
+         "maxclass": "newobj",
          "patching_rect": [
           140,
-          100,
-          45,
+          140,
+          55,
           22
          ],
-         "text": "$1 30",
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2294,7 +2291,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           140,
-          135,
+          175,
           45,
           22
          ],
@@ -2313,7 +2310,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           140,
-          175,
+          215,
           30,
           22
          ],
@@ -2324,14 +2321,14 @@
        {
         "box": {
          "id": "m3",
-         "maxclass": "message",
+         "maxclass": "newobj",
          "patching_rect": [
           200,
-          100,
-          45,
+          140,
+          55,
           22
          ],
-         "text": "$1 30",
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2345,7 +2342,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           200,
-          135,
+          175,
           45,
           22
          ],
@@ -2364,7 +2361,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           200,
-          175,
+          215,
           30,
           22
          ],
@@ -2375,14 +2372,14 @@
        {
         "box": {
          "id": "m4",
-         "maxclass": "message",
+         "maxclass": "newobj",
          "patching_rect": [
           260,
-          100,
-          45,
+          140,
+          55,
           22
          ],
-         "text": "$1 30",
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2396,7 +2393,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           260,
-          135,
+          175,
           45,
           22
          ],
@@ -2415,7 +2412,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           260,
-          175,
+          215,
           30,
           22
          ],
@@ -2426,14 +2423,14 @@
        {
         "box": {
          "id": "m5",
-         "maxclass": "message",
+         "maxclass": "newobj",
          "patching_rect": [
           320,
-          100,
-          45,
+          140,
+          55,
           22
          ],
-         "text": "$1 30",
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2447,7 +2444,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           320,
-          135,
+          175,
           45,
           22
          ],
@@ -2466,7 +2463,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           320,
-          175,
+          215,
           30,
           22
          ],
@@ -2477,14 +2474,14 @@
        {
         "box": {
          "id": "m6",
-         "maxclass": "message",
+         "maxclass": "newobj",
          "patching_rect": [
           380,
-          100,
-          45,
+          140,
+          55,
           22
          ],
-         "text": "$1 30",
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2498,7 +2495,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           380,
-          135,
+          175,
           45,
           22
          ],
@@ -2517,7 +2514,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           380,
-          175,
+          215,
           30,
           22
          ],
@@ -2528,14 +2525,14 @@
        {
         "box": {
          "id": "m7",
-         "maxclass": "message",
+         "maxclass": "newobj",
          "patching_rect": [
           440,
-          100,
-          45,
+          140,
+          55,
           22
          ],
-         "text": "$1 30",
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2549,7 +2546,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           440,
-          135,
+          175,
           45,
           22
          ],
@@ -2568,7 +2565,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           440,
-          175,
+          215,
           30,
           22
          ],
@@ -2579,14 +2576,14 @@
        {
         "box": {
          "id": "m8",
-         "maxclass": "message",
+         "maxclass": "newobj",
          "patching_rect": [
           500,
-          100,
-          45,
+          140,
+          55,
           22
          ],
-         "text": "$1 30",
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2600,7 +2597,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           500,
-          135,
+          175,
           45,
           22
          ],
@@ -2619,7 +2616,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           500,
-          175,
+          215,
           30,
           22
          ],
@@ -2630,14 +2627,14 @@
        {
         "box": {
          "id": "m9",
-         "maxclass": "message",
+         "maxclass": "newobj",
          "patching_rect": [
           560,
-          100,
-          45,
+          140,
+          55,
           22
          ],
-         "text": "$1 30",
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2651,7 +2648,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           560,
-          135,
+          175,
           45,
           22
          ],
@@ -2670,7 +2667,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           560,
-          175,
+          215,
           30,
           22
          ],
@@ -2681,14 +2678,14 @@
        {
         "box": {
          "id": "m10",
-         "maxclass": "message",
+         "maxclass": "newobj",
          "patching_rect": [
           620,
-          100,
-          45,
+          140,
+          55,
           22
          ],
-         "text": "$1 30",
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2702,7 +2699,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           620,
-          135,
+          175,
           45,
           22
          ],
@@ -2721,7 +2718,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           620,
-          175,
+          215,
           30,
           22
          ],
@@ -2732,14 +2729,14 @@
        {
         "box": {
          "id": "m11",
-         "maxclass": "message",
+         "maxclass": "newobj",
          "patching_rect": [
           680,
-          100,
-          45,
+          140,
+          55,
           22
          ],
-         "text": "$1 30",
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2753,7 +2750,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           680,
-          135,
+          175,
           45,
           22
          ],
@@ -2772,7 +2769,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           680,
-          175,
+          215,
           30,
           22
          ],
@@ -2783,14 +2780,14 @@
        {
         "box": {
          "id": "m12",
-         "maxclass": "message",
+         "maxclass": "newobj",
          "patching_rect": [
           740,
-          100,
-          45,
+          140,
+          55,
           22
          ],
-         "text": "$1 30",
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2804,7 +2801,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           740,
-          135,
+          175,
           45,
           22
          ],
@@ -2823,7 +2820,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           740,
-          175,
+          215,
           30,
           22
          ],
@@ -2834,14 +2831,14 @@
        {
         "box": {
          "id": "m13",
-         "maxclass": "message",
+         "maxclass": "newobj",
          "patching_rect": [
           800,
-          100,
-          45,
+          140,
+          55,
           22
          ],
-         "text": "$1 30",
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2855,7 +2852,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           800,
-          135,
+          175,
           45,
           22
          ],
@@ -2874,7 +2871,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           800,
-          175,
+          215,
           30,
           22
          ],
@@ -2885,14 +2882,14 @@
        {
         "box": {
          "id": "m14",
-         "maxclass": "message",
+         "maxclass": "newobj",
          "patching_rect": [
           860,
-          100,
-          45,
+          140,
+          55,
           22
          ],
-         "text": "$1 30",
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2906,7 +2903,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           860,
-          135,
+          175,
           45,
           22
          ],
@@ -2925,7 +2922,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           860,
-          175,
+          215,
           30,
           22
          ],
@@ -2936,14 +2933,14 @@
        {
         "box": {
          "id": "m15",
-         "maxclass": "message",
+         "maxclass": "newobj",
          "patching_rect": [
           920,
-          100,
-          45,
+          140,
+          55,
           22
          ],
-         "text": "$1 30",
+         "text": "pack f 30",
          "numinlets": 2,
          "numoutlets": 1,
          "outlettype": [
@@ -2957,7 +2954,7 @@
          "maxclass": "newobj",
          "patching_rect": [
           920,
-          135,
+          175,
           45,
           22
          ],
@@ -2976,7 +2973,7 @@
          "maxclass": "outlet",
          "patching_rect": [
           920,
-          175,
+          215,
           30,
           22
          ],
@@ -2990,11 +2987,11 @@
          "maxclass": "comment",
          "patching_rect": [
           20,
-          215,
-          500,
+          255,
+          700,
           20
          ],
-         "text": "Glides 30 ms between values, so the decoder never hears a jump.",
+         "text": "Glides between values so the decoder never hears a jump. The glide time follows the walk's step interval.",
          "numinlets": 1,
          "numoutlets": 0
         }
@@ -3022,6 +3019,18 @@
          "destination": [
           "m0",
           0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m0",
+          1
          ]
         }
        },
@@ -3064,6 +3073,18 @@
        {
         "patchline": {
          "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m1",
+          1
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
           "m1",
           0
          ],
@@ -3094,6 +3115,18 @@
          "destination": [
           "m2",
           0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m2",
+          1
          ]
         }
        },
@@ -3136,6 +3169,18 @@
        {
         "patchline": {
          "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m3",
+          1
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
           "m3",
           0
          ],
@@ -3166,6 +3211,18 @@
          "destination": [
           "m4",
           0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m4",
+          1
          ]
         }
        },
@@ -3208,6 +3265,18 @@
        {
         "patchline": {
          "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m5",
+          1
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
           "m5",
           0
          ],
@@ -3238,6 +3307,18 @@
          "destination": [
           "m6",
           0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m6",
+          1
          ]
         }
        },
@@ -3280,6 +3361,18 @@
        {
         "patchline": {
          "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m7",
+          1
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
           "m7",
           0
          ],
@@ -3310,6 +3403,18 @@
          "destination": [
           "m8",
           0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m8",
+          1
          ]
         }
        },
@@ -3352,6 +3457,18 @@
        {
         "patchline": {
          "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m9",
+          1
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
           "m9",
           0
          ],
@@ -3382,6 +3499,18 @@
          "destination": [
           "m10",
           0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m10",
+          1
          ]
         }
        },
@@ -3424,6 +3553,18 @@
        {
         "patchline": {
          "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m11",
+          1
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
           "m11",
           0
          ],
@@ -3454,6 +3595,18 @@
          "destination": [
           "m12",
           0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m12",
+          1
          ]
         }
        },
@@ -3496,6 +3649,18 @@
        {
         "patchline": {
          "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m13",
+          1
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
           "m13",
           0
          ],
@@ -3526,6 +3691,18 @@
          "destination": [
           "m14",
           0
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m14",
+          1
          ]
         }
        },
@@ -3568,6 +3745,18 @@
        {
         "patchline": {
          "source": [
+          "rg",
+          0
+         ],
+         "destination": [
+          "m15",
+          1
+         ]
+        }
+       },
+       {
+        "patchline": {
+         "source": [
           "m15",
           0
          ],
@@ -3599,7 +3788,7 @@
      "maxclass": "newobj",
      "patching_rect": [
       40,
-      500,
+      700,
       300,
       22
      ],
@@ -3626,7 +3815,7 @@
      "maxclass": "comment",
      "patching_rect": [
       350,
-      500,
+      700,
       300,
       20
      ],
@@ -3654,7 +3843,7 @@
      "maxclass": "gain~",
      "patching_rect": [
       40,
-      540,
+      740,
       200,
       26
      ],
@@ -3681,7 +3870,7 @@
      "maxclass": "comment",
      "patching_rect": [
       250,
-      545,
+      745,
       80,
       20
      ],
@@ -3709,7 +3898,7 @@
      "maxclass": "ezdac~",
      "patching_rect": [
       40,
-      585,
+      785,
       45,
       45
      ],
@@ -3730,7 +3919,7 @@
      "maxclass": "comment",
      "patching_rect": [
       95,
-      600,
+      800,
       60,
       20
      ],
@@ -3841,6 +4030,66 @@
    {
     "patchline": {
      "source": [
+      "data",
+      0
+     ],
+     "destination": [
+      "td",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "td",
+      0
+     ],
+     "destination": [
+      "ureg",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "ru",
+      0
+     ],
+     "destination": [
+      "ureg",
+      1
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "ureg",
+      0
+     ],
+     "destination": [
+      "usel",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "usel",
+      1
+     ],
+     "destination": [
+      "ulaunch",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
       "bars_r",
       0
      ],
@@ -3942,66 +4191,6 @@
      ],
      "destination": [
       "bars",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "data",
-      0
-     ],
-     "destination": [
-      "td",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "td",
-      0
-     ],
-     "destination": [
-      "ureg",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "ru",
-      0
-     ],
-     "destination": [
-      "ureg",
-      1
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "ureg",
-      0
-     ],
-     "destination": [
-      "usel",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "usel",
-      1
-     ],
-     "destination": [
-      "ulaunch",
       0
      ]
     }
