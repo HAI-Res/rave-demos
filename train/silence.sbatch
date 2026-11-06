@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=rave-birds-silence
-#SBATCH --account=csail --qos=tig-main --partition=tig-cpu
-#SBATCH --cpus-per-task=48 --mem=48G --time=02:00:00
+#SBATCH --account=hai-res --qos=hai-res-main --partition=hai-res-l40s
+#SBATCH --cpus-per-task=32 --mem=48G --time=02:00:00
 #SBATCH --output=/data/hai-res/shared/jonmyers/rave-birds/logs/silence_%j.out
 #SBATCH --error=/data/hai-res/shared/jonmyers/rave-birds/logs/silence_%j.out
 # Per-file level stats over the 940-file Macaulay corpus, plus a gated copy in data/gated/.

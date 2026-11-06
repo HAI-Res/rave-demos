@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=rave-birds-preprocess
-#SBATCH --account=csail --qos=tig-main --partition=tig-cpu
+#SBATCH --account=hai-res --qos=hai-res-main --partition=hai-res-l40s
 #SBATCH --cpus-per-task=16 --mem=32G --time=06:00:00
 #SBATCH --output=/data/hai-res/shared/jonmyers/rave-birds/logs/preprocess_%j.out
 #SBATCH --error=/data/hai-res/shared/jonmyers/rave-birds/logs/preprocess_%j.out

@@ -32,6 +32,9 @@ TOTAL = int(flag("max_steps", 6000000))
 STEP_FILE = os.path.join(OUT, f"{NAME}.step")
 # Phase-1 length can be changed while training runs: write a step count to runs/<name>.phase1.
 # WarmupCallback compares its step counter with pl_module.warmup on every batch.
+# Under DDP every rank reads the file on its own, up to 60 s apart, and ranks that disagree
+# about the phase run different graphs and hang. So only ever write a value at least a few
+# thousand steps AHEAD of the current step: all ranks see it before any of them reaches it.
 PHASE1_FILE = os.path.join(OUT, f"{NAME}.phase1")
 NGPU = int(os.environ.get("RAVE_DDP_GPUS", "1"))
 
