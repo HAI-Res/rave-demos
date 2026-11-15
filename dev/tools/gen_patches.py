@@ -20,6 +20,11 @@ models = [("sol_ordinario",4,2048,"orchestral instruments, ordinary playing (IRC
           ("vintage",16,2048,"80 hours of vintage music (never published)", None),
           ("birds_z16",16,2048,"35 hours of birdsong from the Macaulay Library at Cornell (RAVE v2 trained here)", MACAULAY),
           ("birds_z4",4,2048,"the same bird model, cut to its 4 strongest dimensions", MACAULAY)]
+# RAVE_EARLY=1: also list the bird models from early in training (rave/birds_*_early.ts, local only),
+# to compare by ear. Never commit patches generated this way.
+if os.environ.get("RAVE_EARLY"):
+    models += [("birds_z16_early",16,2048,"the bird model early in training (the class version)", MACAULAY),
+               ("birds_z4_early",4,2048,"the same, cut to 4 dimensions", MACAULAY)]
 
 def patcher(boxes, lines, rect, **kw):
     p = {"fileversion": 1, "appversion": {"major": 8, "minor": 6, "revision": 0, "architecture": "x64", "modernui": 1},
